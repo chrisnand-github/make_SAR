@@ -3680,7 +3680,7 @@ if st.button("Generate"):
         st.error("All text fields must be filled!")
     else:
         result = make_route_base(data)
-        filename = data["hostname"]+"cfg"
+        filename = data["hostname"]+".cfg"
         with open(filename, "w") as file:
             file.write(result)
 
