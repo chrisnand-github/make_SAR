@@ -8,7 +8,7 @@ import glob
 
 def main():
     # Title of the app
-    st.title("MAKE SAR CONFIG")
+    st.title("MAKE SAR CONFIG_INI")
 
     # Create a textbox for input text
     st.write("PUT IP SYTEM")
