@@ -12,7 +12,7 @@ def main():
 
     # Create a textbox for input text
     st.write("PUT IP SYTEM")
-    input_text = st.text_area("Input Text", height=200)
+    input_text = st.text_area("Input Text")
 
     # Create a button to trigger the conversion
     if st.button("MAKE SERVICE"):
