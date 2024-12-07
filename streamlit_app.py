@@ -2837,56 +2837,6 @@ echo "Card Configuration"
 #--------------------------------------------------
 echo "Port Configuration"
 #--------------------------------------------------
-    port 1/1/1
-        shutdown
-        tdm
-        exit
-    exit
-    port 1/1/2
-        shutdown
-        tdm
-        exit
-    exit
-    port 1/1/3
-        shutdown
-        tdm
-        exit
-    exit
-    port 1/1/4
-        shutdown
-        tdm
-        exit
-    exit
-    port 1/1/5
-        shutdown
-        tdm
-        exit
-    exit
-    port 1/1/6
-        shutdown
-        tdm
-        exit
-    exit
-    port 1/1/7
-        shutdown
-        tdm
-        exit
-    exit
-    port 1/1/8
-        shutdown
-        tdm
-        exit
-    exit
-    port 1/2/1
-        shutdown
-        ethernet
-        exit
-    exit
-    port 1/2/2
-        shutdown
-        ethernet
-        exit
-    exit
     port 1/2/3
         description "Site_{data["Site"]}_Huawei_SRAN"
         ethernet
@@ -2898,23 +2848,8 @@ echo "Port Configuration"
         exit
         no shutdown
     exit
-    port 1/2/4
-        shutdown
-        ethernet
-        exit
-    exit
-    port 1/2/5
-        shutdown
-        ethernet
-        exit
-    exit
-    port 1/2/6
-        shutdown
-        ethernet
-        exit
-    exit
-    port 1/2/7
-        description "NET_{data["hostname"]}:1/2/7:NET_{data["far-end-a"]}:{data["port-a1"]}:LR:10GE"
+    port {data["port-a1"]}
+        description "NET_{data["hostname"]}:{data["port-a1"]}:NET_{data["far-end-a"]}:{data["port-a2"]}:{data["port-a-type"]}:10GE"
         ethernet
             mode network
             mtu 2102
@@ -2927,40 +2862,19 @@ echo "Port Configuration"
         exit
         no shutdown
     exit
-    port 1/3/1
-        shutdown
+    port {data["port-b1"]}
+        description "NET_{data["hostname"]}:{data["port-b1"]}:NET_{data["far-end-b"]}:{data["port-b2"]}:{data["port-b-type"]}:10GE"
         ethernet
+            mode network
+            mtu 2102
+            network
+                queue-policy "NQ_VFQ_SAR"
+            exit
+            ssm
+                no shutdown
+            exit
         exit
-    exit
-    port 1/3/2
-        shutdown
-        ethernet
-        exit
-    exit
-    port 1/3/3
-        shutdown
-        ethernet
-        exit
-    exit
-    port 1/3/4
-        shutdown
-        ethernet
-        exit
-    exit
-    port 1/3/5
-        shutdown
-        ethernet
-        exit
-    exit
-    port 1/3/6
-        shutdown
-        ethernet
-        exit
-    exit
-    port 1/3/7
-        shutdown
-        ethernet
-        exit
+        no shutdown
     exit
 #--------------------------------------------------
 echo "External Alarm Configuration"
@@ -3601,7 +3515,7 @@ example=["","MBHQAMUN1170",
         "172.16.18.202",
         "1/2/7",
         "1/4/1",
-        "MBHQAWAB0011",
+        "MBHQAWAB1171",
         "172.16.18.202",
         "1/2/7",
         "1/4/1",
@@ -3621,7 +3535,7 @@ default_inputs = ["","MBHQAMUN1170",
         "172.16.18.202",
         "1/2/7",
         "1/4/1",
-        "MBHQAWAB0011",
+        "MBHQAWAB1171",
         "172.16.18.202",
         "1/2/7",
         "1/4/1",
