@@ -17,7 +17,6 @@ def increment_last_octet(ip_address):
     return (txt)
 
 
-
 def make_route_base (data):
     txt=f"""
 exit all
@@ -3471,3 +3470,63 @@ configure
             exit
         exit
 """
+    return(txt)
+
+def make_poc2(data):
+    txt=f"""
+ssh chrisnanda.ent@{data["POC2-1"]}
+configure 
+    router 
+        bgp
+            group "CSR-POC3-lbgp-ipv4"
+                neighbor {data["system"]}
+                    family label-ipv4
+                    authentication-key VFQatar
+                exit
+exit all
+ssh chrisnanda.ent@{data["POC2-2"]}
+configure 
+    router 
+        bgp
+            group "CSR-POC3-lbgp-ipv4"
+                neighbor {data["system"]}
+                    family label-ipv4
+                    authentication-key VFQatar
+                exit
+exit all
+"""
+    return (txt)
+def make_poc1(data):
+    if data["POC3-1"] == "192.168.64.1":
+        ssh = "172.16.240.7"
+    elif data["POC3-1"] == "192.168.64.2":
+        ssh = "172.16.240.8"
+    elif data["POC3-1"] == "192.168.64.3":
+        ssh = "172.16.240.41"
+    elif data["POC3-1"] == "192.168.64.4":
+        ssh = "172.16.240.42"
+    txt=f"""
+ssh chrisnanda.ent@{ssh}
+configure 
+    router 
+        bgp
+            group "Seamless_l3vpns_mp_ibgp"
+                neighbor {data["loopback"]}
+                    vpn-apply-import
+                    import "l3vpn_MBH_Import_IXR_ISIS{data["isis-a-area"]})"
+                    export "l3vpn_MBH_Export_IXR_ISIS{data["isis-a-area"]})"
+                exit
+exit all
+ssh chrisnanda.ent@{ssh}
+configure 
+    router 
+        bgp
+            group "Seamless_l3vpns_mp_ibgp"
+                neighbor {data["loopback"]}
+                    vpn-apply-import
+                    import "l3vpn_MBH_Import_IXR_ISIS{data["isis-a-area"]})"
+                    export "l3vpn_MBH_Export_IXR_ISIS{data["isis-a-area"]})"
+                exit
+exit all
+"""
+    return (txt)
