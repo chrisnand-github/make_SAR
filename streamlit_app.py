@@ -1,8 +1,8 @@
 import streamlit as st
 import re
 from steamlit_SAR_template import make_route_base, increment_last_octet
-USERNAME = "admin"
-PASSWORD = "password123"
+USERNAME = "chris"
+PASSWORD = "chris123"
 
 if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
