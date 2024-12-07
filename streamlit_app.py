@@ -3034,7 +3034,7 @@ echo "Service Configuration"
         vprn 17804 customer 1 create
             description "eNB IPsec Public eUTRAN VPRN"
             autonomous-system 48728
-            route-distinguisher 48728:178041179
+            route-distinguisher 48728:17804{data["Site"]}
             auto-bind-tunnel
                 resolution-filter
                     ldp
@@ -3048,7 +3048,7 @@ echo "Service Configuration"
         vprn 17812 customer 1 create
             description "BTS_BSC_Abis_VPRN"
             autonomous-system 48728
-            route-distinguisher 48728:178121179
+            route-distinguisher 48728:17812{data["Site"]}
             auto-bind-tunnel
                 resolution-filter
                     ldp
@@ -3062,7 +3062,7 @@ echo "Service Configuration"
         vprn 17813 customer 1 create
             description "eNB_RNC_IuB_VPRN"
             autonomous-system 48728
-            route-distinguisher 48728:178131179
+            route-distinguisher 48728:17813{data["Site"]}
             auto-bind-tunnel
                 resolution-filter
                     ldp
@@ -3076,7 +3076,7 @@ echo "Service Configuration"
         vprn 17815 customer 1 create
             description "Huawei OAM VPRN"
             autonomous-system 48728
-            route-distinguisher 48728:178151179
+            route-distinguisher 48728:17815{data["Site"]}
             auto-bind-tunnel
                 resolution-filter
                     ldp
@@ -3090,7 +3090,7 @@ echo "Service Configuration"
         vprn 55000 customer 1 create
             description "ENT 4G-5G Public Service"
             autonomous-system 48728
-            route-distinguisher 48728:550001179
+            route-distinguisher 48728:55000{data["Site"]}
             auto-bind-tunnel
                 resolution-filter
                     rsvp
