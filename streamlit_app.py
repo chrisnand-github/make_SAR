@@ -1,8 +1,8 @@
 import streamlit as st
 import re
-from steamlit_SAR_template import make_route_base, increment_last_octet
-USERNAME = "chris"
-PASSWORD = "chris123"
+from steamlit_SAR_template import *
+USERNAME = "admin"
+PASSWORD = "admin"
 
 if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
@@ -35,6 +35,8 @@ def login():
             st.error("Invalid username or password. Please try again.")
 
 # Streamlit App
+
+
 def main_app():
     st.title("Config Generator")
 
@@ -115,32 +117,34 @@ def main_app():
 
     # Ensure all fields are filled and validate IP inputs
     button_cols = st.columns([1, 0.1, 1])  # Adjust column width for spacing
+    ip_fields = [inputs[2], inputs[3], inputs[5], inputs[9], inputs[16], inputs[17], inputs[18],
+                 inputs[19]]  # IP fields
+    non_ip_fields = inputs[0], inputs[1], inputs[4], inputs[6], inputs[7], inputs[8], inputs[10], inputs[11], inputs[
+        12], inputs[13], inputs[14], inputs[15]  # Other fields
+    data = {
+        "hostname": inputs[0],
+        "Site": inputs[1],
+        "system": inputs[2],
+        "loopback": inputs[3],
+        "far-end-a": inputs[4],
+        "network-a": inputs[5],
+        "port-a1": inputs[6],
+        "port-a2": inputs[7],
+        "far-end-b": inputs[8],
+        "network-b": inputs[9],
+        "port-b1": inputs[10],
+        "port-b2": inputs[11],
+        "port-a-type": inputs[12],
+        "port-b-type": inputs[13],
+        "isis-a-area": inputs[14],
+        "isis-b-area": inputs[15],
+        "POC2-1": inputs[16],
+        "POC2-2": inputs[17],
+        "POC3-1": inputs[18],
+        "POC3-2": inputs[19]
+    }
     with button_cols[0]:
         if st.button("Generate SAR Config"):
-            ip_fields = [inputs[2], inputs[3], inputs[5], inputs[9], inputs[16], inputs[17], inputs[18], inputs[19]]  # IP fields
-            non_ip_fields = inputs[0],inputs[1], inputs[4],inputs[6],inputs[7],inputs[8],inputs[10],inputs[11],inputs[12],inputs[13],inputs[14],inputs[15]  # Other fields
-            data = {
-                "hostname":inputs[0],
-                "Site":inputs[1],
-                "system":inputs[2],
-                "loopback":inputs[3],
-                "far-end-a":inputs[4],
-                "network-a":inputs[5],
-                "port-a1":inputs[6],
-                "port-a2":inputs[7],
-                "far-end-b":inputs[8],
-                "network-b":inputs[9],
-                "port-b1":inputs[10],
-                "port-b2":inputs[11],
-                "port-a-type":inputs[12],
-                "port-b-type":inputs[13],
-                "isis-a-area":inputs[14],
-                "isis-b-area":inputs[15],
-                "POC2-1":inputs[16],
-                "POC2-2":inputs[17],
-                "POC3-1":inputs[18],
-                "POC3-2":inputs[19]
-                }
             if not all(ip.strip() for ip in ip_fields):
                 st.error("All IP fields must be filled!")
             elif not all(is_valid_ip(ip) for ip in ip_fields):
@@ -159,30 +163,84 @@ def main_app():
                     file_name=filename,
                     mime="text/plain"
                 )
-        if st.button("Generate Far-end Config"):
-            result3="abc"
-            with open("test", "w") as file:
-                file.write(result3)
-
-            st.success(f"Text successfully saved to `test`!")
+        if st.button("Generate Far-end 1 Config"):
+            if not all(ip.strip() for ip in ip_fields):
+                st.error("All IP fields must be filled!")
+            elif not all(is_valid_ip(ip) for ip in ip_fields):
+                st.error("All IP fields must contain valid IPv4 addresses!")
+            elif not all(field.strip() for field in non_ip_fields):
+                st.error("All text fields must be filled!")
+            else:
+                result = make_farend1(data)
+                filename = data["far-end-a"]+".cfg"
+                with open(filename, "w") as file:
+                    file.write(result)
+                st.success(f"Text successfully saved to `{filename}`!")
+                st.download_button(
+                    label="Download Text File",
+                    data=result,
+                    file_name=filename,
+                    mime="text/plain"
+                )
         if st.button("Generate Far-end 2 Config"):
-            result4="abc"
-            with open("test", "w") as file:
-                file.write(result4)
-
-            st.success(f"Text successfully saved to `test`!")
+            if not all(ip.strip() for ip in ip_fields):
+                st.error("All IP fields must be filled!")
+            elif not all(is_valid_ip(ip) for ip in ip_fields):
+                st.error("All IP fields must contain valid IPv4 addresses!")
+            elif not all(field.strip() for field in non_ip_fields):
+                st.error("All text fields must be filled!")
+            else:
+                result = make_farend2(data)
+                filename = data["far-end-b"]+".cfg"
+                with open(filename, "w") as file:
+                    file.write(result)
+                st.success(f"Text successfully saved to `{filename}`!")
+                st.download_button(
+                    label="Download Text File",
+                    data=result,
+                    file_name=filename,
+                    mime="text/plain"
+                )
         if st.button("Generate POC2 config"):
-            result4="abc"
-            with open("test", "w") as file:
-                file.write(result4)
+            if not all(ip.strip() for ip in ip_fields):
+                st.error("All IP fields must be filled!")
+            elif not all(is_valid_ip(ip) for ip in ip_fields):
+                st.error("All IP fields must contain valid IPv4 addresses!")
+            elif not all(field.strip() for field in non_ip_fields):
+                st.error("All text fields must be filled!")
+            else:
+                result = make_poc2(data)
+                filename = "POC2.txt"
+                with open(filename, "w") as file:
+                    file.write(result)
+                st.success(f"Text successfully saved to `{filename}`!")
+                st.download_button(
+                    label="Download Text File",
+                    data=result,
+                    file_name=filename,
+                    mime="text/plain"
+                )
 
-            st.success(f"Text successfully saved to `test`!")
-        if st.button("Generate POC3 config"):
-            result4="abc"
-            with open("test", "w") as file:
-                file.write(result4)
+        if st.button("Generate POC1 config"):
+            if not all(ip.strip() for ip in ip_fields):
+                st.error("All IP fields must be filled!")
+            elif not all(is_valid_ip(ip) for ip in ip_fields):
+                st.error("All IP fields must contain valid IPv4 addresses!")
+            elif not all(field.strip() for field in non_ip_fields):
+                st.error("All text fields must be filled!")
+            else:
+                result = make_poc1(data)
+                filename = "POC1.txt"
+                with open(filename, "w") as file:
+                    file.write(result)
+                st.success(f"Text successfully saved to `{filename}`!")
+                st.download_button(
+                    label="Download Text File",
+                    data=result,
+                    file_name=filename,
+                    mime="text/plain"
+                )
 
-            st.success(f"Text successfully saved to `test`!")
     with button_cols[2]:
         if st.button("Generate IXR-e small Config"):
             result2="abc"
