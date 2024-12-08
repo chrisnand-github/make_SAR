@@ -3513,8 +3513,8 @@ configure
             group "Seamless_l3vpns_mp_ibgp"
                 neighbor {data["loopback"]}
                     vpn-apply-import
-                    import "l3vpn_MBH_Import_IXR_ISIS{data["isis-a-area"]})"
-                    export "l3vpn_MBH_Export_IXR_ISIS{data["isis-a-area"]})"
+                    import "l3vpn_MBH_Import_IXR_ISIS{data["isis-a-area"]}"
+                    export "l3vpn_MBH_Export_IXR_ISIS{data["isis-a-area"]}"
                 exit
 exit all
 ssh chrisnanda.ent@{ssh}
@@ -3524,8 +3524,8 @@ configure
             group "Seamless_l3vpns_mp_ibgp"
                 neighbor {data["loopback"]}
                     vpn-apply-import
-                    import "l3vpn_MBH_Import_IXR_ISIS{data["isis-a-area"]})"
-                    export "l3vpn_MBH_Export_IXR_ISIS{data["isis-a-area"]})"
+                    import "l3vpn_MBH_Import_IXR_ISIS{data["isis-a-area"]}"
+                    export "l3vpn_MBH_Export_IXR_ISIS{data["isis-a-area"]}"
                 exit
 exit all
 """
