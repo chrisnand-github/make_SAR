@@ -144,7 +144,7 @@ def main_app():
         "POC3-2": inputs[19]
     }
     with button_cols[0]:
-        if st.button("Generate SAR Config"):
+        if st.button("Generate SAR-X Config"):
             if not all(ip.strip() for ip in ip_fields):
                 st.error("All IP fields must be filled!")
             elif not all(is_valid_ip(ip) for ip in ip_fields):
