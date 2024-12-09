@@ -243,17 +243,43 @@ def main_app():
 
     with button_cols[2]:
         if st.button("Generate IXR-e small Config"):
-            result2="abc"
-            with open("test", "w") as file:
-                file.write(result2)
-
-            st.success(f"Text successfully saved to `test`!")
+            if not all(ip.strip() for ip in ip_fields):
+                st.error("All IP fields must be filled!")
+            elif not all(is_valid_ip(ip) for ip in ip_fields):
+                st.error("All IP fields must contain valid IPv4 addresses!")
+            elif not all(field.strip() for field in non_ip_fields):
+                st.error("All text fields must be filled!")
+            else:
+                result = make_route_base_IXR_small(data)
+                filename = data["hostname"]+".cfg"
+                with open(filename, "w") as file:
+                    file.write(result)
+                st.success(f"Text successfully saved to `{filename}`!")
+                st.download_button(
+                    label="Download Text File",
+                    data=result,
+                    file_name=filename,
+                    mime="text/plain"
+                )
         if st.button("Generate IXR-e big Config"):
-            result2="abc"
-            with open("test", "w") as file:
-                file.write(result2)
-
-            st.success(f"Text successfully saved to `test`!")
+            if not all(ip.strip() for ip in ip_fields):
+                st.error("All IP fields must be filled!")
+            elif not all(is_valid_ip(ip) for ip in ip_fields):
+                st.error("All IP fields must contain valid IPv4 addresses!")
+            elif not all(field.strip() for field in non_ip_fields):
+                st.error("All text fields must be filled!")
+            else:
+                result = make_route_base_IXR_big(data)
+                filename = data["hostname"]+".cfg"
+                with open(filename, "w") as file:
+                    file.write(result)
+                st.success(f"Text successfully saved to `{filename}`!")
+                st.download_button(
+                    label="Download Text File",
+                    data=result,
+                    file_name=filename,
+                    mime="text/plain"
+                )
         if st.button("Generate IXR-e R6 Config"):
             result2="abc"
             with open("test", "w") as file:
