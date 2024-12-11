@@ -11325,15 +11325,23 @@ exit all
     return (txt)
 def make_poc1(data):
     if data["POC3-1"] == "192.168.64.1":
-        ssh = "172.16.240.7"
+        ssh1 = "172.16.240.7"
     elif data["POC3-1"] == "192.168.64.2":
-        ssh = "172.16.240.8"
+        ssh1 = "172.16.240.8"
     elif data["POC3-1"] == "192.168.64.3":
-        ssh = "172.16.240.41"
+        ssh1 = "172.16.240.41"
     elif data["POC3-1"] == "192.168.64.4":
-        ssh = "172.16.240.42"
+        ssh1 = "172.16.240.42"
+    elif data["POC3-2"] == "192.168.64.1":
+        ssh2 = "172.16.240.7"
+    elif data["POC3-2"] == "192.168.64.2":
+        ssh2 = "172.16.240.8"
+    elif data["POC3-2"] == "192.168.64.3":
+        ssh2 = "172.16.240.41"
+    elif data["POC3-2"] == "192.168.64.4":
+        ssh2 = "172.16.240.42"
     txt=f"""
-ssh chrisnanda.ent@{ssh}
+ssh chrisnanda.ent@{ssh1}
 configure 
     router 
         bgp
@@ -11344,7 +11352,7 @@ configure
                     export "l3vpn_MBH_Export_IXR_ISIS{data["isis-a-area"]}"
                 exit
 exit all
-ssh chrisnanda.ent@{ssh}
+ssh chrisnanda.ent@{ssh2}
 configure 
     router 
         bgp
