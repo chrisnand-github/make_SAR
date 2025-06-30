@@ -3414,7 +3414,7 @@ echo "Router (Network Side) Configuration"
             egress
                 vlan-qos-policy "NQ_VFQ_IXR_VLAN_QOS"
             exit
-            port 1/1/5
+            port {data["port-a1"]}
             ingress
                 qos "NQ_VFQ_IXR_Net_Ing"
             exit
@@ -3428,7 +3428,7 @@ echo "Router (Network Side) Configuration"
             egress
                 vlan-qos-policy "NQ_VFQ_IXR_VLAN_QOS"
             exit
-            port 1/1/5
+            port {data["port-a1"]}
             ingress
                 qos "NQ_VFQ_IXR_Net_Ing"
             exit
@@ -3686,9 +3686,9 @@ echo "ISIS Configuration"
             no shutdown
         exit
 #--------------------------------------------------
-echo "ISIS (Inst: 1) Configuration"
+echo "ISIS (Inst: {data["isis-a-area"]}) Configuration"
 #--------------------------------------------------
-        isis 1
+        isis {data["isis-a-area"]}
             no shutdown
         exit
 #--------------------------------------------------
