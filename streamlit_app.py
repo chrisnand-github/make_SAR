@@ -287,9 +287,9 @@ def main_app():
 
             st.success(f"Text successfully saved to `test`!")
         if st.button("Generate IXR-e big MD Config"):
-            result2="def"
+            result3="def"
             with open("test", "w") as file:
-                file.write(result2)
+                file.write(result3)
 
             st.success(f"Text successfully saved to `test`!")
     if st.button("Logout"):
