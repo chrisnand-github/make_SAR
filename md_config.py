@@ -500,35 +500,35 @@ def make_route_base_IXR_big_md(data):
 /configure router "Base" {{ isis 0 interface "system" }}
 /configure router "Base" isis 0 level 1 wide-metrics-only true
 /configure router "Base" isis 0 level 2 wide-metrics-only true
-/configure router "Base" isis {data["isis-a-area"]}) admin-state enable
-/configure router "Base" isis {data["isis-a-area"]}) authentication-key ALU
-/configure router "Base" isis {data["isis-a-area"]}) authentication-type message-digest
-/configure router "Base" isis {data["isis-a-area"]}) all-l1isis 01:80:c2:00:01:00
-/configure router "Base" isis {data["isis-a-area"]}) all-l2isis 01:80:c2:00:01:11
-/configure router "Base" isis {data["isis-a-area"]}) iid-tlv true
-/configure router "Base" isis {data["isis-a-area"]}) lsp-lifetime 65535
-/configure router "Base" isis {data["isis-a-area"]}) traffic-engineering true
-/configure router "Base" isis {data["isis-a-area"]}) area-address [49.0974]
-/configure router "Base" isis {data["isis-a-area"]}) timers spf-wait spf-max-wait 2000
-/configure router "Base" isis {data["isis-a-area"]}) timers spf-wait spf-initial-wait 50
-/configure router "Base" isis {data["isis-a-area"]}) timers spf-wait spf-second-wait 100
-/configure router "Base" isis {data["isis-a-area"]}) timers lsp-wait lsp-max-wait 8000
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-a"]}_{data["network-a"]}" hello-authentication-key VFQatar
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-a"]}_{data["network-a"]}" hello-authentication-type message-digest
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-a"]}_{data["network-a"]}" interface-type point-to-point
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-a"]}_{data["network-a"]}" level-capability 1
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-a"]}_{data["network-a"]}" level 1 hello-interval 10
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-a"]}_{data["network-a"]}" level 1 metric 100
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" hello-authentication-key VFQatar
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" hello-authentication-type message-digest
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" interface-type point-to-point
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" level-capability 1
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" level 1 hello-interval 10
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" level 1 metric 100
-/configure router "Base" {{ isis {data["isis-a-area"]}) interface "system" }}
-/configure router "Base" isis {data["isis-a-area"]}) level 1 external-preference 163
-/configure router "Base" isis {data["isis-a-area"]}) level 1 preference 25
-/configure router "Base" isis {data["isis-a-area"]}) level 1 wide-metrics-only true
+/configure router "Base" isis {data["isis-a-area"]} admin-state enable
+/configure router "Base" isis {data["isis-a-area"]} authentication-key ALU
+/configure router "Base" isis {data["isis-a-area"]} authentication-type message-digest
+/configure router "Base" isis {data["isis-a-area"]} all-l1isis 01:80:c2:00:01:00
+/configure router "Base" isis {data["isis-a-area"]} all-l2isis 01:80:c2:00:01:11
+/configure router "Base" isis {data["isis-a-area"]} iid-tlv true
+/configure router "Base" isis {data["isis-a-area"]} lsp-lifetime 65535
+/configure router "Base" isis {data["isis-a-area"]} traffic-engineering true
+/configure router "Base" isis {data["isis-a-area"]} area-address [49.0974]
+/configure router "Base" isis {data["isis-a-area"]} timers spf-wait spf-max-wait 2000
+/configure router "Base" isis {data["isis-a-area"]} timers spf-wait spf-initial-wait 50
+/configure router "Base" isis {data["isis-a-area"]} timers spf-wait spf-second-wait 100
+/configure router "Base" isis {data["isis-a-area"]} timers lsp-wait lsp-max-wait 8000
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-a"]}_{data["network-a"]}" hello-authentication-key VFQatar
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-a"]}_{data["network-a"]}" hello-authentication-type message-digest
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-a"]}_{data["network-a"]}" interface-type point-to-point
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-a"]}_{data["network-a"]}" level-capability 1
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-a"]}_{data["network-a"]}" level 1 hello-interval 10
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-a"]}_{data["network-a"]}" level 1 metric 100
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-b"]}_{data["network-b"]}" hello-authentication-key VFQatar
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-b"]}_{data["network-b"]}" hello-authentication-type message-digest
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-b"]}_{data["network-b"]}" interface-type point-to-point
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-b"]}_{data["network-b"]}" level-capability 1
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-b"]}_{data["network-b"]}" level 1 hello-interval 10
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-b"]}_{data["network-b"]}" level 1 metric 100
+/configure router "Base" {{ isis {data["isis-a-area"]} interface "system" }}
+/configure router "Base" isis {data["isis-a-area"]} level 1 external-preference 163
+/configure router "Base" isis {data["isis-a-area"]} level 1 preference 25
+/configure router "Base" isis {data["isis-a-area"]} level 1 wide-metrics-only true
 /configure router "Base" {{ ldp interface-parameters interface "NET_{data["far-end-a"]}_{data["network-a"]}" ipv4 }}
 /configure router "Base" {{ ldp interface-parameters interface "NET_{data["far-end-b"]}_{data["network-b"]}" ipv4 }}
 /configure router "Base" static-routes route 10.100.20.10/31 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
@@ -1399,35 +1399,35 @@ def make_route_base_IXR_small_md(data):
 /configure router "Base" {{ isis 0 interface "system" }}
 /configure router "Base" isis 0 level 1 wide-metrics-only true
 /configure router "Base" isis 0 level 2 wide-metrics-only true
-/configure router "Base" isis {data["isis-a-area"]}) admin-state enable
-/configure router "Base" isis {data["isis-a-area"]}) authentication-key ALU
-/configure router "Base" isis {data["isis-a-area"]}) authentication-type message-digest
-/configure router "Base" isis {data["isis-a-area"]}) all-l1isis 01:80:c2:00:01:00
-/configure router "Base" isis {data["isis-a-area"]}) all-l2isis 01:80:c2:00:01:11
-/configure router "Base" isis {data["isis-a-area"]}) iid-tlv true
-/configure router "Base" isis {data["isis-a-area"]}) lsp-lifetime 65535
-/configure router "Base" isis {data["isis-a-area"]}) traffic-engineering true
-/configure router "Base" isis {data["isis-a-area"]}) area-address [49.0974]
-/configure router "Base" isis {data["isis-a-area"]}) timers spf-wait spf-max-wait 2000
-/configure router "Base" isis {data["isis-a-area"]}) timers spf-wait spf-initial-wait 50
-/configure router "Base" isis {data["isis-a-area"]}) timers spf-wait spf-second-wait 100
-/configure router "Base" isis {data["isis-a-area"]}) timers lsp-wait lsp-max-wait 8000
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-a"]}_{data["network-a"]}" hello-authentication-key VFQatar
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-a"]}_{data["network-a"]}" hello-authentication-type message-digest
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-a"]}_{data["network-a"]}" interface-type point-to-point
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-a"]}_{data["network-a"]}" level-capability 1
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-a"]}_{data["network-a"]}" level 1 hello-interval 10
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-a"]}_{data["network-a"]}" level 1 metric 100
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" hello-authentication-key VFQatar
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" hello-authentication-type message-digest
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" interface-type point-to-point
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" level-capability 1
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" level 1 hello-interval 10
-/configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" level 1 metric 100
-/configure router "Base" {{ isis {data["isis-a-area"]}) interface "system" }}
-/configure router "Base" isis {data["isis-a-area"]}) level 1 external-preference 163
-/configure router "Base" isis {data["isis-a-area"]}) level 1 preference 25
-/configure router "Base" isis {data["isis-a-area"]}) level 1 wide-metrics-only true
+/configure router "Base" isis {data["isis-a-area"]} admin-state enable
+/configure router "Base" isis {data["isis-a-area"]} authentication-key ALU
+/configure router "Base" isis {data["isis-a-area"]} authentication-type message-digest
+/configure router "Base" isis {data["isis-a-area"]} all-l1isis 01:80:c2:00:01:00
+/configure router "Base" isis {data["isis-a-area"]} all-l2isis 01:80:c2:00:01:11
+/configure router "Base" isis {data["isis-a-area"]} iid-tlv true
+/configure router "Base" isis {data["isis-a-area"]} lsp-lifetime 65535
+/configure router "Base" isis {data["isis-a-area"]} traffic-engineering true
+/configure router "Base" isis {data["isis-a-area"]} area-address [49.0974]
+/configure router "Base" isis {data["isis-a-area"]} timers spf-wait spf-max-wait 2000
+/configure router "Base" isis {data["isis-a-area"]} timers spf-wait spf-initial-wait 50
+/configure router "Base" isis {data["isis-a-area"]} timers spf-wait spf-second-wait 100
+/configure router "Base" isis {data["isis-a-area"]} timers lsp-wait lsp-max-wait 8000
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-a"]}_{data["network-a"]}" hello-authentication-key VFQatar
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-a"]}_{data["network-a"]}" hello-authentication-type message-digest
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-a"]}_{data["network-a"]}" interface-type point-to-point
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-a"]}_{data["network-a"]}" level-capability 1
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-a"]}_{data["network-a"]}" level 1 hello-interval 10
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-a"]}_{data["network-a"]}" level 1 metric 100
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-b"]}_{data["network-b"]}" hello-authentication-key VFQatar
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-b"]}_{data["network-b"]}" hello-authentication-type message-digest
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-b"]}_{data["network-b"]}" interface-type point-to-point
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-b"]}_{data["network-b"]}" level-capability 1
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-b"]}_{data["network-b"]}" level 1 hello-interval 10
+/configure router "Base" isis {data["isis-a-area"]} interface "NET_{data["far-end-b"]}_{data["network-b"]}" level 1 metric 100
+/configure router "Base" {{ isis {data["isis-a-area"]} interface "system" }}
+/configure router "Base" isis {data["isis-a-area"]} level 1 external-preference 163
+/configure router "Base" isis {data["isis-a-area"]} level 1 preference 25
+/configure router "Base" isis {data["isis-a-area"]} level 1 wide-metrics-only true
 /configure router "Base" {{ ldp interface-parameters interface "NET_{data["far-end-a"]}_{data["network-a"]}" ipv4 }}
 /configure router "Base" {{ ldp interface-parameters interface "NET_{data["far-end-b"]}_{data["network-b"]}" ipv4 }}
 /configure router "Base" static-routes route 10.100.20.10/31 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
