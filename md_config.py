@@ -1,5 +1,5 @@
 def make_route_base_IXR_big_md(data):
-   txt = f"""
+    txt = f"""
 /configure card 1 mda 1 sync-e true
 /configure card 1 mda 1 mda-type m24-sfp++8-sfp28+2-qsfp28
 /configure log accounting-policy 27 admin-state enable
@@ -898,7 +898,7 @@ quit-config
 
 
 def make_route_base_IXR_small_md(data):
-   txt = f"""
+    txt = f"""
 /configure card 1 mda 1 sync-e true
 /configure card 1 mda 1 mda-type m24-sfp++8-sfp28+2-qsfp28
 /configure log accounting-policy 27 admin-state enable
