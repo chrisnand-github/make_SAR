@@ -5495,7 +5495,7 @@ def make_route_base_IXR_big_md(data):
 def make_route_base_IXR_small_md(data):
     txt = f"""
     /card 1 mda 1 sync-e true
-    /card 1 mda 1 mda-type m24-sfp++8-sfp28+2-qsfp28
+    /card 1 mda 1 mda-type imm14-10g-sfp++4-1g-tx
     /log accounting-policy 27 admin-state enable
     /log accounting-policy 27 description "MBH drop statistic collection"
     /log accounting-policy 27 collection-interval 15
