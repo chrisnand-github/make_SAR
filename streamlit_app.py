@@ -280,8 +280,14 @@ def main_app():
                     file_name=filename,
                     mime="text/plain"
                 )
-        if st.button("Generate IXR-e R6 Config"):
+        if st.button("Generate IXR-e small MD Config"):
             result2="abc"
+            with open("test", "w") as file:
+                file.write(result2)
+
+            st.success(f"Text successfully saved to `test`!")
+        if st.button("Generate IXR-e big MD Config"):
+            result2="def"
             with open("test", "w") as file:
                 file.write(result2)
 
