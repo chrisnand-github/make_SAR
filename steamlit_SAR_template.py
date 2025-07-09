@@ -4595,6 +4595,7 @@ exit all
 
 def make_route_base_IXR_big_md(data):
     txt = f"""
+   txt = f"""
 /configure card 1 mda 1 sync-e true
 /configure card 1 mda 1 mda-type m24-sfp++8-sfp28+2-qsfp28
 /configure log accounting-policy 27 admin-state enable
@@ -4632,7 +4633,7 @@ def make_route_base_IXR_big_md(data):
 /configure log log-id "9" source change true
 /configure log log-id "9" destination file "9"
 /configure log log-id "14" source debug true
-/configure log {{log - id "14" destination memory}}
+/configure log {{ log - id "14" destination memory }}
 /configure log log-id "20" source debug true
 /configure log log-id "95" source main true
 /configure log log-id "95" destination file "95"
@@ -4663,17 +4664,17 @@ def make_route_base_IXR_big_md(data):
 /configure log snmp-trap-group "98" trap-target "D89D672883B8:main2" address 10.100.20.68
 /configure log snmp-trap-group "98" trap-target "D89D672883B8:main2" notify-community "snmpv3user"
 /configure log snmp-trap-group "98" trap-target "D89D672883B8:main2" security-level privacy
-/configure policy-options {{community "service-lpbcks-IS0" member "48728:1110"}}
-/configure policy-options {{community "service-lpbcks-IS1" member "48728:1111"}}
-/configure policy-options {{community "service-lpbcks-IS2" member "48728:1112"}}
-/configure policy-options {{community "service-lpbcks-IS3" member "48728:1113"}}
-/configure policy-options {{community "service-lpbcks-IS4" member "48728:1114"}}
-/configure policy-options {{community "service-lpbcks-IS5" member "48728:1115"}}
-/configure policy-options {{community "service-lpbcks-IS6" member "48728:1116"}}
-/configure policy-options {{community "service-lpbcks-IS7" member "48728:1117"}}
-/configure policy-options {{community "service-lpbcks-IS8" member "48728:1118"}}
-/configure policy-options {{community "service-lpbcks-POC1" member "48728:11110"}}
-/configure policy-options {{prefix - list "lbl-bgp-lpbck" prefix {data["loopback"]} / 32 type exact}}
+/configure policy-options {{ community "service-lpbcks-IS0" member "48728:1110" }}
+/configure policy-options {{ community "service-lpbcks-IS1" member "48728:1111" }}
+/configure policy-options {{ community "service-lpbcks-IS2" member "48728:1112" }}
+/configure policy-options {{ community "service-lpbcks-IS3" member "48728:1113" }}
+/configure policy-options {{ community "service-lpbcks-IS4" member "48728:1114" }}
+/configure policy-options {{ community "service-lpbcks-IS5" member "48728:1115" }}
+/configure policy-options {{ community "service-lpbcks-IS6" member "48728:1116" }}
+/configure policy-options {{ community "service-lpbcks-IS7" member "48728:1117" }}
+/configure policy-options {{ community "service-lpbcks-IS8" member "48728:1118" }}
+/configure policy-options {{ community "service-lpbcks-POC1" member "48728:11110" }}
+/configure policy-options {{ prefix - list "lbl-bgp-lpbck" prefix {data["loopback"]} / 32 type exact }}
 /configure policy-options prefix-list "only-lbl-bgp-lpbcks" prefix 192.168.64.0/20 type range start-length 32
 /configure policy-options prefix-list "only-lbl-bgp-lpbcks" prefix 192.168.64.0/20 type range end-length 32
 /configure policy-options policy-statement "export-to-POC2" entry 10 from prefix-list ["lbl-bgp-lpbck"]
@@ -5036,7 +5037,7 @@ def make_route_base_IXR_big_md(data):
 /configure router "Base" bgp ebgp-default-reject-policy export false
 /configure router "Base" bgp next-hop-resolution labeled-routes transport-tunnel family vpn resolution-filter rsvp true
 /configure router "Base" bgp next-hop-resolution labeled-routes transport-tunnel family label-ipv4 resolution-filter rsvp true
-/configure router "Base" {{bgp outbound-route-filtering extended-community send-orf}}
+/configure router "Base" {{ bgp outbound-route-filtering extended-community send-orf }}
 /configure router "Base" bgp group "POC2-lbgp-ipv4" peer-as 48728
 /configure router "Base" bgp group "POC2-lbgp-ipv4" family ipv4 true
 /configure router "Base" bgp group "POC2-lbgp-ipv4" import policy ["import-from-POC2"]
@@ -5075,7 +5076,7 @@ def make_route_base_IXR_big_md(data):
 /configure router "Base" isis 0 interface "NET_{data["far-end-b"]}_{data["network-b"]}" level-capability 1
 /configure router "Base" isis 0 interface "NET_{data["far-end-b"]}_{data["network-b"]}" level 1 hello-interval 10
 /configure router "Base" isis 0 interface "NET_{data["far-end-b"]}_{data["network-b"]}" level 1 metric 100
-/configure router "Base" {{isis 0 interface "system"}}
+/configure router "Base" {{ isis 0 interface "system" }}
 /configure router "Base" isis 0 level 1 wide-metrics-only true
 /configure router "Base" isis 0 level 2 wide-metrics-only true
 /configure router "Base" isis {data["isis-a-area"]}) admin-state enable
@@ -5103,12 +5104,12 @@ def make_route_base_IXR_big_md(data):
 /configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" level-capability 1
 /configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" level 1 hello-interval 10
 /configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" level 1 metric 100
-/configure router "Base" {{isis {data["isis-a-area"]}) interface "system"}}
+/configure router "Base" {{ isis {data["isis-a-area"]}) interface "system" }}
 /configure router "Base" isis {data["isis-a-area"]}) level 1 external-preference 163
 /configure router "Base" isis {data["isis-a-area"]}) level 1 preference 25
 /configure router "Base" isis {data["isis-a-area"]}) level 1 wide-metrics-only true
-/configure router "Base" {{ldp interface-parameters interface "NET_{data["far-end-a"]}_{data["network-a"]}" ipv4}}
-/configure router "Base" {{ldp interface-parameters interface "NET_{data["far-end-b"]}_{data["network-b"]}" ipv4}}
+/configure router "Base" {{ ldp interface-parameters interface "NET_{data["far-end-a"]}_{data["network-a"]}" ipv4 }}
+/configure router "Base" {{ ldp interface-parameters interface "NET_{data["far-end-b"]}_{data["network-b"]}" ipv4 }}
 /configure router "Base" static-routes route 10.100.20.10 / 31 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
 /configure router "Base" static-routes route 10.100.20.64 / 28 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
 /configure router "Base" static-routes route 10.200.20.64 / 28 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
@@ -5378,7 +5379,7 @@ def make_route_base_IXR_big_md(data):
 /configure system security aaa local-profiles profile "VF-NSU" entry 140 action permit
 /configure system security aaa local-profiles profile "VF-NSU" entry 150 match "exit"
 /configure system security aaa local-profiles profile "VF-NSU" entry 150 action permit
-/configure system security {{aaa local-profiles profile "password"}}
+/configure system security {{ aaa local-profiles profile "password" }}
 /configure system security aaa local-profiles profile "show" default-action deny-all
 /configure system security aaa local-profiles profile "show" entry 1 match "show"
 /configure system security aaa local-profiles profile "show" entry 1 action permit
@@ -5415,7 +5416,7 @@ def make_route_base_IXR_big_md(data):
 /configure system security user-params local-user user "AdminSAM5620" access ftp true
 /configure system security user-params local-user user "AdminSAM5620" access snmp true
 /configure system security user-params local-user user "AdminSAM5620" console member ["default" "administrative"]
-/configure system security {{user-params local-user user "AdminSAM5620" snmp authentication}}
+/configure system security {{ user-params local-user user "AdminSAM5620" snmp authentication }}
 /configure system security user-params local-user user "VFQ.arajeeb" password "$2y$10$.ITViSWCVNkgClQNo9TMY.3zg.gBQZCLjjNRY1WhIy.GkN8eC/6dy"
 /configure system security user-params local-user user "VFQ.arajeeb" access console true
 /configure system security user-params local-user user "VFQ.arajeeb" access ftp true
@@ -5456,7 +5457,7 @@ def make_route_base_IXR_big_md(data):
 /configure system security user-params local-user user "gnocipfo" access ftp true
 /configure system security user-params local-user user "gnocipfo" access snmp true
 /configure system security user-params local-user user "gnocipfo" console member ["default" "show"]
-/configure system security {{user-params local-user user "gnocipfo" snmp authentication}}
+/configure system security {{ user-params local-user user "gnocipfo" snmp authentication }}
 /configure system security user-params local-user user "muhammad.ehsan" password "$2y$10$Sja5NHyihHEh1hvbMhHdo.ftFhjP1l7cXXMtVOB.dmlyP4EHcRscC"
 /configure system security user-params local-user user "muhammad.ehsan" access console true
 /configure system security user-params local-user user "muhammad.ehsan" access ftp true
@@ -5481,8 +5482,8 @@ def make_route_base_IXR_big_md(data):
 /configure system security user-params local-user user "vfq.mali" access ftp true
 /configure system security user-params local-user user "vfq.mali" console member ["default" "administrative"]
 /configure system time ntp server 10.100.20.68 router-instance "Base" prefer true
-/configure system time {{ntp server 10.200.20.68 router-instance "Base"}}
-/configure system time {{ntp server 172.16.240.41 router-instance "Base"}}
+/configure system time {{ ntp server 10.200.20.68 router-instance "Base" }}
+/configure system time {{ ntp server 172.16.240.41 router-instance "Base" }}
 /edit-config bof private
 /bof configuration primary-location "cf3" / {data["hostname"]}.cfg"
 /bof system persistent-indices true
@@ -5494,6 +5495,7 @@ quit-config
 
 def make_route_base_IXR_small_md(data):
     txt = f"""
+   txt = f"""
 /configure card 1 mda 1 sync-e true
 /configure card 1 mda 1 mda-type m24-sfp++8-sfp28+2-qsfp28
 /configure log accounting-policy 27 admin-state enable
@@ -5531,7 +5533,7 @@ def make_route_base_IXR_small_md(data):
 /configure log log-id "9" source change true
 /configure log log-id "9" destination file "9"
 /configure log log-id "14" source debug true
-/configure log {{log - id "14" destination memory}}
+/configure log {{ log - id "14" destination memory }}
 /configure log log-id "20" source debug true
 /configure log log-id "95" source main true
 /configure log log-id "95" destination file "95"
@@ -5562,17 +5564,17 @@ def make_route_base_IXR_small_md(data):
 /configure log snmp-trap-group "98" trap-target "D89D672883B8:main2" address 10.100.20.68
 /configure log snmp-trap-group "98" trap-target "D89D672883B8:main2" notify-community "snmpv3user"
 /configure log snmp-trap-group "98" trap-target "D89D672883B8:main2" security-level privacy
-/configure policy-options {{community "service-lpbcks-IS0" member "48728:1110"}}
-/configure policy-options {{community "service-lpbcks-IS1" member "48728:1111"}}
-/configure policy-options {{community "service-lpbcks-IS2" member "48728:1112"}}
-/configure policy-options {{community "service-lpbcks-IS3" member "48728:1113"}}
-/configure policy-options {{community "service-lpbcks-IS4" member "48728:1114"}}
-/configure policy-options {{community "service-lpbcks-IS5" member "48728:1115"}}
-/configure policy-options {{community "service-lpbcks-IS6" member "48728:1116"}}
-/configure policy-options {{community "service-lpbcks-IS7" member "48728:1117"}}
-/configure policy-options {{community "service-lpbcks-IS8" member "48728:1118"}}
-/configure policy-options {{community "service-lpbcks-POC1" member "48728:11110"}}
-/configure policy-options {{prefix - list "lbl-bgp-lpbck" prefix {data["loopback"]} / 32 type exact}}
+/configure policy-options {{ community "service-lpbcks-IS0" member "48728:1110" }}
+/configure policy-options {{ community "service-lpbcks-IS1" member "48728:1111" }}
+/configure policy-options {{ community "service-lpbcks-IS2" member "48728:1112" }}
+/configure policy-options {{ community "service-lpbcks-IS3" member "48728:1113" }}
+/configure policy-options {{ community "service-lpbcks-IS4" member "48728:1114" }}
+/configure policy-options {{ community "service-lpbcks-IS5" member "48728:1115" }}
+/configure policy-options {{ community "service-lpbcks-IS6" member "48728:1116" }}
+/configure policy-options {{ community "service-lpbcks-IS7" member "48728:1117" }}
+/configure policy-options {{ community "service-lpbcks-IS8" member "48728:1118" }}
+/configure policy-options {{ community "service-lpbcks-POC1" member "48728:11110" }}
+/configure policy-options {{ prefix - list "lbl-bgp-lpbck" prefix {data["loopback"]} / 32 type exact }}
 /configure policy-options prefix-list "only-lbl-bgp-lpbcks" prefix 192.168.64.0/20 type range start-length 32
 /configure policy-options prefix-list "only-lbl-bgp-lpbcks" prefix 192.168.64.0/20 type range end-length 32
 /configure policy-options policy-statement "export-to-POC2" entry 10 from prefix-list ["lbl-bgp-lpbck"]
@@ -5935,7 +5937,7 @@ def make_route_base_IXR_small_md(data):
 /configure router "Base" bgp ebgp-default-reject-policy export false
 /configure router "Base" bgp next-hop-resolution labeled-routes transport-tunnel family vpn resolution-filter rsvp true
 /configure router "Base" bgp next-hop-resolution labeled-routes transport-tunnel family label-ipv4 resolution-filter rsvp true
-/configure router "Base" {{bgp outbound-route-filtering extended-community send-orf}}
+/configure router "Base" {{ bgp outbound-route-filtering extended-community send-orf }}
 /configure router "Base" bgp group "POC2-lbgp-ipv4" peer-as 48728
 /configure router "Base" bgp group "POC2-lbgp-ipv4" family ipv4 true
 /configure router "Base" bgp group "POC2-lbgp-ipv4" import policy ["import-from-POC2"]
@@ -5974,7 +5976,7 @@ def make_route_base_IXR_small_md(data):
 /configure router "Base" isis 0 interface "NET_{data["far-end-b"]}_{data["network-b"]}" level-capability 1
 /configure router "Base" isis 0 interface "NET_{data["far-end-b"]}_{data["network-b"]}" level 1 hello-interval 10
 /configure router "Base" isis 0 interface "NET_{data["far-end-b"]}_{data["network-b"]}" level 1 metric 100
-/configure router "Base" {{isis 0 interface "system"}}
+/configure router "Base" {{ isis 0 interface "system" }}
 /configure router "Base" isis 0 level 1 wide-metrics-only true
 /configure router "Base" isis 0 level 2 wide-metrics-only true
 /configure router "Base" isis {data["isis-a-area"]}) admin-state enable
@@ -6002,12 +6004,12 @@ def make_route_base_IXR_small_md(data):
 /configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" level-capability 1
 /configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" level 1 hello-interval 10
 /configure router "Base" isis {data["isis-a-area"]}) interface "NET_{data["far-end-b"]}_{data["network-b"]}" level 1 metric 100
-/configure router "Base" {{isis {data["isis-a-area"]}) interface "system"}}
+/configure router "Base" {{ isis {data["isis-a-area"]}) interface "system" }}
 /configure router "Base" isis {data["isis-a-area"]}) level 1 external-preference 163
 /configure router "Base" isis {data["isis-a-area"]}) level 1 preference 25
 /configure router "Base" isis {data["isis-a-area"]}) level 1 wide-metrics-only true
-/configure router "Base" {{ldp interface-parameters interface "NET_{data["far-end-a"]}_{data["network-a"]}" ipv4}}
-/configure router "Base" {{ldp interface-parameters interface "NET_{data["far-end-b"]}_{data["network-b"]}" ipv4}}
+/configure router "Base" {{ ldp interface-parameters interface "NET_{data["far-end-a"]}_{data["network-a"]}" ipv4 }}
+/configure router "Base" {{ ldp interface-parameters interface "NET_{data["far-end-b"]}_{data["network-b"]}" ipv4 }}
 /configure router "Base" static-routes route 10.100.20.10 / 31 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
 /configure router "Base" static-routes route 10.100.20.64 / 28 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
 /configure router "Base" static-routes route 10.200.20.64 / 28 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
@@ -6277,7 +6279,7 @@ def make_route_base_IXR_small_md(data):
 /configure system security aaa local-profiles profile "VF-NSU" entry 140 action permit
 /configure system security aaa local-profiles profile "VF-NSU" entry 150 match "exit"
 /configure system security aaa local-profiles profile "VF-NSU" entry 150 action permit
-/configure system security {{aaa local-profiles profile "password"}}
+/configure system security {{ aaa local-profiles profile "password" }}
 /configure system security aaa local-profiles profile "show" default-action deny-all
 /configure system security aaa local-profiles profile "show" entry 1 match "show"
 /configure system security aaa local-profiles profile "show" entry 1 action permit
@@ -6314,7 +6316,7 @@ def make_route_base_IXR_small_md(data):
 /configure system security user-params local-user user "AdminSAM5620" access ftp true
 /configure system security user-params local-user user "AdminSAM5620" access snmp true
 /configure system security user-params local-user user "AdminSAM5620" console member ["default" "administrative"]
-/configure system security {{user-params local-user user "AdminSAM5620" snmp authentication}}
+/configure system security {{ user-params local-user user "AdminSAM5620" snmp authentication }}
 /configure system security user-params local-user user "VFQ.arajeeb" password "$2y$10$.ITViSWCVNkgClQNo9TMY.3zg.gBQZCLjjNRY1WhIy.GkN8eC/6dy"
 /configure system security user-params local-user user "VFQ.arajeeb" access console true
 /configure system security user-params local-user user "VFQ.arajeeb" access ftp true
@@ -6355,7 +6357,7 @@ def make_route_base_IXR_small_md(data):
 /configure system security user-params local-user user "gnocipfo" access ftp true
 /configure system security user-params local-user user "gnocipfo" access snmp true
 /configure system security user-params local-user user "gnocipfo" console member ["default" "show"]
-/configure system security {{user-params local-user user "gnocipfo" snmp authentication}}
+/configure system security {{ user-params local-user user "gnocipfo" snmp authentication }}
 /configure system security user-params local-user user "muhammad.ehsan" password "$2y$10$Sja5NHyihHEh1hvbMhHdo.ftFhjP1l7cXXMtVOB.dmlyP4EHcRscC"
 /configure system security user-params local-user user "muhammad.ehsan" access console true
 /configure system security user-params local-user user "muhammad.ehsan" access ftp true
@@ -6380,8 +6382,8 @@ def make_route_base_IXR_small_md(data):
 /configure system security user-params local-user user "vfq.mali" access ftp true
 /configure system security user-params local-user user "vfq.mali" console member ["default" "administrative"]
 /configure system time ntp server 10.100.20.68 router-instance "Base" prefer true
-/configure system time {{ntp server 10.200.20.68 router-instance "Base"}}
-/configure system time {{ntp server 172.16.240.41 router-instance "Base"}}
+/configure system time {{ ntp server 10.200.20.68 router-instance "Base" }}
+/configure system time {{ ntp server 172.16.240.41 router-instance "Base" }}
 /edit-config bof private
 /bof configuration primary-location "cf3" / {data["hostname"]}.cfg"
 /bof system persistent-indices true
