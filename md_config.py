@@ -514,12 +514,12 @@ def make_route_base_IXR_big_md(data):
 /configure router "Base" isis {data["isis-a-area"]}) level 1 wide-metrics-only true
 /configure router "Base" {{ ldp interface-parameters interface "NET_{data["far-end-a"]}_{data["network-a"]}" ipv4 }}
 /configure router "Base" {{ ldp interface-parameters interface "NET_{data["far-end-b"]}_{data["network-b"]}" ipv4 }}
-/configure router "Base" static-routes route 10.100.20.10 / 31 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
-/configure router "Base" static-routes route 10.100.20.64 / 28 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
-/configure router "Base" static-routes route 10.200.20.64 / 28 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
-/configure router "Base" static-routes route 10.100.20.10 / 31 route-type unicast next-hop {increment_last_octet(data["network-b"])} admin-state enable
-/configure router "Base" static-routes route 10.100.20.64 / 28 route-type unicast next-hop {increment_last_octet(data["network-b"])} admin-state enable
-/configure router "Base" static-routes route 10.200.20.64 / 28 route-type unicast next-hop {increment_last_octet(data["network-b"])} admin-state enable
+/configure router "Base" static-routes route 10.100.20.10/31 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
+/configure router "Base" static-routes route 10.100.20.64/28 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
+/configure router "Base" static-routes route 10.200.20.64/28 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
+/configure router "Base" static-routes route 10.100.20.10/31 route-type unicast next-hop {increment_last_octet(data["network-b"])} admin-state enable
+/configure router "Base" static-routes route 10.100.20.64/28 route-type unicast next-hop {increment_last_octet(data["network-b"])} admin-state enable
+/configure router "Base" static-routes route 10.200.20.64/28 route-type unicast next-hop {increment_last_octet(data["network-b"])} admin-state enable
 /configure service vprn "17804" admin-state enable
 /configure service vprn "17804" description "eNB IPsec Public eUTRAN VPRN"
 /configure service vprn "17804" customer "1"
@@ -1413,12 +1413,12 @@ def make_route_base_IXR_small_md(data):
 /configure router "Base" isis {data["isis-a-area"]}) level 1 wide-metrics-only true
 /configure router "Base" {{ ldp interface-parameters interface "NET_{data["far-end-a"]}_{data["network-a"]}" ipv4 }}
 /configure router "Base" {{ ldp interface-parameters interface "NET_{data["far-end-b"]}_{data["network-b"]}" ipv4 }}
-/configure router "Base" static-routes route 10.100.20.10 / 31 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
-/configure router "Base" static-routes route 10.100.20.64 / 28 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
-/configure router "Base" static-routes route 10.200.20.64 / 28 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
-/configure router "Base" static-routes route 10.100.20.10 / 31 route-type unicast next-hop {increment_last_octet(data["network-b"])} admin-state enable
-/configure router "Base" static-routes route 10.100.20.64 / 28 route-type unicast next-hop {increment_last_octet(data["network-b"])} admin-state enable
-/configure router "Base" static-routes route 10.200.20.64 / 28 route-type unicast next-hop {increment_last_octet(data["network-b"])} admin-state enable
+/configure router "Base" static-routes route 10.100.20.10/31 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
+/configure router "Base" static-routes route 10.100.20.64/28 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
+/configure router "Base" static-routes route 10.200.20.64/28 route-type unicast next-hop {increment_last_octet(data["network-a"])} admin-state enable
+/configure router "Base" static-routes route 10.100.20.10/31 route-type unicast next-hop {increment_last_octet(data["network-b"])} admin-state enable
+/configure router "Base" static-routes route 10.100.20.64/28 route-type unicast next-hop {increment_last_octet(data["network-b"])} admin-state enable
+/configure router "Base" static-routes route 10.200.20.64/28 route-type unicast next-hop {increment_last_octet(data["network-b"])} admin-state enable
 /configure service vprn "17804" admin-state enable
 /configure service vprn "17804" description "eNB IPsec Public eUTRAN VPRN"
 /configure service vprn "17804" customer "1"
