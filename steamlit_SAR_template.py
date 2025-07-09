@@ -3660,7 +3660,7 @@ echo "Service Configuration"
             vrf-target target:48728:17815
             no shutdown
         exit
-        vprn 55000 customer 1 create
+        vprn 55000 name "ENT-4G-5G_Public" customer 1 create
             description "ENT 4G-5G Public Service"
             autonomous-system 48728
             route-distinguisher 48728:55000{data["Site"]}
@@ -3671,7 +3671,6 @@ echo "Service Configuration"
                 resolution filter
             exit
             vrf-target target:65100:55000
-            service-name "ENT-4G-5G_Public"
             no shutdown
         exit
     exit
@@ -7328,7 +7327,7 @@ echo "Router (Network Side) Configuration"
             egress
                 vlan-qos-policy "NQ_VFQ_IXR_VLAN_QOS"
             exit
-            port 1/1/5
+            port {data["port-a1"]}
             ingress
                 qos "NQ_VFQ_IXR_Net_Ing"
             exit
@@ -7342,7 +7341,7 @@ echo "Router (Network Side) Configuration"
             egress
                 vlan-qos-policy "NQ_VFQ_IXR_VLAN_QOS"
             exit
-            port 1/1/5
+            port {data["port-b1"]}
             ingress
                 qos "NQ_VFQ_IXR_Net_Ing"
             exit
@@ -7574,7 +7573,7 @@ echo "Service Configuration"
             vrf-target target:48728:17815
             no shutdown
         exit
-        vprn 55000 customer 1 create
+        vprn 55000 name "ENT-4G-5G_Public" customer 1 create
             description "ENT 4G-5G Public Service"
             autonomous-system 48728
             route-distinguisher 48728:55000{data["Site"]}
@@ -7585,7 +7584,6 @@ echo "Service Configuration"
                 resolution filter
             exit
             vrf-target target:65100:55000
-            service-name "ENT-4G-5G_Public"
             no shutdown
         exit
     exit
@@ -7600,9 +7598,9 @@ echo "ISIS Configuration"
             no shutdown
         exit
 #--------------------------------------------------
-echo "ISIS (Inst: 1) Configuration"
+echo "ISIS (Inst: {data["isis-a-area"]}) Configuration"
 #--------------------------------------------------
-        isis 1
+        isis {data["isis-a-area"]}
             no shutdown
         exit
 #--------------------------------------------------
@@ -10915,7 +10913,7 @@ echo "Service Configuration"
             vrf-target target:48728:17815
             no shutdown
         exit
-        vprn 55000 customer 1 create
+        vprn 55000 name "ENT-4G-5G_Public" customer 1 create
             description "ENT 4G-5G Public Service"
             autonomous-system 48728
             route-distinguisher 48728:55000{data["Site"]}
@@ -10926,7 +10924,6 @@ echo "Service Configuration"
                 resolution filter
             exit
             vrf-target target:65100:55000
-            service-name "ENT-4G-5G_Public"
             no shutdown
         exit
     exit
