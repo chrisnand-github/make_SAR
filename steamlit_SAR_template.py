@@ -66,30 +66,12 @@ echo "System Configuration"
 #--------------------------------------------------
 echo "System Security Configuration"
 #--------------------------------------------------
-    system
+   system
         security
             telnet-server
             ftp-server
             profile "SOC"
                 default-action deny-all
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
                 entry 8
                     match "configure router interface"
                     action permit
@@ -193,24 +175,6 @@ echo "System Security Configuration"
                 exit
             exit
             profile "TPM"
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
                 entry 10
                     match "exec"
                     action permit
@@ -274,24 +238,6 @@ echo "System Security Configuration"
             exit
             profile "show"
                 default-action deny-all
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
                 entry 1
                     match "show"
                     action permit
@@ -315,24 +261,6 @@ echo "System Security Configuration"
             exit
             profile "ARCH2"
                 default-action deny-all
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
                 entry 1
                     match "oam"
                     action permit
@@ -378,7 +306,7 @@ echo "System Security Configuration"
                     action permit
                 exit
                 entry 12
-                    match "configure service vprn <55000>"
+                    match "configure service vprn"
                     action permit
                 exit
                 entry 13
@@ -391,24 +319,6 @@ echo "System Security Configuration"
                 exit
             exit
             profile "VF-NSU"
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
                 entry 6
                     match "monitor"
                     action permit
@@ -472,24 +382,6 @@ echo "System Security Configuration"
             exit
             profile "tier-1"
                 default-action deny-all
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
                 entry 10
                     match "admin tech-support"
                     action permit
@@ -503,102 +395,8 @@ echo "System Security Configuration"
                     action permit
                 exit
             exit
-            profile "default"
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
-                entry 10
-                    match "exec"
-                    action permit
-                exit
-                entry 20
-                    match "exit"
-                    action permit
-                exit
-                entry 30
-                    match "help"
-                    action permit
-                exit
-                entry 40
-                    match "logout"
-                    action permit
-                exit
-                entry 50
-                    match "password"
-                    action permit
-                exit
-                entry 60
-                    match "show config"
-                    action deny
-                exit
-                entry 65
-                    match "show li"
-                    action deny
-                exit
-                entry 66
-                    match "clear li"
-                    action deny
-                exit
-                entry 67
-                    match "tools dump li"
-                    action deny
-                exit
-                entry 70
-                    match "show"
-                    action permit
-                exit
-                entry 75
-                    match "state"
-                    action permit
-                exit
-                entry 80
-                    match "enable-admin"
-                    action permit
-                exit
-                entry 90
-                    match "enable"
-                    action permit
-                exit
-                entry 100
-                    match "configure li"
-                    action deny
-                exit
-            exit
             profile "Operator"
                 default-action permit-all
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
                 entry 10
                     match "configure system security"
                     action deny
@@ -617,50 +415,9 @@ echo "System Security Configuration"
                 exit
             exit
             profile "password"
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
             exit
             profile "Monitoring"
                 default-action deny-all
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
-                entry 4
-                    description "Monitor service"
-                    match "monitor service id"
-                    action permit
-                exit
                 entry 10
                     match "exec"
                     action permit
@@ -754,90 +511,16 @@ echo "System Security Configuration"
                     action permit
                 exit
             exit
-            profile "OLD_Image_del"
-                default-action deny-all
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
+            profile "NokiaProject"
+                default-action permit-all
                 entry 1
-                    match "file"
-                    action permit
+                    description "reboot"
+                    match "admin reboot"
+                    action deny
                 exit
-            exit
-            profile "administrative"
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        kill-session
-                        lock
-                        validate
-                    exit
-                exit
-                entry 10
+                entry 2
+                    description "securty"
                     match "configure system security"
-                    action permit
-                exit
-                entry 20
-                    match "show system security"
-                    action permit
-                exit
-                entry 30
-                    match "tools perform security"
-                    action permit
-                exit
-                entry 40
-                    match "tools dump security"
-                    action permit
-                exit
-                entry 42
-                    match "tools dump system security"
-                    action permit
-                exit
-                entry 50
-                    match "admin system security"
-                    action permit
-                exit
-                entry 100
-                    match "configure li"
-                    action deny
-                exit
-                entry 110
-                    match "show li"
-                    action deny
-                exit
-                entry 111
-                    match "clear li"
-                    action deny
-                exit
-                entry 112
-                    match "tools dump li"
                     action deny
                 exit
             exit
@@ -848,8 +531,8 @@ echo "System Security Configuration"
                 exit
             exit
             user "AdminSAM5620"
-                password "$2y$10$TU7wk8PQqmzGlq1JYX7aU.2yeF5F9DpmMGNg4MWEgY8WQFMWNNEs."
-                access console ftp snmp
+                password "$2y$10$QGGVBkdQhc.V9ceWwfl6..ynxeadOnjPSgFRiAXwGQa3pLGZsN7PK"
+                access console ftp snmp 
                 console
                     member "default"
                     member "administrative"
@@ -858,156 +541,106 @@ echo "System Security Configuration"
                     authentication none
                 exit
             exit
-            user "Agata.ANDERSON"
-                password "$2y$10$BJsYZ4x6I80AVWgVX2pEs.QSU4hgyYcQ5L0z9OIQ6h/nyFeY47KYG"
+            user "admin"
+                password "$2y$10$lnMYTNLh3YK1G5e6bCzlg.hcCfnMQdu9HShe6CNxbUW3Li6Eazq4K"
+                access console ftp 
+                console
+                    member "administrative"
+                exit
+            exit
+            user "ameers"
+                password "$2y$10$NMjfPL4Kauf1seZOSPcKc./9vc3JrMdoSF0HJlh8GS.kAmTCJHeVO"
+                access console ftp snmp 
+                console
+                    member "default"
+                    member "NokiaProject"
+                exit
+            exit
+            user "chrisnanda.ent"
+                password "$2y$10$/YtllkeV45TIzAFlkw0Ks.ZOxXjkhrbELh.ZSgivB0oan4lQMheje"
                 access console ftp
                 console
                     member "default"
-                    member "Monitoring"
+                    member "administrative"
                 exit
             exit
-            user "Anindito.ent"
-                password "$2y$10$EDeSfBHhvRYkKm9g3a072.bgKHJOiyVR/EGC7XaYDiKDdOKkcDqVa"
-                access console ftp
+            user "gnocipfo"
+                password "$2y$10$R7ZyDzV9J57tOW/Z3AX9..y0t/PdvBNWEo26.VcWDy77haJOjJHi6"
+                access console ftp snmp 
                 console
                     member "default"
-                    member "ARCH2"
+                    member "show"
+                exit
+                snmp
+                    authentication none
                 exit
             exit
-            user "ArturWen.NOK"
-                password "$2y$10$gqSyaxA8merh4K4Wgonc..Z3Im4KLArPwS4MLPaZCyIWnQL20utZm"
+            user "samcli"
+                password "$2y$10$N5URo5oH0xQ7HBdxK1ms2.kgWEGE5xp0c96vhCEQ.bltHKykRIJe6"
+                access console 
+                console
+                    no member "default"
+                    member "administrative"
+                exit
+            exit
+            user "snmpv3user"
+                password "$2y$10$cWGykUsuM7/2cMzOg8VRk.PlRtYfu8PUs.TAFg5LtaNdOVDJMp00a"
+                access snmp 
+                snmp
+                    authentication hmac-sha1-96 344277c1f4fd287c29f2783ee03567513a99575a privacy cbc-des 344277c1f4fd287c29f2783ee0356751
+                    group "nmsPriv"
+                exit
+            exit
+            user "muhammad.ehsan"
+                password "$2y$10$Sja5NHyihHEh1hvbMhHdo.ftFhjP1l7cXXMtVOB.dmlyP4EHcRscC"
                 access console ftp
                 console
-                    member "default"
-                    member "Monitoring"
+                    member "Operator"
+                    member "administrative"
                 exit
             exit
-            user "AsmaA"
-                password "$2y$10$M6Ka4IcLI.2wSds3/m9Cs.H6.LWSdIDu3zYmT/CQEFGI/g4RmleUG"
+            user "rohitb"
+                password "$2y$10$eyQrBfoT8Gi4XEd1EJexM.EHxOeBBzMlfBf/gVNZ3Ui2DqlocvXjS"
+                access console ftp 
+                console
+                    member "default"
+                    member "administrative"
+                exit
+            exit
+            user "anas.hammami"
+                password "$2y$10$4UStCMbBpydY2jsaEcj9o./b49aloC0qZo7kgdgOXnRXz2jDFsKeW"
                 access console ftp
+                console
+                    no member "default"
+                    member "administrative"
+                exit
+            exit
+            user "vfq.mali"
+                password "$2y$10$zhkSzfGw6ET8iTy7ZDxeA.4vlfqyNbfnl942oWLydTWFGHJ6t2enu"
+                access console ftp 
+                console
+                    member "default"
+                    member "administrative"
+                exit
+            exit
+            user "deni.sartika"
+                password "$2y$10$GPYPa.WMxyxF7TW79K09g.Y0FrP.C7HtIAPVGl8EltTGdPKDn/pi."
+                access console ftp
+                console
+                    no member "default"
+                    member "administrative"
+                exit
+            exit
+            user "amogh.acharya"
+                password "$2y$10$l2fFGhaiiVE8f0E5mYe62.L5RYheC6Xn1r6UcmiiOMqw5MskjRjqa"
+                access console
                 console
                     member "default"
                     member "Operator"
                 exit
             exit
-            user "Ayathulla"
-                password "$2y$10$tMtbcpVgG.Pr3mzCCPkn2.Ip6fxA/KnVPCrg7r2frPQkqnIvOGjpC"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "BartlomiejP "
-                password "$2y$10$L1zu5ReaClu41ss6EyGqw.Hes6p9BeWijG4yAqjSxd4sEp3FGRPxy"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "BerkayAkar.NOK"
-                password "$2y$10$q179VyycTmUULvOOWQOIc.uhQaF5GVpC62pshvvvVZlnsHCcQ6GUi"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Emreoznok"
-                password "$2y$10$vMstwKacNXzRKvgxAVla..jEmgHNjI2jrce/McPBsTlIwo3eLuche"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Imiga"
-                password "$2y$10$MAPUEpD6AvQ4rjYB7X2F..5bTBREt7yUee2lGVEzhHciMu.AwpLIK"
-                access console ftp
-            exit
-            user "Jakub.Nokia"
-                password "$2y$10$pI2NKIhv2xOwwY2qDLSBE.W.1HQPAnxKJ5dIRosESxVqGGOt14Biy"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Mariusz.Bielawski"
-                password "$2y$10$UNzUeRgl1pKUllYfVwoS6.hVbA1W/5YWrQMctkccZjqjPPae1F99K"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "Maryia.PAULOVICH"
-                password "$2y$10$lo4wx44y2u5Ixt5Dy5J8..O00fQxYP7aA3mnnnoP8ZdsQCoE.4TaW"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Michal.STAFIEJ"
-                password "$2y$10$BTTQJfONy.tKKEj8HJiiE.vDkWPMi1CpbehMYOQXu2F8Aw6VlgJx."
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "MichalJakub.NOK"
-                password "$2y$10$.JVHU5tQDMtMTzbWGpGDU.uFs8GU5TmvWvqfqHsCxjXyNIJWtVQu6"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Milosz.JACOSZEK"
-                password "$2y$10$rJzEAIdb9/FZc7nzyHOY6.0Jf.IK3mCeImgbdmFFuQCiVzMqSjBci"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Mohammedel.Nok"
-                password "$2y$10$ElEMCjiS/I.lzu24eOZ.M.AuiRsBhyKbDz9Mkt019qJ7pSsmXxC6K"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Noemi.Izydorek"
-                password "$2y$10$Pj8D5Swh88bV2xBYEzZz2.zoXvc0o1UVBncd8VG9d6gisqprotnn2"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "PawelSzys.NOK"
-                password "$2y$10$CBlAC2GTCdhYWdD4mPYts.hAv/sQB6Re/VDNiZRF2k3qNonP3KO4q"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Sandi "
-                password "$2y$10$tqAE3Cve6dcH2B6Q/FTa6.Addl0N2fNvUWqpors8dImEKH8.UYuE6"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "SlawomirO"
-                password "$2y$10$y1ubw/0nIC.xYEluhIy8Y.ucdDuCiWZo.MdXtj73c19KwYGui8.Y6"
+            user "gems.bo"
+                password "$2y$10$tc0o3pEKR3en89sgtk2b2.KC9rwkw5L6pKvfF95n6787vowCmwUzm"
                 access console ftp
                 console
                     member "default"
@@ -1015,1276 +648,16 @@ echo "System Security Configuration"
                 exit
             exit
             user "VFQ.arajeeb"
-                password "$2y$10$4pNIJfWaNOhOkB3qwP7Qk.8AOES4RC3hr15.xA6JS/1/8ULcprJCC"
+                password "$2y$10$.ITViSWCVNkgClQNo9TMY.3zg.gBQZCLjjNRY1WhIy.GkN8eC/6dy"
                 access console ftp
                 console
                     member "default"
                     member "Operator"
-                exit
-            exit
-            user "aanoop"
-                password "$2y$10$f2.bB8/zSxkZ75IRiHeWY.oN0k0Aods96djlD4R6Raaam9G3NjiDS"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "abdel"
-                password "$2y$10$ojSXBTItvFGm9n8UjKSzI.n.8EhiJOIdD237YF7aItWxeFNpqix0q"
-                access console ftp
-            exit
-            user "admin"
-                password "$2y$10$Z3X.TUNZetb11cdPMnrM2.IolIsZMS3bLHI/okLD5Y2WA/BJzAsFO"
-                access console ftp
-                console
-                    member "administrative"
-                exit
-            exit
-            user "adnank"
-                password "$2y$10$bL9EnwjviFwz4Ci3.i2QE.K5JkOkcZnwNxAW6pd2BhxJ6ODqKniWy"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "ahmad"
-                password "$2y$10$w.x6s3XSWlWgY9vboIhrI.B9YavUo6C4WLuWKWWMH5hTt2o9L1lfu"
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ahmedm"
-                password "$2y$10$X9CF4nSS3QAXdhuXE4qPM./QcY97HjFrcvUakkyAngAm5NTJFLqYG"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "ajain"
-                password "$2y$10$weIpbX1pqElnetSF50wEs.7pzNlHiJqLkoJ65C4FWkSetnokdClbW"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ajay"
-                password "$2y$10$53WYFeMyQNpvY/JeWNXAk.ctMynAO7WzB0nmkqsozye6z5HnsIFXW"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ajith"
-                password "$2y$10$yn/I/ae3etGMzKupdVZGA.Djs1IPPyVwaj8n1PfXagAIuWaSu3QXC"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "akram"
-                password "$2y$10$jEJXoVZCLyvceLXl.WsWc.GX1DG94juugjR3x76L5oyO6tlsTiAu6"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "amand"
-                password "$2y$10$QluyW8vr99oVS4ZTWfXNI.s2vdJJxKWdZaUd8/i6dW/9Bcya6iIKW"
-                access console ftp
-                console
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "ameer"
-                password "$2y$10$F9h9gp.ThtTj0KIwBV/Zg.wA7Q3I1p7YpSNKC0lFv6mdXnfHSDaJW"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ameers"
-                password "$2y$10$GTtQM.VL2IBhZPNeT0NDo.oQ10CztV7xurLBVl2EPV.yw7j0UHUJC"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "amitht"
-                password "$2y$10$ENcwQGZVpxo0vJ.6giSLQ.0si4l5Isohs.aXn.tlRcjUqicPPxjX."
-                access console ftp
-                console
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "amogh.acharya"
-                password "$2y$10$xPKsvT6fPRsONUKJiqy/g.msTFubPKigS9nd5gGIjz4u4Ghsz09QS"
-                access console
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "anas.hammami"
-                password "$2y$10$HHRFSQ7EuX9gqtSE2yz9s.jKSxHzv3NhWYFHManKgHw92WF1D0ipm"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "aprajitar"
-                password "$2y$10$ksKEgwjk/CzxboIuCuurI.m6WRlFgn/3uM.zoOKrypuxda/jUvncW"
-                access console ftp
-                console
-                    no member "default"
-                    member "show"
-                exit
-            exit
-            user "arnas"
-                password "$2y$10$A3nJLcTA5/h4cJuhvrDbI.09VBvyY8J0kbXtV.HBkhe884QnWd.Ju"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "aryak"
-                password "$2y$10$MAcItbTBFQdIVj/cbVPAc.hJUQKTv6ra2Pu994wGJ5rmXEFFsa37K"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "asaadawi"
-                password "$2y$10$PB.MuQsDHLx.6.iNVf8ro.hOUzflyzSSlc89RXW9taz9tRdw87qAi"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "ashok.a"
-                password "$2y$10$ZjrVuJe3LmZCtrrVv1O92.5qvgYX/eng5RP4B4lXEq3Lhg18m3LnG"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "ashwanid"
-                password "$2y$10$T.0VgfA0.ffLjnurRIHV2.IsCt8Q640PtcAG/P8Ai7M2Yy6wDQyqu"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "ashwanik"
-                password "$2y$10$H..DMr2qVJGiH1hCpFh/E.Jcthy4ZGu3pJQf7UXEvdH9xoxGUh6q6"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "atanu"
-                password "$2y$10$l6uTE7TKOfDtv2j9cg7PE.AL50eWMiQbZY0LuCnbxDOOsi/qtPrPy"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ataray"
-                password "$2y$10$/49eON/Y/Zk8oI10BDX8Q.CZHD3Cf7JVZEtLfYDpIIWniSy3B.Fii"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ayathulla"
-                password "$2y$10$JM7gKNiHWl6M0sHIW1yKY.ecq1Z/Qc3HcEH14IN2n1rE1LyUuc73W"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "ayman"
-                password "$2y$10$wwL/38lFPGxLNccNxfr9M.DeR/NiFBr/gCltsWu9xY1iIY7yZdlbu"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "babar"
-                password "$2y$10$ruf0BBe1MDX1LnHeGHXZ2.97KPH1mMWTdqLLVFBv/pQvTR4TS1LsS"
-                access console ftp
-                console
-                    member "default"
-                    member "SOC"
-                exit
-            exit
-            user "bartu.balkis"
-                password "$2y$10$tIJoc5oaiuQhWDcoSvJvg.DMtVUbFz6e5KtkhO3H/WZdrPq5S25zC"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "bbohdano"
-                password "$2y$10$lyxmVY00Aefj7gD3n2v86.HoZK2T4Zq4Z6FqI74hQ6rPSjuhffVfq"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "benhard"
-                password "$2y$10$GJKV/iMXm07U35PpVHrBs.Dr8fDMhdIQWudgZIFVjhywhVEhH.ltK"
-                access console ftp
-                console
-                    member "default"
-                    member "SOC"
-                exit
-            exit
-            user "blaxmi"
-                password "$2y$10$gsmr638OXAQIjgBgz/KC6.6/5OzgtguWZr1PLnyjLPS3X3Dc.lszS"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "carl"
-                password "$2y$10$piDCG6GrBHn/yhqUANM8E.4i1glwZD1lhe7WA4rqUUNH7c4aXNZtm"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "chaitanya"
-                password "$2y$10$J4tB3jITliJdtGytjC4bM.SuI/cjSjN5Z6.JOun4qqmES2XHWSUUe"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "chandana"
-                password "$2y$10$Uusm76p7NSfqUPR5rD6UA.d25KMYIjoKLe1n28fI2iTk2CvUt85Je"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "chittick"
-                password "$2y$10$fpRFQvcUlnaCdvMlCC5jE.igouBO78lXvyjWnEFAthBpAHiA7F6l."
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "chrisnanda.ent"
-                password "$2y$10$Pf57RGxUf0KA/fXip6/q6.eDXQaondixVjMDHNp5qohCLTwsWjB2e"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "darutkow"
-                password "$2y$10$xHVGSgOA/lZe8UtNRIb2Q.rIiCTmVagUgZOXOBT0gxepZq6QYuabW"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "datchu"
-                password "$2y$10$zyxZetKidQFrCTLgr3WSI.kwqg6QdpwcpYZ1mSKm7qE0rqvDAlL9."
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "deepu.jena"
-                password "$2y$10$kHpMDUb8tqJEQHus.WXg2.JoNTCOOGNFx0.VzIEE1th2rYptw7ZDe"
-                access console ftp
-                console
-                    member "Monitoring"
-                    member "default"
-                    member "OLD_Image_del"
-                exit
-            exit
-            user "deni.sartika"
-                password "$2y$10$lpTdH1y/mIAUVB/hE7n92.YkUSl6ZyRqW4grjvP8H/OWENG0YMd5W"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "dikshantv"
-                password "$2y$10$beKWqA98to4bhxHlok7nU.97zEGJLb58DlxfuOn9e7BILqScSACue"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "dille"
-                password "$2y$10$GGiJaK/a9XSDD5bcL4dPw.EVjfDAsNrw4vmKLEFNgzWlftDpXjLCu"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "dilo.ayarmali"
-                password "$2y$10$M415WWt3T2qF52XFBg/0A.cx4xKqnc5sMAi.MW3zaU4e0Jkk2sDMa"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "dragos"
-                password "$2y$10$bQtZAXmwCrRTdoz8BJJio.TrDXJc4ctWtHOy1dtF4zQiBLHpkZFTS"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "dragos.serban"
-                password "$2y$10$jCzY2cSCqEK9V1wC./cSg.KvLBSR2X.Ynemkg6ILndn0ii9bmbwWC"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "eijas"
-                password "$2y$10$siaif03kMhieNyXjZUolc.ZPzjt7Ooa9BgEl45EtcflCQftqVQEXS"
-                access console ftp snmp
-                console
-                    member "Operator"
-                    member "default"
-                exit
-                snmp
-                    authentication none
-                exit
-            exit
-            user "elshandawily"
-                password "$2y$10$h2y75bghUuIHGqR9COQMM.dTS8vvDuXoGd9vjqSFZykwtBjdaUvd."
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "emrek"
-                password "$2y$10$xPpS5ugkLeRfeEmlt732A.9ixstEyHh1ocKAOUDSWiIJFYWNPpXlC"
-                access console ftp
-                console
-                    no member "default"
-                    member "TPM"
-                exit
-            exit
-            user "gems.bo"
-                password "$2y$10$YBV1cY4PnPmbRHyT5vSMM.zChdQy3lf2vdG/.ZqF3Z8RBr/oTOW2S"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "gnocipfo"
-                password "$2y$10$QgudhT1Z71LK6I77kCYpQ.ImyF/MqYaTXWAhWtviD6F6347iB4ZVu"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "gomaa"
-                password "$2y$10$lpGQcDM264F/a7HzWb3H6.r21rRbnDVjL45.xr1m2tvg6VdVljXje"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "hakim.nokia"
-                password "$2y$10$b/k.zBsRhzMnlIWdhi6LY.2fW37AZUUGXjhOU2ZhMhhD78MNlihOy"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "hamed"
-                password "$2y$10$eT3n3IAxapi14yjNuQXg..sqi417rdrLHiqIkcnDFhQuIrooXSDiK"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "hhanafy"
-                password "$2y$10$.bTmFnfegmyUQEdVNVVqA.M79wf/ra/4X6UVecAysAuZydehBgKaK"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "hwasilew"
-                password "$2y$10$fdhZTU9T3pR7/AsNMtyys.IbP5pc7DGwUl4Pcx6R2FfzubXZFxS7W"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "iakhtar"
-                password "$2y$10$Xu.fyYpOiI3mJpRBeIS8Y.P.bkXOcIgNsxfdMgdPxbt6S1juRUFvq"
-                access console
-                console
-                    new-password-at-login
-                    no member "default"
-                    member "show"
-                exit
-            exit
-            user "irfana"
-                password "$2y$10$IITwJ129DhCMMvBIh6Zic.DN0UyZVq864eyMgHtlcwnqeUQ9vn/hm"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "ishan.sood"
-                password "$2y$10$gEd8r6yyxepkcLOnLAWqY.n0sTWjH7goeacaHJjikvYtLkCqY/7Z2"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "jaka"
-                password "$2y$10$2m42kYLc6MSa4/zT6mdzk.bLJNaMNupeLLjffxp2XhAKbxX43qJr2"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "jaka.ets"
-                password "$2y$10$SltSmzEIzmwbZzTUCM.zM.plBhhVqRhA3rxg3reQ8JDwvriXDLHzW"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "jdorsz"
-                password "$2y$10$h31DCcFcKkbaC2W7tLRPE.iyiJ2qMEH5jyKJlX26HND85xd.ZL5K6"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "kallawym"
-                password "$2y$10$twBUQ/d.fr8R5vjaAxMjM.ubr0ouHbwFYgUpxM1xhQd9ER11cYR4i"
-                access console ftp
-            exit
-            user "kannann"
-                password "$2y$10$MCatS/tP91RSjuF3.idiE.9SfGLOLNJ5HktxK3xaGjHELKdDRqUv2"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "karinau"
-                password "$2y$10$SV3tS6Wh0r6cBBncLsfDY.Kru50Uy7JBwTLHHiY3xcu8V9kAN7QBm"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "kashif"
-                password "$2y$10$9SABguABnkhrjVsN1pF9o.qCRfjvC9pwpw0TlM5b0v.PJNdofGl7G"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "komals"
-                password "$2y$10$bFcgMFznpSvZ7XsjYSpWo.3M1Pgf8Imgl7rVfTJL09pUhYzgeGq4G"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "labid"
-                password "$2y$10$1F57UtdLmAT.w5.ZT00ls.fwMJuak5ZbTXDihLgGdmwlGJ3iqSQnW"
-                access console
-                console
-                    new-password-at-login
-                    member "SOC"
-                    member "default"
-                exit
-            exit
-            user "lmiga"
-                password "$2y$10$a1yvwJl2TWXWWcFAQnDmo.G6uoAIeHuUof0rE6wifW/KnE9ZVwoIK"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "logger"
-                password "$2y$10$3glIzz74h25r1SJ6c5AJA.wglV373pyWQCHrTyV0RHQ.ckYurd4/y"
-                access ftp
-                console
-                    cannot-change-password
-                exit
-            exit
-            user "lpraveen"
-                password "$2y$10$VI5sQaBVXJv8/ZQDhquj6.OxHFz5pj2gCgWrjgjDWC2T2apWumUHm"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "lwitkows"
-                password "$2y$10$m9Z8qsXGfYD/ixrleMM/E.r3J.ssp1LH1W0wLBX9fdPQD1RAjrbYG"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "madel1"
-                password "$2y$10$IQ/1Bjxo5VSv9G/UtNObE.s0hehZzpkMlBkM/0.OKJbgcM0FJAEs2"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "mahendra.dixit"
-                password "$2y$10$LOn2bmu4TQV3FzLj6v3mw.Qyw3d7BKhkJbuPPJgD5eqel8/Mn97oa"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "maheshk"
-                password "$2y$10$BD4wlDQ4.hv3qBSU5EPGE.hFknAzvZKLa0xf2FaOxcM1Purrnc1Yu"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "mahmed"
-                password "$2y$10$0GcEipQoVOpoi8kzKXxWM.30vtshzeIGylE2uYJyWIzZKyBGOStTK"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "manojk"
-                password "$2y$10$TFm.cNiqL2b6XtOQjr5c6.Glg8rb8FBDDoK9nIpggmOvoHL7g/n12"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "mczerwin"
-                password "$2y$10$GQBk3Wmk92V8HBXrO7GoY.onFwdZescSeFnOJQrJ/8hWLSyJk7itC"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "mdevi"
-                password "$2y$10$P5UAwDy8VjXVXLornDReA.i..tA2XqjaIqugmSgO3dq9ia5w59G.u"
-                access console
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "medjarab"
-                password "$2y$10$v4MpUQqgX1SnDUmkKvhWg.adQHvetwVjyh0xHC6FTcmtK12w8iFiy"
-                access console ftp
-                console
-                    member "default"
-                    member "show"
-                exit
-            exit
-            user "medjerab.mohamed"
-                password "$2y$10$bwhhFgxDC6WuB632qf6jE.OQ54KjxAR9fSxKvo8xt1IUMZY1xbxYW"
-                access console ftp
-                console
-                    member "default"
-                    member "SOC"
-                exit
-            exit
-            user "mercy"
-                password "$2y$10$aDS3swcRKPchm04hKqPvc.UI5IgMoMuGpsyQKnvfBh7YN45Zrdn/y"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "mjaber"
-                password "$2y$10$T93bjGkxhmcnbWRoF928M.glv3GEG2Z9ARLTffaNPci/.YMVXwwP2"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "mkallawy"
-                password "$2y$10$Aii/oTIZE1Be49IcMgQtk.oKwfnq4w6RPDIw0C0WeksAAm4f9HaKC"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "mnadeem"
-                password "$2y$10$O1VfE7slyW4ai4utcGWnw.7XlAu8Z1wEZIDcOpmqMnTqiANDTSR/m"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "mnowako"
-                password "$2y$10$WQJWm1NWxV6UXcxOky24c.O0vCOr.MXrvEQFOl2EbzJJuLzIbibpC"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "mohamedn"
-                password "$2y$10$q2.qk5Rt301yrfY4KUg0E.6Ux8eQ8CUq2KMJidO4TTZyn.T6sMnrS"
-                access console ftp
-                console
-                    new-password-at-login
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "monikandan"
-                password "$2y$10$m3rxk8G3.LPhLEpn.U4lk.utlhFB70/L8XsdFWFP2I9GEIzowjzki"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "muchlisi"
-                password "$2y$10$l.f25Q9K9YqaSxbDdUhGA.OTU82xzUD.ZhE4dyE8PkJmw5oUlwQAq"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "muhammad.ehsan"
-                password "$2y$10$XNFZsEpQZv82.wc45OUsI.HDPoZqcbLi2JtOgqJVLPXjdNjY/pHey"
-                access console ftp
-                console
-                    member "Operator"
-                    member "default"
-                exit
-            exit
-            user "muhammad.khalid"
-                password "$2y$10$XrS8Jdkp8WF1T9GMNYHQI.mj2t9YkPmAexy0Wp2j7vKjVNrOO2Q5C"
-                access console ftp
-                console
-                    new-password-at-login
-                    no member "default"
-                    member "show"
-                exit
-            exit
-            user "muhammad.khan1"
-                password "$2y$10$hlcspdckFx9rmtI0O2xUI.xkTfdQNe32JrRCh8MsBg0mNYiXoD4XS"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "muksharm"
-                password "$2y$10$/nI4tqJ2eUhmEWQFtVJdU.1AXyWjeX6yBc/IX1nfC3jc7p/khHjSq"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "nader"
-                password "$2y$10$X5syQIaxlG4n7CncWXj8A.pj1I6jhbg4yPQWk0fiZoI/mfUh7MecO"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "naser"
-                password "$2y$10$wWspJ7GdCyNA4qaJ.e/Hw.5NQjPZyKRGL.XOhmhfMSvNdls7nJKWG"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "nebackup"
-                password "$2y$10$bckph6X18pbap7PKE.pts./NheinF2ws3vMfZ4hhhcF87lyIOh0jC"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "nokia-project"
-                password "$2y$10$RZm6h4mUDs6gxeOQWAheY./31OYyZhAl/Mc7bAxYx671dR8MFYclO"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "nokiaproject"
-                password "$2y$10$ujlZE/Dt6PAq1867wGXek.u5kXiYgQn1nYdg0S.sKX3R2IJWeWAj6"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "nokiatac"
-                password "$2y$10$al58LDgeGNSmtuIB/DigA.atlNmBmQfr3W.Vvy9A4.ZkiQ46taa4a"
-                access console ftp
-                console
-                    member "default"
-                    member "show"
-                exit
-            exit
-            user "ocesmeci"
-                password "$2y$10$L.K46duvivkgr2FjpzJXs.Nwl51wygQqiiCqf0bO1Zh.xXAb5opYG"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "onursari"
-                password "$2y$10$29NvfxIGwzQ7FOttP6hwU.12PLpYDAkxTB1RATlmGwJVsNPSb7Jx2"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ozges"
-                password "$2y$10$UPlpYcDjuyAnDn0iIAeEU.zlcvwZVtM6Gmh8B..CriwM.fP1lMIQu"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "patrick"
-                password "$2y$10$mvQpDaqJDjBUijZUkG6oM.ZgvZdAJ.sN.qSYBDVYj8MD/d9H.0dNi"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "pawelc"
-                password "$2y$10$G2c2zWaagtHl7UYo8dNXo.sGMLcdJwce/fBnldzqUlYCLOvoVEBI6"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "phaldar"
-                password "$2y$10$LJEa8xZoEpQwjd3Alu3Qg.h93WlTI7GIZrbqvoN.Gc32t9OR4c6US"
-                access console
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "philippeg"
-                password "$2y$10$/t1xey3UapTMNVjLYSlBU.Kkkw0My6JZKfkmTOC2dvHrj8C0FcKH6"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "priyankac"
-                password "$2y$10$owWDqXndr1a5tnhsW96UM.jGcmzqxgoktIAEc7vIWys1Xegl5PhSe"
-                access console ftp
-                console
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "psingh"
-                password "$2y$10$d3bQvanqqIlDmIwuZg8gg.DtBAZs0p649xlkxlyri7Jm622ex7Rea"
-                access console
-                console
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "rahul"
-                password "$2y$10$WmBL6HlhvqNPSQFel1tK6.xZJWYU2V0dzL1H0wEZispXvuMLNtTUq"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "rais.majada"
-                password "$2y$10$GiIXI8BJqDi8.eRqV9QXY.hZ38bXrq7FSNzVvqE6sar/lDz9jawfW"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "rashmir"
-                password "$2y$10$ChpmLQ6/RbcgtXTMCgQqI.lYpF4QkvLLXTVdM5h1Lared9GXB1bAC"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "rbaluni"
-                password "$2y$10$9E1p3AG0gl.4FV0EyC.Fw.J/QgMGVUP5kPNwcAGZirQGhW61j6IjK"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "rishi.ksingh"
-                password "$2y$10$bJIfI3yEkju5gl.PuVk9A.Cw4dGBuJ2PVaKFBmfb1vBH.wYAKAoee"
-                access console ftp
-                console
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "rohit.mishra.huawei"
-                password "$2y$10$cqOviqjGUSXCKIxE9gC.k.1yNCeUgSWKNMYmJwpj384HdDBOr5R.e"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "rohit.sharma"
-                password "$2y$10$0JirAy.YP9KoYzgn4noOM.6GbsaEP43jxdE.ebfMioTmbDTnWaQXe"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "rohitb"
-                password "$2y$10$Aos9ejHHNmIqhGg0l36Pw.JmQmQdemJCx1Txlo523u25dSpVyt4gW"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "rojowt"
-                password "$2y$10$fKI7fwJhb83j1vdd7.S0E.SXW6GZhVB.ctznRvADKxyPL56Fm69De"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "saadawya"
-                password "$2y$10$tvJtmL6.p4ZKHQUz6Memc.n28mBgDsWiT8pCpk2b.HDkzLWoOkep."
-                access console ftp
-                console
-                    new-password-at-login
-                    member "VF-NSU"
-                    member "default"
-                exit
-            exit
-            user "sachin.ip"
-                password "$2y$10$lBbgPQ8Mx2v3cR353Pn0E.SbwjzVJyewwr8UwpGEjcBzyk0t1mwjO"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "saik"
-                password "$2y$10$rQvDaPBNXktFuRYYH19MA.zOtwdp9AOAkV5xc1wVnXKG/JkA79igy"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "sajeert"
-                password "$2y$10$/WnqbaI8G3/5y2/1Kd8.A.y7vwAnDvwgCCW.SqUrcfuRKfqLvPjnO"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "samcli"
-                password "$2y$10$N5URo5oH0xQ7HBdxK1ms2.kgWEGE5xp0c96vhCEQ.bltHKykRIJe6"
-                access console
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "sandeep.lamba"
-                password "$2y$10$taxaklLzfBqfaSdJPH4qI.2XsD8/OwgXMHIBSq2WLuWaDG4RYUjea"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "sandi"
-                password "$2y$10$G.P4CGffeHdluIV1nV2hw.thWTKXY1D5RdzknjcsGXyS5rpSiVgWS"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "santosh.nokia"
-                password "$2y$10$wyJ59ILMq/KMxNmZfvMyA.X4vAHx8lbl02GKj54T9lTk.gtpws5zm"
-                access console
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "scp_user"
-                password "$2y$10$GyUElJbJh7YVq14mseanM.rp2K2jb/EyoVwvREmQofoz19c3/p//K"
-                access console ftp
-                console
-                    cannot-change-password
-                exit
-            exit
-            user "senem.akpunar"
-                password "$2y$10$X4FglvgZyL.c6brnBmF3o.kgHSRxUQGA.kVEm9U2161Hd8W42.2Oi"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "sgopal"
-                password "$2y$10$g2AZB5wvieCu7fIoGMPu6.WmS5.gZmbbEYdxiG1qZXo6ZgFo09Q46"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "shamidb"
-                password "$2y$10$4QouKWgJ0hN/ZKxXiLH/M.PSDiZqKTn/p87HrPZo9cZ1PpaMjBzqW"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "sherif"
-                password "$2y$10$6.x1E4FJWq4M6ZpBdcjMY.457T81DbFE62mtc0PCuHHaSQ7tOesV6"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "sherifg"
-                password "$2y$10$ejwFUeWESIqXoILC.HPrw.uky0YjrI.Nl27YVk/qSbWP9P4ofIJoq"
-                access console ftp
-                console
-                    new-password-at-login
-                    no member "default"
-                    member "show"
-                exit
-            exit
-            user "sivak"
-                password "$2y$10$Rr7KRcoN9iiT97olR5da..yhTc3vSodeGqMpomhmH.Dn3Zdz/jfnO"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "snmpv3user"
-                password "$2y$10$cWGykUsuM7/2cMzOg8VRk.PlRtYfu8PUs.TAFg5LtaNdOVDJMp00a"
-                access snmp
-                snmp
-                    authentication hash2 hmac-sha1-96 tY6e30qGjaS99vSGKARRWihDaOKFGo+n2+QIxQviefIFbM+k privacy cbc-des yfo1jywYbmtc8v7rkqrSrXKLM9xX5LxhMdz8uOybbcw=
-                    group "nmsPriv"
-                exit
-            exit
-            user "srinivasalu"
-                password "$2y$10$fc/dMYM0uVpceMiWIbc86.JOzzj8MhAK/iB5URbi9/dHPgc5jxMsW"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ssoyasan"
-                password "$2y$10$dr.hkStubY5NDcZByWmVw.dWiE/Boz2q2RkiV7422mwktxIFJuvBu"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "subheep"
-                password "$2y$10$OMkOondtIqRkw/s6nXtVM.GIIFapMpqNhI.Oj736L87nDrT5vY6oK"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "sudhanshu"
-                password "$2y$10$YZ5yR4ZcE2qsoG6o/ZVXQ.vvkQ3LKkM/lz5jESysbcs4sDL2Vnwzq"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "sujith"
-                password "$2y$10$.gCuz7jJgsgZQghQJA7ck.TbGr9dRpu/lijX7Zz/g5Ln.gUYc1Joe"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "svenkat"
-                password "$2y$10$xjSPCU4rVOnNbSiMDFeY6.0.EMB1l./RsH3XhxVhWsRGpeg1gYBd."
-                access console
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "swghosh"
-                password "$2y$10$IrEpEh9BpTTiI/5m10GEs.6FmAGH/KkZIY24S2W9bG68H5gGOa.3C"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "syeda"
-                password "$2y$10$7xfLGrQbiirOuAQx7XaSk.WHA.puw1fgxOK7T7M8CpUGO3/8klZOG"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "tarekc"
-                password "$2y$10$Loa0h0q.K6xUa7obAkFJE.0iRLJpRqBftdDeeMFxiqyD5AnjWCEFu"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "tcoban"
-                password "$2y$10$HR9WVQ3Vc2/kvnwlD4HJk.cXHAThp1L7LcQjm2IMPz.1f0r1UZa56"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "test"
-                password "$2y$10$eIeDtQmlauMQH.Vnot5dU.i3Vr3mkcN7qWDLjI3G6EMRjLsKoCJdi"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "vfq.mali"
-                password "$2y$10$j9d1xmi6JajRCmybR5XGI.TId./PXYvtCJFmMEZyvPerLp62mkdGS"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "vfqsoc"
-                password "$2y$10$gBN6VSLtg5oZVvg5kG1I2.71uuNvsitKqlKtXJ/iwMaGotVRFNjZ6"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "vijay.singh"
-                password "$2y$10$A4Zf8ymra7A5nJ6rx9EGU.l/bP99LfgTj/ymqjcz57KLx7MWtQmaC"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "vinodk"
-                password "$2y$10$G712VrbUEuDqdhCchWmP2.T0foQ7CT2VGnTGsoy8AZ08HghWk79uy"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "vishaldeep"
-                password "$2y$10$BzC250Jxr6toYGecdz35o.AOUWcpDSQJokujF1bcYnzFwhaS6ixzW"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "vivekk"
-                password "$2y$10$wyA.4IpBIk00hqgCIXECc.X9i1Ia41vqmPfv4/lkgdr3hXjRhMYiu"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "vkumar"
-                password "$2y$10$6zn/hhdJGC8P3vyeJC6KY.vSjB47bMAmPfpVvFM1cIDYu9DshZLUu"
-                access console
-                console
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "wslomins"
-                password "$2y$10$d.y/52/4KZ93hW4eVF2g2.udnTtyAGyUqC.AbkdTdQq8gLrHMV3gq"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "yousef"
-                password "$2y$10$rWyxoqxAWrqIe.vR.iWKY.MLdWdoHmBBQXAFWEeSDXSWUoXwm4zte"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
                 exit
             exit
             snmp
                 access group "nmsPriv" security-model usm security-level privacy read "iso" write "iso" notify "iso"
                 access group "nmsPriv" security-model usm security-level privacy context "vprn" prefix read "vprn-view" write "vprn-view" notify "iso"
-                community "toTlp9V2fM4Xlk/6J5lSuWaBLCnT" hash2 r version v2c
-                community "cV3ISTw2V5pbEWmVEA9jXgB/1EERXQA=" hash2 rwa version v2c
-            exit
-            ssh
-                preserve-key
-            exit
-            dist-cpu-protection
-                policy "_default-access-policy" create
-                exit
-                policy "_default-network-policy" create
-                exit
             exit
         exit
     exit
@@ -3979,30 +2352,12 @@ echo "System Configuration"
 #--------------------------------------------------
 echo "System Security Configuration"
 #--------------------------------------------------
-    system
+   system
         security
             telnet-server
             ftp-server
             profile "SOC"
                 default-action deny-all
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
                 entry 8
                     match "configure router interface"
                     action permit
@@ -4106,24 +2461,6 @@ echo "System Security Configuration"
                 exit
             exit
             profile "TPM"
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
                 entry 10
                     match "exec"
                     action permit
@@ -4187,24 +2524,6 @@ echo "System Security Configuration"
             exit
             profile "show"
                 default-action deny-all
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
                 entry 1
                     match "show"
                     action permit
@@ -4228,24 +2547,6 @@ echo "System Security Configuration"
             exit
             profile "ARCH2"
                 default-action deny-all
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
                 entry 1
                     match "oam"
                     action permit
@@ -4291,7 +2592,7 @@ echo "System Security Configuration"
                     action permit
                 exit
                 entry 12
-                    match "configure service vprn <55000>"
+                    match "configure service vprn"
                     action permit
                 exit
                 entry 13
@@ -4304,24 +2605,6 @@ echo "System Security Configuration"
                 exit
             exit
             profile "VF-NSU"
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
                 entry 6
                     match "monitor"
                     action permit
@@ -4385,24 +2668,6 @@ echo "System Security Configuration"
             exit
             profile "tier-1"
                 default-action deny-all
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
                 entry 10
                     match "admin tech-support"
                     action permit
@@ -4416,102 +2681,8 @@ echo "System Security Configuration"
                     action permit
                 exit
             exit
-            profile "default"
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
-                entry 10
-                    match "exec"
-                    action permit
-                exit
-                entry 20
-                    match "exit"
-                    action permit
-                exit
-                entry 30
-                    match "help"
-                    action permit
-                exit
-                entry 40
-                    match "logout"
-                    action permit
-                exit
-                entry 50
-                    match "password"
-                    action permit
-                exit
-                entry 60
-                    match "show config"
-                    action deny
-                exit
-                entry 65
-                    match "show li"
-                    action deny
-                exit
-                entry 66
-                    match "clear li"
-                    action deny
-                exit
-                entry 67
-                    match "tools dump li"
-                    action deny
-                exit
-                entry 70
-                    match "show"
-                    action permit
-                exit
-                entry 75
-                    match "state"
-                    action permit
-                exit
-                entry 80
-                    match "enable-admin"
-                    action permit
-                exit
-                entry 90
-                    match "enable"
-                    action permit
-                exit
-                entry 100
-                    match "configure li"
-                    action deny
-                exit
-            exit
             profile "Operator"
                 default-action permit-all
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
                 entry 10
                     match "configure system security"
                     action deny
@@ -4530,50 +2701,9 @@ echo "System Security Configuration"
                 exit
             exit
             profile "password"
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
             exit
             profile "Monitoring"
                 default-action deny-all
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
-                entry 4
-                    description "Monitor service"
-                    match "monitor service id"
-                    action permit
-                exit
                 entry 10
                     match "exec"
                     action permit
@@ -4667,90 +2797,16 @@ echo "System Security Configuration"
                     action permit
                 exit
             exit
-            profile "OLD_Image_del"
-                default-action deny-all
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        validate
-                    exit
-                exit
+            profile "NokiaProject"
+                default-action permit-all
                 entry 1
-                    match "file"
-                    action permit
+                    description "reboot"
+                    match "admin reboot"
+                    action deny
                 exit
-            exit
-            profile "administrative"
-                netconf
-                    base-op-authorization
-                        action
-                        cancel-commit
-                        close-session
-                        commit
-                        copy-config
-                        create-subscription
-                        delete-config
-                        discard-changes
-                        edit-config
-                        get
-                        get-config
-                        get-data
-                        get-schema
-                        kill-session
-                        lock
-                        validate
-                    exit
-                exit
-                entry 10
+                entry 2
+                    description "securty"
                     match "configure system security"
-                    action permit
-                exit
-                entry 20
-                    match "show system security"
-                    action permit
-                exit
-                entry 30
-                    match "tools perform security"
-                    action permit
-                exit
-                entry 40
-                    match "tools dump security"
-                    action permit
-                exit
-                entry 42
-                    match "tools dump system security"
-                    action permit
-                exit
-                entry 50
-                    match "admin system security"
-                    action permit
-                exit
-                entry 100
-                    match "configure li"
-                    action deny
-                exit
-                entry 110
-                    match "show li"
-                    action deny
-                exit
-                entry 111
-                    match "clear li"
-                    action deny
-                exit
-                entry 112
-                    match "tools dump li"
                     action deny
                 exit
             exit
@@ -4761,8 +2817,8 @@ echo "System Security Configuration"
                 exit
             exit
             user "AdminSAM5620"
-                password "$2y$10$TU7wk8PQqmzGlq1JYX7aU.2yeF5F9DpmMGNg4MWEgY8WQFMWNNEs."
-                access console ftp snmp
+                password "$2y$10$QGGVBkdQhc.V9ceWwfl6..ynxeadOnjPSgFRiAXwGQa3pLGZsN7PK"
+                access console ftp snmp 
                 console
                     member "default"
                     member "administrative"
@@ -4771,156 +2827,106 @@ echo "System Security Configuration"
                     authentication none
                 exit
             exit
-            user "Agata.ANDERSON"
-                password "$2y$10$BJsYZ4x6I80AVWgVX2pEs.QSU4hgyYcQ5L0z9OIQ6h/nyFeY47KYG"
+            user "admin"
+                password "$2y$10$lnMYTNLh3YK1G5e6bCzlg.hcCfnMQdu9HShe6CNxbUW3Li6Eazq4K"
+                access console ftp 
+                console
+                    member "administrative"
+                exit
+            exit
+            user "ameers"
+                password "$2y$10$NMjfPL4Kauf1seZOSPcKc./9vc3JrMdoSF0HJlh8GS.kAmTCJHeVO"
+                access console ftp snmp 
+                console
+                    member "default"
+                    member "NokiaProject"
+                exit
+            exit
+            user "chrisnanda.ent"
+                password "$2y$10$/YtllkeV45TIzAFlkw0Ks.ZOxXjkhrbELh.ZSgivB0oan4lQMheje"
                 access console ftp
                 console
                     member "default"
-                    member "Monitoring"
-                exit
+                    member "administrative"
+					exit
             exit
-            user "Anindito.ent"
-                password "$2y$10$EDeSfBHhvRYkKm9g3a072.bgKHJOiyVR/EGC7XaYDiKDdOKkcDqVa"
-                access console ftp
+            user "gnocipfo"
+                password "$2y$10$R7ZyDzV9J57tOW/Z3AX9..y0t/PdvBNWEo26.VcWDy77haJOjJHi6"
+                access console ftp snmp 
                 console
                     member "default"
-                    member "ARCH2"
+                    member "show"
+                exit
+                snmp
+                    authentication none
                 exit
             exit
-            user "ArturWen.NOK"
-                password "$2y$10$gqSyaxA8merh4K4Wgonc..Z3Im4KLArPwS4MLPaZCyIWnQL20utZm"
+            user "samcli"
+                password "$2y$10$N5URo5oH0xQ7HBdxK1ms2.kgWEGE5xp0c96vhCEQ.bltHKykRIJe6"
+                access console 
+                console
+                    no member "default"
+                    member "administrative"
+                exit
+            exit
+            user "snmpv3user"
+                password "$2y$10$cWGykUsuM7/2cMzOg8VRk.PlRtYfu8PUs.TAFg5LtaNdOVDJMp00a"
+                access snmp 
+                snmp
+                    authentication hmac-sha1-96 344277c1f4fd287c29f2783ee03567513a99575a privacy cbc-des 344277c1f4fd287c29f2783ee0356751
+                    group "nmsPriv"
+                exit
+            exit
+            user "muhammad.ehsan"
+                password "$2y$10$Sja5NHyihHEh1hvbMhHdo.ftFhjP1l7cXXMtVOB.dmlyP4EHcRscC"
                 access console ftp
                 console
-                    member "default"
-                    member "Monitoring"
+                    member "Operator"
+                    member "administrative"
                 exit
             exit
-            user "AsmaA"
-                password "$2y$10$M6Ka4IcLI.2wSds3/m9Cs.H6.LWSdIDu3zYmT/CQEFGI/g4RmleUG"
+            user "rohitb"
+                password "$2y$10$eyQrBfoT8Gi4XEd1EJexM.EHxOeBBzMlfBf/gVNZ3Ui2DqlocvXjS"
+                access console ftp 
+                console
+                    member "default"
+                    member "administrative"
+                exit
+            exit
+            user "anas.hammami"
+                password "$2y$10$4UStCMbBpydY2jsaEcj9o./b49aloC0qZo7kgdgOXnRXz2jDFsKeW"
                 access console ftp
+                console
+                    no member "default"
+                    member "administrative"
+                exit
+            exit
+            user "vfq.mali"
+                password "$2y$10$zhkSzfGw6ET8iTy7ZDxeA.4vlfqyNbfnl942oWLydTWFGHJ6t2enu"
+                access console ftp 
+                console
+                    member "default"
+                    member "administrative"
+                exit
+            exit
+            user "deni.sartika"
+                password "$2y$10$GPYPa.WMxyxF7TW79K09g.Y0FrP.C7HtIAPVGl8EltTGdPKDn/pi."
+                access console ftp
+                console
+                    no member "default"
+                    member "administrative"
+                exit
+            exit
+            user "amogh.acharya"
+                password "$2y$10$l2fFGhaiiVE8f0E5mYe62.L5RYheC6Xn1r6UcmiiOMqw5MskjRjqa"
+                access console
                 console
                     member "default"
                     member "Operator"
                 exit
             exit
-            user "Ayathulla"
-                password "$2y$10$tMtbcpVgG.Pr3mzCCPkn2.Ip6fxA/KnVPCrg7r2frPQkqnIvOGjpC"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "BartlomiejP "
-                password "$2y$10$L1zu5ReaClu41ss6EyGqw.Hes6p9BeWijG4yAqjSxd4sEp3FGRPxy"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "BerkayAkar.NOK"
-                password "$2y$10$q179VyycTmUULvOOWQOIc.uhQaF5GVpC62pshvvvVZlnsHCcQ6GUi"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Emreoznok"
-                password "$2y$10$vMstwKacNXzRKvgxAVla..jEmgHNjI2jrce/McPBsTlIwo3eLuche"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Imiga"
-                password "$2y$10$MAPUEpD6AvQ4rjYB7X2F..5bTBREt7yUee2lGVEzhHciMu.AwpLIK"
-                access console ftp
-            exit
-            user "Jakub.Nokia"
-                password "$2y$10$pI2NKIhv2xOwwY2qDLSBE.W.1HQPAnxKJ5dIRosESxVqGGOt14Biy"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Mariusz.Bielawski"
-                password "$2y$10$UNzUeRgl1pKUllYfVwoS6.hVbA1W/5YWrQMctkccZjqjPPae1F99K"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "Maryia.PAULOVICH"
-                password "$2y$10$lo4wx44y2u5Ixt5Dy5J8..O00fQxYP7aA3mnnnoP8ZdsQCoE.4TaW"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Michal.STAFIEJ"
-                password "$2y$10$BTTQJfONy.tKKEj8HJiiE.vDkWPMi1CpbehMYOQXu2F8Aw6VlgJx."
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "MichalJakub.NOK"
-                password "$2y$10$.JVHU5tQDMtMTzbWGpGDU.uFs8GU5TmvWvqfqHsCxjXyNIJWtVQu6"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Milosz.JACOSZEK"
-                password "$2y$10$rJzEAIdb9/FZc7nzyHOY6.0Jf.IK3mCeImgbdmFFuQCiVzMqSjBci"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Mohammedel.Nok"
-                password "$2y$10$ElEMCjiS/I.lzu24eOZ.M.AuiRsBhyKbDz9Mkt019qJ7pSsmXxC6K"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Noemi.Izydorek"
-                password "$2y$10$Pj8D5Swh88bV2xBYEzZz2.zoXvc0o1UVBncd8VG9d6gisqprotnn2"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "PawelSzys.NOK"
-                password "$2y$10$CBlAC2GTCdhYWdD4mPYts.hAv/sQB6Re/VDNiZRF2k3qNonP3KO4q"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Sandi "
-                password "$2y$10$tqAE3Cve6dcH2B6Q/FTa6.Addl0N2fNvUWqpors8dImEKH8.UYuE6"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "SlawomirO"
-                password "$2y$10$y1ubw/0nIC.xYEluhIy8Y.ucdDuCiWZo.MdXtj73c19KwYGui8.Y6"
+            user "gems.bo"
+                password "$2y$10$tc0o3pEKR3en89sgtk2b2.KC9rwkw5L6pKvfF95n6787vowCmwUzm"
                 access console ftp
                 console
                     member "default"
@@ -4928,1276 +2934,16 @@ echo "System Security Configuration"
                 exit
             exit
             user "VFQ.arajeeb"
-                password "$2y$10$4pNIJfWaNOhOkB3qwP7Qk.8AOES4RC3hr15.xA6JS/1/8ULcprJCC"
+                password "$2y$10$.ITViSWCVNkgClQNo9TMY.3zg.gBQZCLjjNRY1WhIy.GkN8eC/6dy"
                 access console ftp
                 console
                     member "default"
                     member "Operator"
-                exit
-            exit
-            user "aanoop"
-                password "$2y$10$f2.bB8/zSxkZ75IRiHeWY.oN0k0Aods96djlD4R6Raaam9G3NjiDS"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "abdel"
-                password "$2y$10$ojSXBTItvFGm9n8UjKSzI.n.8EhiJOIdD237YF7aItWxeFNpqix0q"
-                access console ftp
-            exit
-            user "admin"
-                password "$2y$10$Z3X.TUNZetb11cdPMnrM2.IolIsZMS3bLHI/okLD5Y2WA/BJzAsFO"
-                access console ftp
-                console
-                    member "administrative"
-                exit
-            exit
-            user "adnank"
-                password "$2y$10$bL9EnwjviFwz4Ci3.i2QE.K5JkOkcZnwNxAW6pd2BhxJ6ODqKniWy"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "ahmad"
-                password "$2y$10$w.x6s3XSWlWgY9vboIhrI.B9YavUo6C4WLuWKWWMH5hTt2o9L1lfu"
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ahmedm"
-                password "$2y$10$X9CF4nSS3QAXdhuXE4qPM./QcY97HjFrcvUakkyAngAm5NTJFLqYG"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "ajain"
-                password "$2y$10$weIpbX1pqElnetSF50wEs.7pzNlHiJqLkoJ65C4FWkSetnokdClbW"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ajay"
-                password "$2y$10$53WYFeMyQNpvY/JeWNXAk.ctMynAO7WzB0nmkqsozye6z5HnsIFXW"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ajith"
-                password "$2y$10$yn/I/ae3etGMzKupdVZGA.Djs1IPPyVwaj8n1PfXagAIuWaSu3QXC"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "akram"
-                password "$2y$10$jEJXoVZCLyvceLXl.WsWc.GX1DG94juugjR3x76L5oyO6tlsTiAu6"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "amand"
-                password "$2y$10$QluyW8vr99oVS4ZTWfXNI.s2vdJJxKWdZaUd8/i6dW/9Bcya6iIKW"
-                access console ftp
-                console
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "ameer"
-                password "$2y$10$F9h9gp.ThtTj0KIwBV/Zg.wA7Q3I1p7YpSNKC0lFv6mdXnfHSDaJW"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ameers"
-                password "$2y$10$GTtQM.VL2IBhZPNeT0NDo.oQ10CztV7xurLBVl2EPV.yw7j0UHUJC"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "amitht"
-                password "$2y$10$ENcwQGZVpxo0vJ.6giSLQ.0si4l5Isohs.aXn.tlRcjUqicPPxjX."
-                access console ftp
-                console
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "amogh.acharya"
-                password "$2y$10$xPKsvT6fPRsONUKJiqy/g.msTFubPKigS9nd5gGIjz4u4Ghsz09QS"
-                access console
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "anas.hammami"
-                password "$2y$10$HHRFSQ7EuX9gqtSE2yz9s.jKSxHzv3NhWYFHManKgHw92WF1D0ipm"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "aprajitar"
-                password "$2y$10$ksKEgwjk/CzxboIuCuurI.m6WRlFgn/3uM.zoOKrypuxda/jUvncW"
-                access console ftp
-                console
-                    no member "default"
-                    member "show"
-                exit
-            exit
-            user "arnas"
-                password "$2y$10$A3nJLcTA5/h4cJuhvrDbI.09VBvyY8J0kbXtV.HBkhe884QnWd.Ju"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "aryak"
-                password "$2y$10$MAcItbTBFQdIVj/cbVPAc.hJUQKTv6ra2Pu994wGJ5rmXEFFsa37K"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "asaadawi"
-                password "$2y$10$PB.MuQsDHLx.6.iNVf8ro.hOUzflyzSSlc89RXW9taz9tRdw87qAi"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "ashok.a"
-                password "$2y$10$ZjrVuJe3LmZCtrrVv1O92.5qvgYX/eng5RP4B4lXEq3Lhg18m3LnG"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "ashwanid"
-                password "$2y$10$T.0VgfA0.ffLjnurRIHV2.IsCt8Q640PtcAG/P8Ai7M2Yy6wDQyqu"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "ashwanik"
-                password "$2y$10$H..DMr2qVJGiH1hCpFh/E.Jcthy4ZGu3pJQf7UXEvdH9xoxGUh6q6"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "atanu"
-                password "$2y$10$l6uTE7TKOfDtv2j9cg7PE.AL50eWMiQbZY0LuCnbxDOOsi/qtPrPy"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ataray"
-                password "$2y$10$/49eON/Y/Zk8oI10BDX8Q.CZHD3Cf7JVZEtLfYDpIIWniSy3B.Fii"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ayathulla"
-                password "$2y$10$JM7gKNiHWl6M0sHIW1yKY.ecq1Z/Qc3HcEH14IN2n1rE1LyUuc73W"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "ayman"
-                password "$2y$10$wwL/38lFPGxLNccNxfr9M.DeR/NiFBr/gCltsWu9xY1iIY7yZdlbu"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "babar"
-                password "$2y$10$ruf0BBe1MDX1LnHeGHXZ2.97KPH1mMWTdqLLVFBv/pQvTR4TS1LsS"
-                access console ftp
-                console
-                    member "default"
-                    member "SOC"
-                exit
-            exit
-            user "bartu.balkis"
-                password "$2y$10$tIJoc5oaiuQhWDcoSvJvg.DMtVUbFz6e5KtkhO3H/WZdrPq5S25zC"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "bbohdano"
-                password "$2y$10$lyxmVY00Aefj7gD3n2v86.HoZK2T4Zq4Z6FqI74hQ6rPSjuhffVfq"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "benhard"
-                password "$2y$10$GJKV/iMXm07U35PpVHrBs.Dr8fDMhdIQWudgZIFVjhywhVEhH.ltK"
-                access console ftp
-                console
-                    member "default"
-                    member "SOC"
-                exit
-            exit
-            user "blaxmi"
-                password "$2y$10$gsmr638OXAQIjgBgz/KC6.6/5OzgtguWZr1PLnyjLPS3X3Dc.lszS"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "carl"
-                password "$2y$10$piDCG6GrBHn/yhqUANM8E.4i1glwZD1lhe7WA4rqUUNH7c4aXNZtm"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "chaitanya"
-                password "$2y$10$J4tB3jITliJdtGytjC4bM.SuI/cjSjN5Z6.JOun4qqmES2XHWSUUe"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "chandana"
-                password "$2y$10$Uusm76p7NSfqUPR5rD6UA.d25KMYIjoKLe1n28fI2iTk2CvUt85Je"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "chittick"
-                password "$2y$10$fpRFQvcUlnaCdvMlCC5jE.igouBO78lXvyjWnEFAthBpAHiA7F6l."
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "chrisnanda.ent"
-                password "$2y$10$Pf57RGxUf0KA/fXip6/q6.eDXQaondixVjMDHNp5qohCLTwsWjB2e"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "darutkow"
-                password "$2y$10$xHVGSgOA/lZe8UtNRIb2Q.rIiCTmVagUgZOXOBT0gxepZq6QYuabW"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "datchu"
-                password "$2y$10$zyxZetKidQFrCTLgr3WSI.kwqg6QdpwcpYZ1mSKm7qE0rqvDAlL9."
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "deepu.jena"
-                password "$2y$10$kHpMDUb8tqJEQHus.WXg2.JoNTCOOGNFx0.VzIEE1th2rYptw7ZDe"
-                access console ftp
-                console
-                    member "Monitoring"
-                    member "default"
-                    member "OLD_Image_del"
-                exit
-            exit
-            user "deni.sartika"
-                password "$2y$10$lpTdH1y/mIAUVB/hE7n92.YkUSl6ZyRqW4grjvP8H/OWENG0YMd5W"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "dikshantv"
-                password "$2y$10$beKWqA98to4bhxHlok7nU.97zEGJLb58DlxfuOn9e7BILqScSACue"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "dille"
-                password "$2y$10$GGiJaK/a9XSDD5bcL4dPw.EVjfDAsNrw4vmKLEFNgzWlftDpXjLCu"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "dilo.ayarmali"
-                password "$2y$10$M415WWt3T2qF52XFBg/0A.cx4xKqnc5sMAi.MW3zaU4e0Jkk2sDMa"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "dragos"
-                password "$2y$10$bQtZAXmwCrRTdoz8BJJio.TrDXJc4ctWtHOy1dtF4zQiBLHpkZFTS"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "dragos.serban"
-                password "$2y$10$jCzY2cSCqEK9V1wC./cSg.KvLBSR2X.Ynemkg6ILndn0ii9bmbwWC"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "eijas"
-                password "$2y$10$siaif03kMhieNyXjZUolc.ZPzjt7Ooa9BgEl45EtcflCQftqVQEXS"
-                access console ftp snmp
-                console
-                    member "Operator"
-                    member "default"
-                exit
-                snmp
-                    authentication none
-                exit
-            exit
-            user "elshandawily"
-                password "$2y$10$h2y75bghUuIHGqR9COQMM.dTS8vvDuXoGd9vjqSFZykwtBjdaUvd."
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "emrek"
-                password "$2y$10$xPpS5ugkLeRfeEmlt732A.9ixstEyHh1ocKAOUDSWiIJFYWNPpXlC"
-                access console ftp
-                console
-                    no member "default"
-                    member "TPM"
-                exit
-            exit
-            user "gems.bo"
-                password "$2y$10$YBV1cY4PnPmbRHyT5vSMM.zChdQy3lf2vdG/.ZqF3Z8RBr/oTOW2S"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "gnocipfo"
-                password "$2y$10$QgudhT1Z71LK6I77kCYpQ.ImyF/MqYaTXWAhWtviD6F6347iB4ZVu"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "gomaa"
-                password "$2y$10$lpGQcDM264F/a7HzWb3H6.r21rRbnDVjL45.xr1m2tvg6VdVljXje"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "hakim.nokia"
-                password "$2y$10$b/k.zBsRhzMnlIWdhi6LY.2fW37AZUUGXjhOU2ZhMhhD78MNlihOy"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "hamed"
-                password "$2y$10$eT3n3IAxapi14yjNuQXg..sqi417rdrLHiqIkcnDFhQuIrooXSDiK"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "hhanafy"
-                password "$2y$10$.bTmFnfegmyUQEdVNVVqA.M79wf/ra/4X6UVecAysAuZydehBgKaK"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "hwasilew"
-                password "$2y$10$fdhZTU9T3pR7/AsNMtyys.IbP5pc7DGwUl4Pcx6R2FfzubXZFxS7W"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "iakhtar"
-                password "$2y$10$Xu.fyYpOiI3mJpRBeIS8Y.P.bkXOcIgNsxfdMgdPxbt6S1juRUFvq"
-                access console
-                console
-                    new-password-at-login
-                    no member "default"
-                    member "show"
-                exit
-            exit
-            user "irfana"
-                password "$2y$10$IITwJ129DhCMMvBIh6Zic.DN0UyZVq864eyMgHtlcwnqeUQ9vn/hm"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "ishan.sood"
-                password "$2y$10$gEd8r6yyxepkcLOnLAWqY.n0sTWjH7goeacaHJjikvYtLkCqY/7Z2"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "jaka"
-                password "$2y$10$2m42kYLc6MSa4/zT6mdzk.bLJNaMNupeLLjffxp2XhAKbxX43qJr2"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "jaka.ets"
-                password "$2y$10$SltSmzEIzmwbZzTUCM.zM.plBhhVqRhA3rxg3reQ8JDwvriXDLHzW"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "jdorsz"
-                password "$2y$10$h31DCcFcKkbaC2W7tLRPE.iyiJ2qMEH5jyKJlX26HND85xd.ZL5K6"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "kallawym"
-                password "$2y$10$twBUQ/d.fr8R5vjaAxMjM.ubr0ouHbwFYgUpxM1xhQd9ER11cYR4i"
-                access console ftp
-            exit
-            user "kannann"
-                password "$2y$10$MCatS/tP91RSjuF3.idiE.9SfGLOLNJ5HktxK3xaGjHELKdDRqUv2"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "karinau"
-                password "$2y$10$SV3tS6Wh0r6cBBncLsfDY.Kru50Uy7JBwTLHHiY3xcu8V9kAN7QBm"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "kashif"
-                password "$2y$10$9SABguABnkhrjVsN1pF9o.qCRfjvC9pwpw0TlM5b0v.PJNdofGl7G"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "komals"
-                password "$2y$10$bFcgMFznpSvZ7XsjYSpWo.3M1Pgf8Imgl7rVfTJL09pUhYzgeGq4G"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "labid"
-                password "$2y$10$1F57UtdLmAT.w5.ZT00ls.fwMJuak5ZbTXDihLgGdmwlGJ3iqSQnW"
-                access console
-                console
-                    new-password-at-login
-                    member "SOC"
-                    member "default"
-                exit
-            exit
-            user "lmiga"
-                password "$2y$10$a1yvwJl2TWXWWcFAQnDmo.G6uoAIeHuUof0rE6wifW/KnE9ZVwoIK"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "logger"
-                password "$2y$10$3glIzz74h25r1SJ6c5AJA.wglV373pyWQCHrTyV0RHQ.ckYurd4/y"
-                access ftp
-                console
-                    cannot-change-password
-                exit
-            exit
-            user "lpraveen"
-                password "$2y$10$VI5sQaBVXJv8/ZQDhquj6.OxHFz5pj2gCgWrjgjDWC2T2apWumUHm"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "lwitkows"
-                password "$2y$10$m9Z8qsXGfYD/ixrleMM/E.r3J.ssp1LH1W0wLBX9fdPQD1RAjrbYG"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "madel1"
-                password "$2y$10$IQ/1Bjxo5VSv9G/UtNObE.s0hehZzpkMlBkM/0.OKJbgcM0FJAEs2"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "mahendra.dixit"
-                password "$2y$10$LOn2bmu4TQV3FzLj6v3mw.Qyw3d7BKhkJbuPPJgD5eqel8/Mn97oa"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "maheshk"
-                password "$2y$10$BD4wlDQ4.hv3qBSU5EPGE.hFknAzvZKLa0xf2FaOxcM1Purrnc1Yu"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "mahmed"
-                password "$2y$10$0GcEipQoVOpoi8kzKXxWM.30vtshzeIGylE2uYJyWIzZKyBGOStTK"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "manojk"
-                password "$2y$10$TFm.cNiqL2b6XtOQjr5c6.Glg8rb8FBDDoK9nIpggmOvoHL7g/n12"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "mczerwin"
-                password "$2y$10$GQBk3Wmk92V8HBXrO7GoY.onFwdZescSeFnOJQrJ/8hWLSyJk7itC"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "mdevi"
-                password "$2y$10$P5UAwDy8VjXVXLornDReA.i..tA2XqjaIqugmSgO3dq9ia5w59G.u"
-                access console
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "medjarab"
-                password "$2y$10$v4MpUQqgX1SnDUmkKvhWg.adQHvetwVjyh0xHC6FTcmtK12w8iFiy"
-                access console ftp
-                console
-                    member "default"
-                    member "show"
-                exit
-            exit
-            user "medjerab.mohamed"
-                password "$2y$10$bwhhFgxDC6WuB632qf6jE.OQ54KjxAR9fSxKvo8xt1IUMZY1xbxYW"
-                access console ftp
-                console
-                    member "default"
-                    member "SOC"
-                exit
-            exit
-            user "mercy"
-                password "$2y$10$aDS3swcRKPchm04hKqPvc.UI5IgMoMuGpsyQKnvfBh7YN45Zrdn/y"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "mjaber"
-                password "$2y$10$T93bjGkxhmcnbWRoF928M.glv3GEG2Z9ARLTffaNPci/.YMVXwwP2"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "mkallawy"
-                password "$2y$10$Aii/oTIZE1Be49IcMgQtk.oKwfnq4w6RPDIw0C0WeksAAm4f9HaKC"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "mnadeem"
-                password "$2y$10$O1VfE7slyW4ai4utcGWnw.7XlAu8Z1wEZIDcOpmqMnTqiANDTSR/m"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "mnowako"
-                password "$2y$10$WQJWm1NWxV6UXcxOky24c.O0vCOr.MXrvEQFOl2EbzJJuLzIbibpC"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "mohamedn"
-                password "$2y$10$q2.qk5Rt301yrfY4KUg0E.6Ux8eQ8CUq2KMJidO4TTZyn.T6sMnrS"
-                access console ftp
-                console
-                    new-password-at-login
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "monikandan"
-                password "$2y$10$m3rxk8G3.LPhLEpn.U4lk.utlhFB70/L8XsdFWFP2I9GEIzowjzki"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "muchlisi"
-                password "$2y$10$l.f25Q9K9YqaSxbDdUhGA.OTU82xzUD.ZhE4dyE8PkJmw5oUlwQAq"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "muhammad.ehsan"
-                password "$2y$10$XNFZsEpQZv82.wc45OUsI.HDPoZqcbLi2JtOgqJVLPXjdNjY/pHey"
-                access console ftp
-                console
-                    member "Operator"
-                    member "default"
-                exit
-            exit
-            user "muhammad.khalid"
-                password "$2y$10$XrS8Jdkp8WF1T9GMNYHQI.mj2t9YkPmAexy0Wp2j7vKjVNrOO2Q5C"
-                access console ftp
-                console
-                    new-password-at-login
-                    no member "default"
-                    member "show"
-                exit
-            exit
-            user "muhammad.khan1"
-                password "$2y$10$hlcspdckFx9rmtI0O2xUI.xkTfdQNe32JrRCh8MsBg0mNYiXoD4XS"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "muksharm"
-                password "$2y$10$/nI4tqJ2eUhmEWQFtVJdU.1AXyWjeX6yBc/IX1nfC3jc7p/khHjSq"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "nader"
-                password "$2y$10$X5syQIaxlG4n7CncWXj8A.pj1I6jhbg4yPQWk0fiZoI/mfUh7MecO"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "naser"
-                password "$2y$10$wWspJ7GdCyNA4qaJ.e/Hw.5NQjPZyKRGL.XOhmhfMSvNdls7nJKWG"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "nebackup"
-                password "$2y$10$bckph6X18pbap7PKE.pts./NheinF2ws3vMfZ4hhhcF87lyIOh0jC"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "nokia-project"
-                password "$2y$10$RZm6h4mUDs6gxeOQWAheY./31OYyZhAl/Mc7bAxYx671dR8MFYclO"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "nokiaproject"
-                password "$2y$10$ujlZE/Dt6PAq1867wGXek.u5kXiYgQn1nYdg0S.sKX3R2IJWeWAj6"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "nokiatac"
-                password "$2y$10$al58LDgeGNSmtuIB/DigA.atlNmBmQfr3W.Vvy9A4.ZkiQ46taa4a"
-                access console ftp
-                console
-                    member "default"
-                    member "show"
-                exit
-            exit
-            user "ocesmeci"
-                password "$2y$10$L.K46duvivkgr2FjpzJXs.Nwl51wygQqiiCqf0bO1Zh.xXAb5opYG"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "onursari"
-                password "$2y$10$29NvfxIGwzQ7FOttP6hwU.12PLpYDAkxTB1RATlmGwJVsNPSb7Jx2"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ozges"
-                password "$2y$10$UPlpYcDjuyAnDn0iIAeEU.zlcvwZVtM6Gmh8B..CriwM.fP1lMIQu"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "patrick"
-                password "$2y$10$mvQpDaqJDjBUijZUkG6oM.ZgvZdAJ.sN.qSYBDVYj8MD/d9H.0dNi"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "pawelc"
-                password "$2y$10$G2c2zWaagtHl7UYo8dNXo.sGMLcdJwce/fBnldzqUlYCLOvoVEBI6"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "phaldar"
-                password "$2y$10$LJEa8xZoEpQwjd3Alu3Qg.h93WlTI7GIZrbqvoN.Gc32t9OR4c6US"
-                access console
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "philippeg"
-                password "$2y$10$/t1xey3UapTMNVjLYSlBU.Kkkw0My6JZKfkmTOC2dvHrj8C0FcKH6"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "priyankac"
-                password "$2y$10$owWDqXndr1a5tnhsW96UM.jGcmzqxgoktIAEc7vIWys1Xegl5PhSe"
-                access console ftp
-                console
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "psingh"
-                password "$2y$10$d3bQvanqqIlDmIwuZg8gg.DtBAZs0p649xlkxlyri7Jm622ex7Rea"
-                access console
-                console
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "rahul"
-                password "$2y$10$WmBL6HlhvqNPSQFel1tK6.xZJWYU2V0dzL1H0wEZispXvuMLNtTUq"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "rais.majada"
-                password "$2y$10$GiIXI8BJqDi8.eRqV9QXY.hZ38bXrq7FSNzVvqE6sar/lDz9jawfW"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "rashmir"
-                password "$2y$10$ChpmLQ6/RbcgtXTMCgQqI.lYpF4QkvLLXTVdM5h1Lared9GXB1bAC"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "rbaluni"
-                password "$2y$10$9E1p3AG0gl.4FV0EyC.Fw.J/QgMGVUP5kPNwcAGZirQGhW61j6IjK"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "rishi.ksingh"
-                password "$2y$10$bJIfI3yEkju5gl.PuVk9A.Cw4dGBuJ2PVaKFBmfb1vBH.wYAKAoee"
-                access console ftp
-                console
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "rohit.mishra.huawei"
-                password "$2y$10$cqOviqjGUSXCKIxE9gC.k.1yNCeUgSWKNMYmJwpj384HdDBOr5R.e"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "rohit.sharma"
-                password "$2y$10$0JirAy.YP9KoYzgn4noOM.6GbsaEP43jxdE.ebfMioTmbDTnWaQXe"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "rohitb"
-                password "$2y$10$Aos9ejHHNmIqhGg0l36Pw.JmQmQdemJCx1Txlo523u25dSpVyt4gW"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "rojowt"
-                password "$2y$10$fKI7fwJhb83j1vdd7.S0E.SXW6GZhVB.ctznRvADKxyPL56Fm69De"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "saadawya"
-                password "$2y$10$tvJtmL6.p4ZKHQUz6Memc.n28mBgDsWiT8pCpk2b.HDkzLWoOkep."
-                access console ftp
-                console
-                    new-password-at-login
-                    member "VF-NSU"
-                    member "default"
-                exit
-            exit
-            user "sachin.ip"
-                password "$2y$10$lBbgPQ8Mx2v3cR353Pn0E.SbwjzVJyewwr8UwpGEjcBzyk0t1mwjO"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "saik"
-                password "$2y$10$rQvDaPBNXktFuRYYH19MA.zOtwdp9AOAkV5xc1wVnXKG/JkA79igy"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "sajeert"
-                password "$2y$10$/WnqbaI8G3/5y2/1Kd8.A.y7vwAnDvwgCCW.SqUrcfuRKfqLvPjnO"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "samcli"
-                password "$2y$10$N5URo5oH0xQ7HBdxK1ms2.kgWEGE5xp0c96vhCEQ.bltHKykRIJe6"
-                access console
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "sandeep.lamba"
-                password "$2y$10$taxaklLzfBqfaSdJPH4qI.2XsD8/OwgXMHIBSq2WLuWaDG4RYUjea"
-                access console ftp
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "sandi"
-                password "$2y$10$G.P4CGffeHdluIV1nV2hw.thWTKXY1D5RdzknjcsGXyS5rpSiVgWS"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "santosh.nokia"
-                password "$2y$10$wyJ59ILMq/KMxNmZfvMyA.X4vAHx8lbl02GKj54T9lTk.gtpws5zm"
-                access console
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "scp_user"
-                password "$2y$10$GyUElJbJh7YVq14mseanM.rp2K2jb/EyoVwvREmQofoz19c3/p//K"
-                access console ftp
-                console
-                    cannot-change-password
-                exit
-            exit
-            user "senem.akpunar"
-                password "$2y$10$X4FglvgZyL.c6brnBmF3o.kgHSRxUQGA.kVEm9U2161Hd8W42.2Oi"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "sgopal"
-                password "$2y$10$g2AZB5wvieCu7fIoGMPu6.WmS5.gZmbbEYdxiG1qZXo6ZgFo09Q46"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "shamidb"
-                password "$2y$10$4QouKWgJ0hN/ZKxXiLH/M.PSDiZqKTn/p87HrPZo9cZ1PpaMjBzqW"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "sherif"
-                password "$2y$10$6.x1E4FJWq4M6ZpBdcjMY.457T81DbFE62mtc0PCuHHaSQ7tOesV6"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "sherifg"
-                password "$2y$10$ejwFUeWESIqXoILC.HPrw.uky0YjrI.Nl27YVk/qSbWP9P4ofIJoq"
-                access console ftp
-                console
-                    new-password-at-login
-                    no member "default"
-                    member "show"
-                exit
-            exit
-            user "sivak"
-                password "$2y$10$Rr7KRcoN9iiT97olR5da..yhTc3vSodeGqMpomhmH.Dn3Zdz/jfnO"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "snmpv3user"
-                password "$2y$10$cWGykUsuM7/2cMzOg8VRk.PlRtYfu8PUs.TAFg5LtaNdOVDJMp00a"
-                access snmp
-                snmp
-                    authentication hash2 hmac-sha1-96 tY6e30qGjaS99vSGKARRWihDaOKFGo+n2+QIxQviefIFbM+k privacy cbc-des yfo1jywYbmtc8v7rkqrSrXKLM9xX5LxhMdz8uOybbcw=
-                    group "nmsPriv"
-                exit
-            exit
-            user "srinivasalu"
-                password "$2y$10$fc/dMYM0uVpceMiWIbc86.JOzzj8MhAK/iB5URbi9/dHPgc5jxMsW"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ssoyasan"
-                password "$2y$10$dr.hkStubY5NDcZByWmVw.dWiE/Boz2q2RkiV7422mwktxIFJuvBu"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "subheep"
-                password "$2y$10$OMkOondtIqRkw/s6nXtVM.GIIFapMpqNhI.Oj736L87nDrT5vY6oK"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "sudhanshu"
-                password "$2y$10$YZ5yR4ZcE2qsoG6o/ZVXQ.vvkQ3LKkM/lz5jESysbcs4sDL2Vnwzq"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "sujith"
-                password "$2y$10$.gCuz7jJgsgZQghQJA7ck.TbGr9dRpu/lijX7Zz/g5Ln.gUYc1Joe"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "svenkat"
-                password "$2y$10$xjSPCU4rVOnNbSiMDFeY6.0.EMB1l./RsH3XhxVhWsRGpeg1gYBd."
-                access console
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "swghosh"
-                password "$2y$10$IrEpEh9BpTTiI/5m10GEs.6FmAGH/KkZIY24S2W9bG68H5gGOa.3C"
-                access console ftp
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "syeda"
-                password "$2y$10$7xfLGrQbiirOuAQx7XaSk.WHA.puw1fgxOK7T7M8CpUGO3/8klZOG"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "tarekc"
-                password "$2y$10$Loa0h0q.K6xUa7obAkFJE.0iRLJpRqBftdDeeMFxiqyD5AnjWCEFu"
-                access console
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "tcoban"
-                password "$2y$10$HR9WVQ3Vc2/kvnwlD4HJk.cXHAThp1L7LcQjm2IMPz.1f0r1UZa56"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "test"
-                password "$2y$10$eIeDtQmlauMQH.Vnot5dU.i3Vr3mkcN7qWDLjI3G6EMRjLsKoCJdi"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "vfq.mali"
-                password "$2y$10$j9d1xmi6JajRCmybR5XGI.TId./PXYvtCJFmMEZyvPerLp62mkdGS"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "vfqsoc"
-                password "$2y$10$gBN6VSLtg5oZVvg5kG1I2.71uuNvsitKqlKtXJ/iwMaGotVRFNjZ6"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "vijay.singh"
-                password "$2y$10$A4Zf8ymra7A5nJ6rx9EGU.l/bP99LfgTj/ymqjcz57KLx7MWtQmaC"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "vinodk"
-                password "$2y$10$G712VrbUEuDqdhCchWmP2.T0foQ7CT2VGnTGsoy8AZ08HghWk79uy"
-                access console ftp
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "vishaldeep"
-                password "$2y$10$BzC250Jxr6toYGecdz35o.AOUWcpDSQJokujF1bcYnzFwhaS6ixzW"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "vivekk"
-                password "$2y$10$wyA.4IpBIk00hqgCIXECc.X9i1Ia41vqmPfv4/lkgdr3hXjRhMYiu"
-                access console ftp
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "vkumar"
-                password "$2y$10$6zn/hhdJGC8P3vyeJC6KY.vSjB47bMAmPfpVvFM1cIDYu9DshZLUu"
-                access console
-                console
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "wslomins"
-                password "$2y$10$d.y/52/4KZ93hW4eVF2g2.udnTtyAGyUqC.AbkdTdQq8gLrHMV3gq"
-                access console ftp
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "yousef"
-                password "$2y$10$rWyxoqxAWrqIe.vR.iWKY.MLdWdoHmBBQXAFWEeSDXSWUoXwm4zte"
-                access console ftp
-                console
-                    member "default"
-                    member "Monitoring"
                 exit
             exit
             snmp
                 access group "nmsPriv" security-model usm security-level privacy read "iso" write "iso" notify "iso"
                 access group "nmsPriv" security-model usm security-level privacy context "vprn" prefix read "vprn-view" write "vprn-view" notify "iso"
-                community "toTlp9V2fM4Xlk/6J5lSuWaBLCnT" hash2 r version v2c
-                community "cV3ISTw2V5pbEWmVEA9jXgB/1EERXQA=" hash2 rwa version v2c
-            exit
-            ssh
-                preserve-key
-            exit
-            dist-cpu-protection
-                policy "_default-access-policy" create
-                exit
-                policy "_default-network-policy" create
-                exit
             exit
         exit
     exit
@@ -7879,7 +4625,7 @@ echo "System Configuration"
 #--------------------------------------------------
 echo "System Security Configuration"
 #--------------------------------------------------
-    system
+   system
         security
             telnet-server
             ftp-server
@@ -7887,7 +4633,7 @@ echo "System Security Configuration"
                 default-action deny-all
                 entry 8
                     match "configure router interface"
-                    action deny
+                    action permit
                 exit
                 entry 9
                     description "Router reboot"
@@ -7982,55 +4728,70 @@ echo "System Security Configuration"
                     match "configure qos"
                     action permit
                 exit
+                entry 290
+                    match "environment"
+                    action deny
+                exit
             exit
-            profile "ARCH"
-                default-action deny-all
-                entry 1
-                    match "ping"
+            profile "TPM"
+                entry 10
+                    match "exec"
                     action permit
                 exit
-                entry 2
-                    match "monitor"
+                entry 20
+                    match "exit"
                     action permit
                 exit
-                entry 3
-                    match "configure service"
+                entry 30
+                    match "help"
                     action permit
                 exit
-                entry 4
+                entry 40
+                    match "logout"
+                    action permit
+                exit
+                entry 41
+                    match "tools dump"
+                    action permit
+                exit
+                entry 42
+                    match "sleep"
+                    action permit
+                exit
+                entry 43
+                    match "file dir"
+                    action permit
+                exit
+                entry 44
+                    match "environment more"
+                    action permit
+                exit
+                entry 50
+                    match "password"
+                    action permit
+                exit
+                entry 53
+                    match "admin display-config"
+                    action permit
+                exit
+                entry 55
+                    match "configure"
+                    action deny
+                exit
+                entry 60
+                    match "show config"
+                    action deny
+                exit
+                entry 65
+                    match "show li"
+                    action deny
+                exit
+                entry 70
                     match "show"
                     action permit
                 exit
-                entry 5
-                    match "oam"
-                    action permit
-                exit
-                entry 6
-                    match "configure port"
-                    action permit
-                exit
-                entry 7
-                    match "traceroute"
-                    action permit
-                exit
-                entry 8
-                    match "ssh"
-                    action permit
-                exit
-                entry 9
-                    match "telnet"
-                    action permit
-                exit
-                entry 10
-                    match "info"
-                    action permit
-                exit
-                entry 11
-                    match "back"
-                    action permit
-                exit
-                entry 12
-                    match "admin save"
+                entry 80
+                    match "enable-admin"
                     action permit
                 exit
             exit
@@ -8104,7 +4865,7 @@ echo "System Security Configuration"
                     action permit
                 exit
                 entry 12
-                    match "configure service"
+                    match "configure service vprn"
                     action permit
                 exit
                 entry 13
@@ -8214,24 +4975,8 @@ echo "System Security Configuration"
             exit
             profile "password"
             exit
-            profile "NokiaNSDC"
-                default-action deny-all
-                entry 2
-                    match "admin display-config"
-                    action permit
-                exit
-                entry 3
-                    match "show "
-                    action permit
-                exit
-            exit
             profile "Monitoring"
                 default-action deny-all
-                entry 4
-                    description "Monitor service"
-                    match "monitor service id"
-                    action permit
-                exit
                 entry 10
                     match "exec"
                     action permit
@@ -8325,11 +5070,17 @@ echo "System Security Configuration"
                     action permit
                 exit
             exit
-            profile "OLD_Image_del"
-                default-action deny-all
+            profile "NokiaProject"
+                default-action permit-all
                 entry 1
-                    match "file"
-                    action permit
+                    description "reboot"
+                    match "admin reboot"
+                    action deny
+                exit
+                entry 2
+                    description "securty"
+                    match "configure system security"
+                    action deny
                 exit
             exit
             password
@@ -8338,16 +5089,8 @@ echo "System Security Configuration"
                     required lowercase 1 uppercase 1 numeric 1 special-character 1
                 exit
             exit
-            user "Abdullaalnajjar.VFQ"
-                password "$2y$10$..Kzx/Z8iTaIlCjOJpOPU.0397TEmuVxASrFfwgtC74IyYJX5oMcm"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
             user "AdminSAM5620"
-                password "$2y$10$7u6hg0Epij3/i8eUNE91s.lhvjFL8Mfcef0PxYcB29ClGNB6i2VBK"
+                password "$2y$10$QGGVBkdQhc.V9ceWwfl6..ynxeadOnjPSgFRiAXwGQa3pLGZsN7PK"
                 access console ftp snmp 
                 console
                     member "default"
@@ -8357,265 +5100,66 @@ echo "System Security Configuration"
                     authentication none
                 exit
             exit
-            user "Agata.ANDERSON"
-                password "$2y$10$D/qKvhlnZCgibSWRq8wgg.aYYdfAs6DuviZ.xwv9wR3EiERxxHri2"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Anindito.ent"
-                password "$2y$10$ka90/CtNdZ/faaLSJGHUw.szGjwdv5OEsfKTfpWPPOuo9ATsNT11u"
-                access console ftp 
-                console
-                    member "default"
-                    member "ARCH2"
-                exit
-            exit
-            user "Arnas.ent"
-                password "$2y$10$FG6N/tfOl9h/GI7dsEs/g..wQTGksJpeiejqZMbOPq.6VmNSdOXZe"
-                access console ftp 
-                console
-                    member "default"
-                    member "ARCH2"
-                exit
-            exit
-            user "AsmaA"
-                password "$2y$10$M6Ka4IcLI.2wSds3/m9Cs.H6.LWSdIDu3zYmT/CQEFGI/g4RmleUG"
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "Ayathulla"
-                password "$2y$10$s/GMCJYUsu8iBHVCq1h16.8Dt9ThcfRmwRiBpR8ZF25GnNAQq0UXe"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "BartlomiejP "
-                password "$2y$10$W9O7fKJ4ZE5hoZ2DKRGaM.7to9SQvQm8LStkGt3hDhjjtboJTLg9q"
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "Emreoznok"
-                password "$2y$10$7gg0rP8UYWLKbzl3HLppA.2TPdhTOFEdqmSSmd5dbwrbnrpVgiTyS"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Imiga"
-                password "$2y$10$c8MRQ7z6f6y2gGo/96vdc.YIYcfyVqDs0wHRgUeF9Nj0Rb/6g7Mvm"
-                access console ftp 
-            exit
-            user "Mariusz.Bielawski"
-                password "$2y$10$ozwC9QUYLqJiHVBeXmbhY.J34oxx5GqbrhOcZxdsg5rI7vBjED4o."
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "Maryia.PAULOVICH"
-                password "$2y$10$ZRJhO9RG.BfiiydYRmX8M.mJCIOK3gMZoByRUrxq1L3Nm68epjHyy"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Michal.STAFIEJ"
-                password "$2y$10$feVCiGWwUSvJEO5oYlam..slNLjEydeDSTRXEZkCvfIgoi8FhUv9y"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Milosz.JACOSZEK"
-                password "$2y$10$oGnPx6EDluLgiWizJEvdw.iRkr4vWyoGirzmV6HvO/7Ly75HGR.ei"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Mohammedel.Nok"
-                password "$2y$10$ZWp5iLvGpn.b3qy6F8BCA.mFObirxR/612nQn0B9FPxJfn2aKZgmC"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "Noemi.Izydorek"
-                password "$2y$10$AAl17tloEXP.fh3wQ7E.g.MkpEvC0r0uDfulMpSyfElkWw2wRXjbC"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "Sandi "
-                password "$2y$10$tqAE3Cve6dcH2B6Q/FTa6.Addl0N2fNvUWqpors8dImEKH8.UYuE6"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "SlawomirO"
-                password "$2y$10$o61DaS893oJZKG3jidI7k.baIAZZla4HTrr.HwBwU2.Z7.nWUaspS"
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "VFQ.arajeeb"
-                password "$2y$10$QKJ3lo0CTuQaUzUUFaY9c.mwmhLvyTcy/U4Xl/3MF3Kyu4lWUX7Jq"
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "VFQ.uwaheed"
-                password "$2y$10$ZRcRWeo3JtpG4aKXY6W2E.YS7BBQR1ESo3RKsGLiV/9Y9iHBzYkKG"
-                access console 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "aanoop"
-                password "$2y$10$f2.bB8/zSxkZ75IRiHeWY.oN0k0Aods96djlD4R6Raaam9G3NjiDS"
-                access console 
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "abdel"
-                password "$2y$10$Ae8G1xDZxxwr.kbtAi0w..9sXWg/.RPWC6q0ukaQp665XjU2YElCG"
-                access console ftp 
-            exit
             user "admin"
-                password "$2y$10$QarhuT7JaOw9Z6rTP0x8Q..p6ayYwKJwfEJdymEF1Vozl6b1odgim"
+                password "$2y$10$lnMYTNLh3YK1G5e6bCzlg.hcCfnMQdu9HShe6CNxbUW3Li6Eazq4K"
                 access console ftp 
                 console
                     member "administrative"
                 exit
             exit
-            user "adnank"
-                password "$2y$10$0h.akWF5gyhtmfqQHgMoM.msU7VqU/BNCm71.bXBDHOha440Nmj2a"
-                access console ftp 
+            user "ameers"
+                password "$2y$10$NMjfPL4Kauf1seZOSPcKc./9vc3JrMdoSF0HJlh8GS.kAmTCJHeVO"
+                access console ftp snmp 
                 console
                     member "default"
-                    member "Operator"
+                    member "NokiaProject"
                 exit
             exit
-            user "ahmad"
-                password "$2y$10$bwO0QuRTAQVXydtZiMUWE.UkIQOhezfbbW7LcxuD0q/w8PNr1nf.."
+            user "chrisnanda.ent"
+                password "$2y$10$/YtllkeV45TIzAFlkw0Ks.ZOxXjkhrbELh.ZSgivB0oan4lQMheje"
+                access console ftp
                 console
                     member "default"
                     member "administrative"
                 exit
             exit
-            user "ahmedm"
-                password "$2y$10$X9CF4nSS3QAXdhuXE4qPM./QcY97HjFrcvUakkyAngAm5NTJFLqYG"
-                access console ftp 
+            user "gnocipfo"
+                password "$2y$10$R7ZyDzV9J57tOW/Z3AX9..y0t/PdvBNWEo26.VcWDy77haJOjJHi6"
+                access console ftp snmp 
                 console
-                    new-password-at-login
-                    member "administrative"
                     member "default"
+                    member "show"
+                exit
+                snmp
+                    authentication none
                 exit
             exit
-            user "ajain"
-                password "$2y$10$as2uLUUThcl52tMBl/HwE.7CXfXjQAJNSTTjXcZAKa/cD5z1Y4e.6"
+            user "samcli"
+                password "$2y$10$N5URo5oH0xQ7HBdxK1ms2.kgWEGE5xp0c96vhCEQ.bltHKykRIJe6"
                 access console 
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ajay"
-                password "$2y$10$53WYFeMyQNpvY/JeWNXAk.ctMynAO7WzB0nmkqsozye6z5HnsIFXW"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ajith"
-                password "$2y$10$yn/I/ae3etGMzKupdVZGA.Djs1IPPyVwaj8n1PfXagAIuWaSu3QXC"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "akram"
-                password "$2y$10$t4DY0brObRYdF3tlivMgw.iCJ8rm2jY5iKZUC/cb92Pz43xKc4QIW"
-                access console ftp 
                 console
                     no member "default"
                     member "administrative"
                 exit
             exit
-            user "amand"
-                password "$2y$10$CD1CwDk6jcbXTJ2olhz9M.h17lBzivy6S/KlNspOByrKEMHatcw1."
-                access console ftp 
-                console
-                    member "Monitoring"
-                    member "default"
+            user "snmpv3user"
+                password "$2y$10$cWGykUsuM7/2cMzOg8VRk.PlRtYfu8PUs.TAFg5LtaNdOVDJMp00a"
+                access snmp 
+                snmp
+                    authentication hmac-sha1-96 344277c1f4fd287c29f2783ee03567513a99575a privacy cbc-des 344277c1f4fd287c29f2783ee0356751
+                    group "nmsPriv"
                 exit
             exit
-            user "ameer"
-                password "$2y$10$F9h9gp.ThtTj0KIwBV/Zg.wA7Q3I1p7YpSNKC0lFv6mdXnfHSDaJW"
-                access console ftp 
+            user "muhammad.ehsan"
+                password "$2y$10$Sja5NHyihHEh1hvbMhHdo.ftFhjP1l7cXXMtVOB.dmlyP4EHcRscC"
+                access console ftp
                 console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ameers"
-                password "$2y$10$pbtEEDUHNv40zIyK4E2R2.HehsoSWS1yKbnwnVmsl.CuT..p7ghSG"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "amitht"
-                password "$2y$10$ptsW/Ct5poPzEqUonk0hQ.oAhnZF/ZADXT8sN59kMk1sLzI/Vf0Cu"
-                access console ftp 
-                console
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "amogh.acharya"
-                password "$2y$10$XGHh4xJCgbfYblpqGSP0I.be8Q5bGF9ssh8E.R6lM98e47VeGay46"
-                access console 
-                console
-                    member "default"
                     member "Operator"
+                    member "administrative"
                 exit
             exit
-            user "amr.hanafy"
-                password "$2y$10$PoYMH5YP7HF9l/h.JBEjM.38fUvWVExiaG12q03JHx0ZGtlfXLYYS"
+            user "rohitb"
+                password "$2y$10$eyQrBfoT8Gi4XEd1EJexM.EHxOeBBzMlfBf/gVNZ3Ui2DqlocvXjS"
                 access console ftp 
                 console
                     member "default"
@@ -8623,1219 +5167,56 @@ echo "System Security Configuration"
                 exit
             exit
             user "anas.hammami"
-                password "$2y$10$.kfzUu6g5pk0fAcVguYwE.TL1td1Rr6ZNMdbGAz9Wg4FRz9fGDb6u"
-                access console ftp 
+                password "$2y$10$4UStCMbBpydY2jsaEcj9o./b49aloC0qZo7kgdgOXnRXz2jDFsKeW"
+                access console ftp
                 console
                     no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "aprajitar"
-                password "$2y$10$PF1AyNORcQZbkq4RdUBNc.PkVDcF/Cqb4Eg2J2SAmRuLk59uIXSLG"
-                access console ftp 
-                console
-                    new-password-at-login
-                    no member "default"
-                    member "show"
-                exit
-            exit
-            user "arnas"
-                password "$2y$10$A3nJLcTA5/h4cJuhvrDbI.09VBvyY8J0kbXtV.HBkhe884QnWd.Ju"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "arslan.pervaiz"
-                password "$2y$10$ENkn9jtwEks4cfXCJ83dk.4INcE0HODYh62kZsTJafk/8tvB3UaTy"
-                access console 
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "aryak"
-                password "$2y$10$MAcItbTBFQdIVj/cbVPAc.hJUQKTv6ra2Pu994wGJ5rmXEFFsa37K"
-                access console ftp 
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "asaadawi"
-                password "$2y$10$H5tig0vuOemH754qyjAhk.C85F.Ee.0vb1jVQxfC1SL0KlNVov4X."
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "ashok.a"
-                password "$2y$10$KOBclN59yUWlkBBBicuoM.qmoHfDyAH4zkiAUq1mMsH8P0BwH84Za"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "ashwanik"
-                password "$2y$10$PtOXLyJ6h7yN89GmTNOBw.17up9dKbWTIDxLeX9q0AfDJgakwV0x2"
-                access console ftp 
-                console
-                    new-password-at-login
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "atanu"
-                password "$2y$10$J6iPU3CmvLtvzR6RbarnE.dd39sMmXeUqarKNJP45F6aIHlRPqAlq"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ataray"
-                password "$2y$10$/49eON/Y/Zk8oI10BDX8Q.CZHD3Cf7JVZEtLfYDpIIWniSy3B.Fii"
-                access console 
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ayathulla.mv"
-                password "$2y$10$BoxilMsIARYxhzuFamE3E.QS/vcsaNJFmGRWN7qUq32zO/LsjFh7y"
-                access console ftp 
-                console
-                    new-password-at-login
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "ayman"
-                password "$2y$10$OGMhxlArlaRn9bPPep8I..eL8w/.3gyh8bFuFXi9R8lOY/fBNHePe"
-                access console ftp 
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "ayman.ets"
-                password "$2y$10$GhMgR1V74QmRoMz2rs9ak.T2EeYUujyl8OVPUgFnRMa03ncdb4bCO"
-                access console ftp 
-                console
-                    member "default"
-                    member "SOC"
-                exit
-            exit
-            user "babar"
-                password "$2y$10$2Ozq/P8D6dn2odfRF7zWk.6VwDYdaxClf0vhUz9bCzMyDRyMyUATS"
-                access console ftp 
-                console
-                    member "default"
-                    member "SOC"
-                exit
-            exit
-            user "bangashm"
-                password "$2y$10$e4AObhZIwO/amiyySprAU.zBSjbjiwTgSU29Mq9ctmnY.h55Eii3y"
-                access console 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "bartu.balkis"
-                password "$2y$10$KnWCmS8sNM0i2/Ywf04kE.y8jhoTt5Qtor.QQhbguye0NYIOs2cwy"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "bbohdano"
-                password "$2y$10$lyxmVY00Aefj7gD3n2v86.HoZK2T4Zq4Z6FqI74hQ6rPSjuhffVfq"
-                access console ftp 
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "benhard"
-                password "$2y$10$BFs629TicZY5AjulDayrY.NRjCO42fU8dfsko6u/K7OAImgHcO7pG"
-                access console ftp 
-                console
-                    member "default"
-                    member "SOC"
-                exit
-            exit
-            user "blaxmi"
-                password "$2y$10$gsmr638OXAQIjgBgz/KC6.6/5OzgtguWZr1PLnyjLPS3X3Dc.lszS"
-                access console 
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "carl"
-                password "$2y$10$h4KXXlKNiQMoCGRLSlaek.SMv9pubxxIWZohd9v78itQD8UHk.MIm"
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "ceren"
-                password "$2y$10$kxubyUKYc1/858F35Ii3U.UF50e7aWQFdfvyGlMVNiRZOH4OCEbn."
-                access console ftp 
-                console
-                    member "default"
-                    member "ARCH2"
-                exit
-            exit
-            user "chaitanya"
-                password "$2y$10$J4tB3jITliJdtGytjC4bM.IPa.jnbFZW3YRkEkQpm2A/Bk59zCZKq"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "chandana"
-                password "$2y$10$umCNcoz8H33LC2nZOjhI2.etHaSILl1yVfmxBCvWiIxMnPh3zT5aW"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "chittick"
-                password "$2y$10$fpRFQvcUlnaCdvMlCC5jE.KIhCiIGkKj.GYowWQNZR7oHaHkiGi3m"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "chrisnanda.ent"
-                password Nokia@123
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "darutkow"
-                password "$2y$10$xHVGSgOA/lZe8UtNRIb2Q.rIiCTmVagUgZOXOBT0gxepZq6QYuabW"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "datchu"
-                password "$2y$10$zyxZetKidQFrCTLgr3WSI.kwqg6QdpwcpYZ1mSKm7qE0rqvDAlL9."
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "deepu.jena"
-                password "$2y$10$SppJvxBnsfMY1Jcmsj/fY.P1wbdQTfbIWcK6bN1nIV/n0VcazWmiS"
-                access console ftp 
-                console
-                    member "Monitoring"
-                    member "default"
-                    member "OLD_Image_del"
-                exit
-            exit
-            user "deni.sartika"
-                password "$2y$10$KfnoBCok6qq0BlWw9XEqo.eHN16IT64/vxPoX.MBFCZzk9S0S0e6e"
-                access console ftp 
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "dikshantv"
-                password "$2y$10$beKWqA98to4bhxHlok7nU.97zEGJLb58DlxfuOn9e7BILqScSACue"
-                access console ftp 
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "dille"
-                password "$2y$10$GGiJaK/a9XSDD5bcL4dPw.EVjfDAsNrw4vmKLEFNgzWlftDpXjLCu"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "dilo.ayarmali"
-                password "$2y$10$pgU01LOoBe2TLqOM6guqQ.bv4mjr25EQ2XhoM8GIKJL1jtWY.bXLq"
-                access console ftp 
-                console
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "dragos"
-                password "$2y$10$bQtZAXmwCrRTdoz8BJJio.TrDXJc4ctWtHOy1dtF4zQiBLHpkZFTS"
-                access console ftp 
-                console
-                    member "default"
-                    member "show"
-                exit
-            exit
-            user "dragos.serban"
-                password "$2y$10$vZjUpLwKYwVf24otf6CQE.DOgyIcBcbxlSUzKsjaR/2nxuF.I5gJm"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "eijas"
-                password "$2y$10$uKrhLMVTbJiQjn1h41xWs.zUklntNROzKYMftdxBWyrWFNur4h9du"
-                access console ftp snmp 
-                console
-                    member "Operator"
-                    member "default"
-                exit
-                snmp
-                    authentication none
-                exit
-            exit
-            user "elshandawily"
-                password "$2y$10$AGn6.ASik3nkRCwgkEOGY.eGBPBJT2ZTJUlCPDxeM3Qq55zMuS0sq"
-                access console ftp 
-                console
-                    member "default"
-                    member "show"
-                exit
-            exit
-            user "emre.ent"
-                password "$2y$10$wuUTtaqSZyslBKP67yWbo.kwEKIBtxbncMMg52pXZZpQPTSchxITC"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "gems.bo"
-                password "$2y$10$sm0lko/WiAiRvrtw/m1SU.rWld/obwOj62fMy.Y0iAJzlyNpN84CC"
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "gnocipfo"
-                password "$2y$10$9uEAyfW1kSGO3mB1VC7Y2.SSwda8V0rRSH4zIOFIJrnzGkUAveKqG"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "gomaa"
-                password "$2y$10$lpGQcDM264F/a7HzWb3H6.r21rRbnDVjL45.xr1m2tvg6VdVljXje"
-                access console ftp 
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "hakim.nokia"
-                password "$2y$10$DZjnIOqGD3ID4nF/fhUnw.Py8Mzyx3/BLPS1eRTdb62WQs04rrpNO"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "hamed"
-                password "$2y$10$eT3n3IAxapi14yjNuQXg..sqi417rdrLHiqIkcnDFhQuIrooXSDiK"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "hardik.pandya"
-                password "$2y$10$ii/HcYS/VLIsvIXwuEdqY.RpiPH5VHnOC9ft5tNN.BLyitU8cBute"
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "hhanafy"
-                password "$2y$10$.bTmFnfegmyUQEdVNVVqA.M79wf/ra/4X6UVecAysAuZydehBgKaK"
-                access console ftp 
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "huseyin.ent"
-                password "$2y$10$0NK4gH3GufZvgOXEtGbjY.qsbpimAQsovlKp5rgTUMNW/pXEsTC4a"
-                access console ftp 
-                console
-                    member "default"
-                    member "ARCH2"
-                exit
-            exit
-            user "hwasilew"
-                password "$2y$10$fdhZTU9T3pR7/AsNMtyys.IbP5pc7DGwUl4Pcx6R2FfzubXZFxS7W"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "iakhtar"
-                password "$2y$10$gk/pUuUhRF5avPRqkgRwA.WCbRukLmiw7c7w.NLBofhx/F.2zC2Rq"
-                access console 
-                console
-                    new-password-at-login
-                    no member "default"
-                    member "show"
-                exit
-            exit
-            user "irfana"
-                password "$2y$10$MyE9/lFYc1E6o2lSCAqcs.K4HUtJGECDALBUHv9.rGruBrQG1cgfO"
-                access console ftp 
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "ishan.sood"
-                password "$2y$10$6a0S669.yaZuMqAEzfMEc.v3cQpuwOTn8tKj5amUuvwH5ZWcJhxJG"
-                access console ftp 
-                console
-                    new-password-at-login
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "jaka"
-                password "$2y$10$9g6UZJ.zu2AmPbkNrGetU.eTbSa.UDHzwgL10VVekRnjaNgG89XM2"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "jaka.ets"
-                password "$2y$10$OKpVbkqE.1fAb2Ywtteag.WM7TdVWoLxPUFwqyk6wUsSXOuRwIT2W"
-                access console ftp 
-                console
-                    member "default"
-                    member "SOC"
-                exit
-            exit
-            user "jakub"
-                password "$2y$10$Du/3g9EJkmBD6wSit2dgk.wYYU.dLCAe2Pzy0jxRa5.u9hcqAfeBu"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "jakub.ext"
-                password "$2y$10$i4o7Oxw1TMIRs1zO2YEfw.AwsE0PRVCMVQS9olXlIoiR/7UPogWKi"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "jdorsz"
-                password "$2y$10$h31DCcFcKkbaC2W7tLRPE.iyiJ2qMEH5jyKJlX26HND85xd.ZL5K6"
-                access console ftp 
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "kallawym"
-                password "$2y$10$twBUQ/d.fr8R5vjaAxMjM.ubr0ouHbwFYgUpxM1xhQd9ER11cYR4i"
-                access console ftp 
-            exit
-            user "kannann"
-                password "$2y$10$MCatS/tP91RSjuF3.idiE.9SfGLOLNJ5HktxK3xaGjHELKdDRqUv2"
-                access console ftp 
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "karinau"
-                password "$2y$10$CkwxMXYNVXHkQoO0ggVmA.IZC9KKjNvDHeX0zpiEXBeBqylJFK14a"
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "kashif"
-                password "$2y$10$9SABguABnkhrjVsN1pF9o.qCRfjvC9pwpw0TlM5b0v.PJNdofGl7G"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "komals"
-                password "$2y$10$E9L3fp6jLmLadnodq/XY6.h3iLEU3cA/cwbqf0GSxIFCoUHYEMKPm"
-                access console ftp 
-                console
-                    new-password-at-login
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "krzysztof"
-                password "$2y$10$3CkL//.lKeEcZt9JdZSY2.QRJbqwkBlCMFE7guazqOnEi4m7bkX0."
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "labid"
-                password "$2y$10$UL8Gzv524266MH4YJK5XA.ids6L/lQZ/bHp.SOuUPWUkLDPoR0vju"
-                access console 
-                console
-                    new-password-at-login
-                    member "SOC"
-                    member "default"
-                exit
-            exit
-            user "lpraveen"
-                password "$2y$10$VI5sQaBVXJv8/ZQDhquj6.OxHFz5pj2gCgWrjgjDWC2T2apWumUHm"
-                access console 
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "lwitkows"
-                password "$2y$10$m9Z8qsXGfYD/ixrleMM/E.r3J.ssp1LH1W0wLBX9fdPQD1RAjrbYG"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "madel1"
-                password "$2y$10$IQ/1Bjxo5VSv9G/UtNObE.dZr09UzKEL3tLseWFJxMFHYW5.rp24a"
-                access console ftp 
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "mahendra.dixit"
-                password "$2y$10$mX25uGKvgGsubG28J6FDI.7cllFdUJYHH4GfzsUieFwI6TYGLRP.u"
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "maheshk"
-                password "$2y$10$BD4wlDQ4.hv3qBSU5EPGE.hFknAzvZKLa0xf2FaOxcM1Purrnc1Yu"
-                access console ftp 
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "mahmed"
-                password "$2y$10$0GcEipQoVOpoi8kzKXxWM.30vtshzeIGylE2uYJyWIzZKyBGOStTK"
-                access console 
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "manojk"
-                password "$2y$10$TFm.cNiqL2b6XtOQjr5c6.Glg8rb8FBDDoK9nIpggmOvoHL7g/n12"
-                access console ftp 
-                console
-                    new-password-at-login
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "mariusz"
-                password "$2y$10$.Lx.7tUqKf.lGtxBj9p8s..SsMRnK5Kg8vXAdGedNH3xPuflxX166"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "mczerwin"
-                password "$2y$10$GQBk3Wmk92V8HBXrO7GoY.onFwdZescSeFnOJQrJ/8hWLSyJk7itC"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "mdevi"
-                password "$2y$10$06mTqovNCiirPX/4NGHMs.MKiVhWA9XjMg.0hhn.nqLtWzKubwQsy"
-                access console 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "medjarab"
-                password "$2y$10$b8n/DWbHgfhTo7uqQEw7E.PCsL3Bdf82sIB8fNw4GwiIroCE0BKE6"
-                access console ftp 
-                console
-                    member "default"
-                    member "show"
-                exit
-            exit
-            user "medjerab.mohamed"
-                password "$2y$10$rPgX34Iz4r/5imYh2PBmE.so.pJQ7mEDkRv4laeBOdaAVrdfbgyLW"
-                access console ftp 
-                console
-                    member "default"
-                    member "SOC"
-                exit
-            exit
-            user "mercy"
-                password "$2y$10$aDS3swcRKPchm04hKqPvc.UI5IgMoMuGpsyQKnvfBh7YN45Zrdn/y"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "mjaber"
-                password "$2y$10$T93bjGkxhmcnbWRoF928M.glv3GEG2Z9ARLTffaNPci/.YMVXwwP2"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "mkallawy"
-                password "$2y$10$Aii/oTIZE1Be49IcMgQtk.oKwfnq4w6RPDIw0C0WeksAAm4f9HaKC"
-                access console ftp 
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "mnadeem"
-                password "$2y$10$O1VfE7slyW4ai4utcGWnw.7XlAu8Z1wEZIDcOpmqMnTqiANDTSR/m"
-                access console 
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "mnowako"
-                password "$2y$10$WQJWm1NWxV6UXcxOky24c.O0vCOr.MXrvEQFOl2EbzJJuLzIbibpC"
-                access console 
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "mohamedn"
-                password "$2y$10$q2.qk5Rt301yrfY4KUg0E.6Ux8eQ8CUq2KMJidO4TTZyn.T6sMnrS"
-                access console ftp 
-                console
-                    new-password-at-login
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "muchlisi"
-                password "$2y$10$14rgWf4SW3aETU.cPZowU.74E8W.H3diiOEnazpw2C9xGNgplWzHK"
-                access console ftp 
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "muhammad.ehsan"
-                password "$2y$10$VvDYmdCbjfs.1dwCr88pA.O1h9mTuWSCXvi2aZiQ5pQnXbf2eLEdS"
-                access console ftp 
-                console
-                    member "Operator"
-                    member "default"
-                exit
-            exit
-            user "muhammad.khalid"
-                password "$2y$10$8h.XXfn34YrZEb5wRyWwk.iF2bdewJdsissZt1hPcwqVvP4y0UH4a"
-                access console ftp 
-                console
-                    new-password-at-login
-                    no member "default"
-                    member "show"
-                exit
-            exit
-            user "muhammad.khan1"
-                password "$2y$10$oEuWDGm52o30jZTVHJxAY.1/NwDOCLvQ6HWG7V/e1QVKuH5MX/UMy"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "muksharm"
-                password "$2y$10$pscL1nKeNUwDyEHPCBdJQ.xVw9KnSdgqBdJNXLtZB36yV4HHycsmG"
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "nader"
-                password "$2y$10$X5syQIaxlG4n7CncWXj8A.pj1I6jhbg4yPQWk0fiZoI/mfUh7MecO"
-                access console ftp 
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "naser"
-                password "$2y$10$wWspJ7GdCyNA4qaJ.e/Hw.CxNNmlXBieLJDFP3y.2NFVsAOFH6NRC"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "nebackup"
-                password "$2y$10$bckph6X18pbap7PKE.pts./NheinF2ws3vMfZ4hhhcF87lyIOh0jC"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "nikhil.garg"
-                password "$2y$10$1y15NcvuPKtBjtrVzQaN2.RvkCa3kRZkQfa9hlcav2dIbXwSjVsWK"
-                access console snmp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-                snmp
-                    authentication none
-                    group "nmsNoAuth"
-                exit
-            exit
-            user "nikhil.garg1@huawei.com"
-                password "$2y$10$54gxD/8ebxFfCyChyCfl..y4BjKKP0GItV.KHw52hjtGIASWbidSy"
-                access console snmp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-                snmp
-                    authentication none
-                    group "nmsNoAuth"
-                exit
-            exit
-            user "noemi"
-                password "$2y$10$2kS1kYDLvsK1kZqJ.YNb6.oamF.k/ry4WK.OYmDKJtdGlTapJHeUq"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "nokia-project"
-                password "$2y$10$atKj..HrhiBQZ6V2B2Oi..dMDCqxAignAwJJ63MCzs6FJviT54il."
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "nokiaproject"
-                password "$2y$10$ZAs0Rsa1oJZvgQctUeRo2.bTqA9f5MeIP5IctvcAcRKQspScJgK/S"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "nokiatac"
-                password "$2y$10$BsRWxxVPH2BzVaZ5QS5jQ.xHTRM66gcZOEz/hk8llNAosmURbz4y."
-                access console ftp 
-                console
-                    member "default"
-                    member "show"
-                exit
-            exit
-            user "osamah"
-                password "$2y$10$S9ZXRAGsl2Ynie.LO/qok.SMxsbz4ImXDzMdNf4hV3VanJYCLYCAS"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "patrick"
-                password "$2y$10$mvQpDaqJDjBUijZUkG6oM.ZgvZdAJ.sN.qSYBDVYj8MD/d9H.0dNi"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "pawel.nsdc"
-                password "$2y$10$mjsy1HT2vdQ1esn0eZfIs.CRi2Z55j/yay7jD8hgV4Tqt6qqoH8N."
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "pawelc"
-                password "$2y$10$E5CRMlihMrRKHfphMHBrs.664epxVBqkNhfVkGtPGEwjl.N0c976i"
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "phaldar"
-                password "$2y$10$1a4yaT3ykOc13wtyLy7IY.HSvZ4Gyq9YzJz4OF3dq8QHaY0yaNj/m"
-                access console 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "philippeg"
-                password "$2y$10$/t1xey3UapTMNVjLYSlBU.Kkkw0My6JZKfkmTOC2dvHrj8C0FcKH6"
-                access console ftp 
-                console
-                    new-password-at-login
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "priyankac"
-                password "$2y$10$mIZ8ZANhoJZjMAVSVFLoE.Evyg9V7Tn.2d15YjpLztfMIA3zgotIu"
-                access console ftp 
-                console
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "psingh"
-                password "$2y$10$d3bQvanqqIlDmIwuZg8gg.DtBAZs0p649xlkxlyri7Jm622ex7Rea"
-                access console 
-                console
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "rafalb"
-                password "$2y$10$fh/GyWmje9gIz1G/pWztk./xEPclOUiK69Smq6aW3JW1nuWipopTq"
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "rahul"
-                password "$2y$10$WmBL6HlhvqNPSQFel1tK6.xZJWYU2V0dzL1H0wEZispXvuMLNtTUq"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "rahuls"
-                password "$2y$10$598V.keXt/gWqdvdN72RE.Co6zL/18qznisFik.F8sCCi5a.WXtXm"
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "rais.majada"
-                password "$2y$10$Fg8ReqsECtgmYjfdLBVWM.Xc9BEb/y6Z7Dm5EQorvRWsp4k7hSMd."
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "rashmir"
-                password "$2y$10$nkri76r/XYOnmnWwggnXU.ITx1niqZBsgErUTX2jsTxZm/2zoazXm"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "rbaluni"
-                password "$2y$10$9E1p3AG0gl.4FV0EyC.Fw.J/QgMGVUP5kPNwcAGZirQGhW61j6IjK"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "rishi.ksingh"
-                password "$2y$10$5DmS5sOgX9Sq5WDn3rsF6.ZIRVajCQJXAIp8e2Da0pNbpcwq3fmcy"
-                access console ftp 
-                console
-                    new-password-at-login
-                    member "Monitoring"
-                    member "default"
-                exit
-            exit
-            user "rohit.mishra.huawei"
-                password "$2y$10$FQiLFCjiaf/U9nt9AFW4c.1mqAwSDIpR1hwYEj67smBSMCdg4YsG."
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "rohit.sharma"
-                password "$2y$10$9aN7mjPLru4PhloaUTQRo.l9tLH4vrZuk/x0SbC04GaERYgsV6zNK"
-                access console ftp 
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "rohitb"
-                password "$2y$10$1C6afyWDsRiPch3FB5Inw.sApD6QjRXa.TR9osrkcjXgT.vfSFzdO"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "rojowt"
-                password "$2y$10$fKI7fwJhb83j1vdd7.S0E.SXW6GZhVB.ctznRvADKxyPL56Fm69De"
-                access console 
-                console
-                    new-password-at-login
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "saadawya"
-                password "$2y$10$tvJtmL6.p4ZKHQUz6Memc.n28mBgDsWiT8pCpk2b.HDkzLWoOkep."
-                access console ftp 
-                console
-                    new-password-at-login
-                    member "VF-NSU"
-                    member "default"
-                exit
-            exit
-            user "sachin.ip"
-                password "$2y$10$P9D9IOxlNKJWDiL2VAvrY.2YwVk6llAqXiFWfanCZZ645BEf.mr7C"
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "saik"
-                password "$2y$10$rQvDaPBNXktFuRYYH19MA.zOtwdp9AOAkV5xc1wVnXKG/JkA79igy"
-                access console ftp 
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "sajeert"
-                password "$2y$10$/WnqbaI8G3/5y2/1Kd8.A.y7vwAnDvwgCCW.SqUrcfuRKfqLvPjnO"
-                access console ftp 
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "samcli"
-                password "$2y$10$EXyam8YJMAppUwe5wcRMw.KcdS8bdyV5xGmwmQ7FjQm4/2BUEu1Cm"
-                access console 
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "sandeep.lamba"
-                password "$2y$10$fyDdxCwelPF4fmzLs3l5c.SKSpCJkrYiJlt5pix73YCTth5vIlv.y"
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "sandi.ets"
-                password "$2y$10$GAsfSQzrByqNtZXee5okU.9Z5QEY5cBL8WcyaMyxl0AnyDV.kkDJK"
-                access console ftp 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "santosh.nokia"
-                password "$2y$10$n0aJJAXgGrIuMlCWr6uOU.a7DK9qKCNDkNUL8msggRvWnyodTDCty"
-                access console 
-                console
-                    member "default"
-                    member "Operator"
-                exit
-            exit
-            user "scp_user"
-                password "$2y$10$GyUElJbJh7YVq14mseanM.rp2K2jb/EyoVwvREmQofoz19c3/p//K"
-                access console ftp 
-                console
-                    cannot-change-password
-                exit
-            exit
-            user "semih.ent"
-                password "$2y$10$OxWjWcS7T1tSWQra7EPTM.fWsdImRgKpCCKuN88KV4nrRbPi8aNe6"
-                access console 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "senem.akpunar"
-                password "$2y$10$b2DBHZArHWheIdwz/YqZg.axmvte.lTxwvRD8RMhsyrDgHrTvUiNm"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "sgopal"
-                password "$2y$10$oIYzKJRAXS9v98w0gV5fM.CEP1aG9i/izszmbDLbSBlD8DP3kAkvW"
-                access console 
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "shadi.ets"
-                password "$2y$10$wkgks9YCeoidqGIcW6eDo.eBfEs5r7Z1e3kho83KWjD1CHsZ9IMD6"
-                access console ftp 
-                console
-                    member "default"
-                    member "SOC"
-                exit
-            exit
-            user "shamidb"
-                password "$2y$10$PfnHulxVSi7MmvrUj2hQ..WmeYRfp1XgdU2CuBJ4jDSJNhtuOWmlO"
-                access console ftp 
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "sherif"
-                password "$2y$10$6.x1E4FJWq4M6ZpBdcjMY.457T81DbFE62mtc0PCuHHaSQ7tOesV6"
-                access console ftp 
-                console
-                    no member "default"
-                    member "administrative"
-                exit
-            exit
-            user "sherifg"
-                password "$2y$10$ejwFUeWESIqXoILC.HPrw.uky0YjrI.Nl27YVk/qSbWP9P4ofIJoq"
-                access console ftp 
-                console
-                    new-password-at-login
-                    no member "default"
-                    member "show"
-                exit
-            exit
-            user "sivak"
-                password "$2y$10$C12zfwYTbzDEAbf4BdPUc.bAhA8a3ZQly7I4sBzK2y4za68oeeiuO"
-                access console ftp 
-                console
-                    new-password-at-login
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "snmpv3user"
-                password "$2y$10$cWGykUsuM7/2cMzOg8VRk.PlRtYfu8PUs.TAFg5LtaNdOVDJMp00a"
-                access snmp 
-                snmp
-                    authentication hash sha 7218309be391e7b19c30e30a28bdf9770f2388e4db55ab4c privacy des-key 7218309be391e7b19c30e30a28bdf977
-                    group "nmsPriv"
-                exit
-            exit
-            user "srinivasalu"
-                password "$2y$10$fc/dMYM0uVpceMiWIbc86.JOzzj8MhAK/iB5URbi9/dHPgc5jxMsW"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "subheep"
-                password "$2y$10$OMkOondtIqRkw/s6nXtVM.GIIFapMpqNhI.Oj736L87nDrT5vY6oK"
-                access console ftp 
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "sudhanshu"
-                password "$2y$10$YZ5yR4ZcE2qsoG6o/ZVXQ.vvkQ3LKkM/lz5jESysbcs4sDL2Vnwzq"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "sujith"
-                password "$2y$10$TsWR4wD/AGAqlxDrwrOzs.q.ijW.UHVE..W/6HoqRBoUUuplHvvjS"
-                access console ftp 
-                console
-                    member "administrative"
-                    member "default"
-                exit
-            exit
-            user "svenkat"
-                password "$2y$10$xjSPCU4rVOnNbSiMDFeY6.0.EMB1l./RsH3XhxVhWsRGpeg1gYBd."
-                access console 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "syeda"
-                password "$2y$10$7xfLGrQbiirOuAQx7XaSk.WHA.puw1fgxOK7T7M8CpUGO3/8klZOG"
-                access console ftp 
-                console
-                    new-password-at-login
-                    member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "test"
-                password "$2y$10$/YyEng1xioFO28DdwS4Ys.5Pi5nJWj4Ffh8eJ1O3i8ha/mQWwTvPK"
-                access console ftp 
-                console
-                    member "default"
                     member "administrative"
                 exit
             exit
             user "vfq.mali"
-                password "$2y$10$OgC0yyN8mG9IDgYaENvu..zYt7al0gQcMTIi.J9V6FpgO9FCm6qfu"
+                password "$2y$10$zhkSzfGw6ET8iTy7ZDxeA.4vlfqyNbfnl942oWLydTWFGHJ6t2enu"
                 access console ftp 
                 console
                     member "default"
                     member "administrative"
                 exit
             exit
-            user "vijay.singh"
-                password "$2y$10$zfHIAwXK2KiCqAs8QZum6.faSYVsfLpU8rzyXeq6vAstsK6.y8KWu"
-                access console ftp 
+            user "deni.sartika"
+                password "$2y$10$GPYPa.WMxyxF7TW79K09g.Y0FrP.C7HtIAPVGl8EltTGdPKDn/pi."
+                access console ftp
                 console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "vinodk"
-                password "$2y$10$G712VrbUEuDqdhCchWmP2.dCOWwnMiXvruUd0M9DhiGuy4nWhh2DC"
-                access console ftp 
-                console
-                    new-password-at-login
                     no member "default"
                     member "administrative"
                 exit
             exit
-            user "vishaldeep"
-                password "$2y$10$BzC250Jxr6toYGecdz35o.AOUWcpDSQJokujF1bcYnzFwhaS6ixzW"
-                access console ftp 
+            user "amogh.acharya"
+                password "$2y$10$l2fFGhaiiVE8f0E5mYe62.L5RYheC6Xn1r6UcmiiOMqw5MskjRjqa"
+                access console
                 console
-                    new-password-at-login
                     member "default"
-                    member "administrative"
+                    member "Operator"
                 exit
             exit
-            user "vivekk"
-                password "$2y$10$wyA.4IpBIk00hqgCIXECc.X9i1Ia41vqmPfv4/lkgdr3hXjRhMYiu"
-                access console ftp 
+            user "gems.bo"
+                password "$2y$10$tc0o3pEKR3en89sgtk2b2.KC9rwkw5L6pKvfF95n6787vowCmwUzm"
+                access console ftp
                 console
-                    new-password-at-login
                     member "default"
-                    member "VF-NSU"
+                    member "Operator"
                 exit
             exit
-            user "vkumar"
-                password "$2y$10$6zn/hhdJGC8P3vyeJC6KY.vSjB47bMAmPfpVvFM1cIDYu9DshZLUu"
-                access console 
+            user "VFQ.arajeeb"
+                password "$2y$10$.ITViSWCVNkgClQNo9TMY.3zg.gBQZCLjjNRY1WhIy.GkN8eC/6dy"
+                access console ftp
                 console
                     member "default"
-                    member "VF-NSU"
-                exit
-            exit
-            user "wslomins"
-                password "$2y$10$d.y/52/4KZ93hW4eVF2g2.udnTtyAGyUqC.AbkdTdQq8gLrHMV3gq"
-                access console ftp 
-                console
-                    member "default"
-                    member "administrative"
-                exit
-            exit
-            user "yousef"
-                password "$2y$10$tlqUmHjknDAdIkj996mlY.xWBIyJZg1WCc0qFCINcyCojBAqU8c3O"
-                access console ftp 
-                console
-                    member "default"
-                    member "Monitoring"
-                exit
-            exit
-            user "zeliha"
-                password "$2y$10$sCPbRfS1YEAz6DOEDIPXE.pMWDKSemLtfbsv4k8C2pQeu7vaMkpeW"
-                access console ftp 
-                console
-                    member "default"
-                    member "ARCH2"
+                    member "Operator"
                 exit
             exit
             snmp
                 access group "nmsPriv" security-model usm security-level privacy read "iso" write "iso" notify "iso"
                 access group "nmsPriv" security-model usm security-level privacy context "vprn" prefix read "vprn-view" write "vprn-view" notify "iso"
-                access group "nmsNoAuth" security-model usm security-level no-auth-no-privacy read "iso" write "iso" notify "iso"
-                community "toTlp9V2fM4Xlk/6J5lSuWaBLCnT" hash2 r version v2c
-                community "cV3ISTw2V5pbEWmVEA9jXgB/1EERXQA=" hash2 rwa version v2c
-            exit
-            ssh
-                preserve-key
             exit
         exit
     exit
