@@ -1,3 +1,20 @@
+def increment_last_octet(ip_address):
+    parts = ip_address.split('.')
+    if len(parts) != 4:
+        return "Invalid IP address format"
+
+    try:
+        last_octet = int(parts[3])
+        if last_octet < 255:
+            last_octet += 1
+            parts[3] = str(last_octet)
+            return '.'.join(parts)
+        else:
+            return "Last octet already at maximum (255)"
+    except ValueError:
+        return "Invalid octet value"
+
+    return (txt)
 def make_route_base_IXR_big_md(data):
     txt = f"""
 /configure card 1 mda 1 sync-e true
