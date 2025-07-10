@@ -905,7 +905,7 @@ def make_route_base_IXR_big_md(data):
 /configure system time {{ ntp server 10.200.20.68 router-instance "Base" }}
 /configure system time {{ ntp server 172.16.240.41 router-instance "Base" }}
 /edit-config bof private
-/bof configuration primary-location "cf3" / {data["hostname"]}.cfg"
+/bof configuration primary-location "cf3:/{data["hostname"]}.cfg"
 /bof system persistent-indices true
 commit
 quit-config
@@ -1803,7 +1803,7 @@ def make_route_base_IXR_small_md(data):
 /configure system time {{ ntp server 10.200.20.68 router-instance "Base" }}
 /configure system time {{ ntp server 172.16.240.41 router-instance "Base" }}
 /edit-config bof private
-/bof configuration primary-location "cf3" / {data["hostname"]}.cfg"
+/bof configuration primary-location "cf3:/{data["hostname"]}.cfg"
 /bof system persistent-indices true
 commit
 quit-config
