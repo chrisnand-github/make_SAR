@@ -54,7 +54,7 @@ def make_route_base_IXR_big_md(data):
 /configure log log-id "9" source change true
 /configure log log-id "9" destination file "9"
 /configure log log-id "14" source debug true
-/configure log {{ log - id "14" destination memory }}
+/configure log {{ log-id "14" destination memory }}
 /configure log log-id "20" source debug true
 /configure log log-id "95" source main true
 /configure log log-id "95" destination file "95"
@@ -95,13 +95,13 @@ def make_route_base_IXR_big_md(data):
 /configure policy-options {{ community "service-lpbcks-IS7" member "48728:1117" }}
 /configure policy-options {{ community "service-lpbcks-IS8" member "48728:1118" }}
 /configure policy-options {{ community "service-lpbcks-POC1" member "48728:11110" }}
-/configure policy-options {{ prefix-list "lbl-bgp-lpbck" prefix {data["loopback"]} / 32 type exact }}
+/configure policy-options {{ prefix-list "lbl-bgp-lpbck" prefix {data["loopback"]}/32 type exact }}
 /configure policy-options prefix-list "only-lbl-bgp-lpbcks" prefix 192.168.64.0/20 type range start-length 32
 /configure policy-options prefix-list "only-lbl-bgp-lpbcks" prefix 192.168.64.0/20 type range end-length 32
 /configure policy-options policy-statement "export-to-POC2" entry 10 from prefix-list ["lbl-bgp-lpbck"]
 /configure policy-options policy-statement "export-to-POC2" entry 10 action action-type accept
 /configure policy-options policy-statement "export-to-POC2" entry 10 action origin igp
-/configure policy-options policy-statement "export-to-POC2" entry 10 action community add ["service-lpbcks-IS1"]
+/configure policy-options policy-statement "export-to-POC2" entry 10 action community add ["service-lpbcks-IS{data["isis-a-area"]}"]
 /configure policy-options policy-statement "export-to-POC2" default-action action-type reject
 /configure policy-options policy-statement "import-from-POC2" entry 10 from prefix-list ["only-lbl-bgp-lpbcks"]
 /configure policy-options policy-statement "import-from-POC2" entry 10 from community name "service-lpbcks-IS{data["isis-a-area"]}"
@@ -464,7 +464,7 @@ def make_route_base_IXR_big_md(data):
 /configure router "Base" bgp group "POC2-lbgp-ipv4" import policy ["import-from-POC2"]
 /configure router "Base" bgp group "POC2-lbgp-ipv4" export policy ["export-to-POC2"]
 /configure router "Base" bgp group "Seamless_l3vpns_mp_ibgp" peer-as 48728
-/configure router "Base" bgp group "Seamless_l3vpns_mp_ibgp" local-address 192.168.64.111
+/configure router "Base" bgp group "Seamless_l3vpns_mp_ibgp" local-address {data["loopback"]}
 /configure router "Base" bgp group "Seamless_l3vpns_mp_ibgp" family vpn-ipv4 true
 /configure router "Base" bgp neighbor {data["POC2-1"]} group "POC2-lbgp-ipv4"
 /configure router "Base" bgp neighbor {data["POC2-1"]} authentication-key VFQatar
@@ -577,6 +577,7 @@ def make_route_base_IXR_big_md(data):
 /configure service vprn "17815" bgp-ipvpn mpls auto-bind-tunnel resolution filter
 /configure service vprn "17815" bgp-ipvpn mpls auto-bind-tunnel resolution-filter ldp true
 /configure service vprn "17815" bgp-ipvpn mpls auto-bind-tunnel resolution-filter rsvp true
+/configure service vprn "ENT-4G-5G_Public" admin-state enable
 /configure service vprn "ENT-4G-5G_Public" description "ENT 4G-5G Public Service"
 /configure service vprn "ENT-4G-5G_Public" service-id 55000
 /configure service vprn "ENT-4G-5G_Public" customer "1"
@@ -904,6 +905,13 @@ def make_route_base_IXR_big_md(data):
 /configure system time ntp server 10.100.20.68 router-instance "Base" prefer true
 /configure system time {{ ntp server 10.200.20.68 router-instance "Base" }}
 /configure system time {{ ntp server 172.16.240.41 router-instance "Base" }}
+/configure system time zone standard name msk
+/configure system time ntp authentication-check false
+/configure system time sntp admin-state disable
+/configure system management-interface yang-modules nokia-submodules true
+/configure system management-interface yang-modules nokia-combined-modules false
+/configure system management-interface netconf admin-state disable
+/configure system management-interface netconf auto-config-save false
 /edit-config bof private
 /bof configuration primary-location "cf3:/{data["hostname"]}.cfg"
 /bof system persistent-indices true
@@ -952,7 +960,7 @@ def make_route_base_IXR_small_md(data):
 /configure log log-id "9" source change true
 /configure log log-id "9" destination file "9"
 /configure log log-id "14" source debug true
-/configure log {{ log - id "14" destination memory }}
+/configure log {{ log-id "14" destination memory }}
 /configure log log-id "20" source debug true
 /configure log log-id "95" source main true
 /configure log log-id "95" destination file "95"
@@ -993,13 +1001,13 @@ def make_route_base_IXR_small_md(data):
 /configure policy-options {{ community "service-lpbcks-IS7" member "48728:1117" }}
 /configure policy-options {{ community "service-lpbcks-IS8" member "48728:1118" }}
 /configure policy-options {{ community "service-lpbcks-POC1" member "48728:11110" }}
-/configure policy-options {{ prefix-list "lbl-bgp-lpbck" prefix {data["loopback"]} / 32 type exact }}
+/configure policy-options {{ prefix-list "lbl-bgp-lpbck" prefix {data["loopback"]}/32 type exact }}
 /configure policy-options prefix-list "only-lbl-bgp-lpbcks" prefix 192.168.64.0/20 type range start-length 32
 /configure policy-options prefix-list "only-lbl-bgp-lpbcks" prefix 192.168.64.0/20 type range end-length 32
 /configure policy-options policy-statement "export-to-POC2" entry 10 from prefix-list ["lbl-bgp-lpbck"]
 /configure policy-options policy-statement "export-to-POC2" entry 10 action action-type accept
 /configure policy-options policy-statement "export-to-POC2" entry 10 action origin igp
-/configure policy-options policy-statement "export-to-POC2" entry 10 action community add ["service-lpbcks-IS1"]
+/configure policy-options policy-statement "export-to-POC2" entry 10 action community add ["service-lpbcks-IS{data["isis-a-area"]}"]
 /configure policy-options policy-statement "export-to-POC2" default-action action-type reject
 /configure policy-options policy-statement "import-from-POC2" entry 10 from prefix-list ["only-lbl-bgp-lpbcks"]
 /configure policy-options policy-statement "import-from-POC2" entry 10 from community name "service-lpbcks-IS{data["isis-a-area"]}"
@@ -1362,7 +1370,7 @@ def make_route_base_IXR_small_md(data):
 /configure router "Base" bgp group "POC2-lbgp-ipv4" import policy ["import-from-POC2"]
 /configure router "Base" bgp group "POC2-lbgp-ipv4" export policy ["export-to-POC2"]
 /configure router "Base" bgp group "Seamless_l3vpns_mp_ibgp" peer-as 48728
-/configure router "Base" bgp group "Seamless_l3vpns_mp_ibgp" local-address 192.168.64.111
+/configure router "Base" bgp group "Seamless_l3vpns_mp_ibgp" local-address {data["loopback"]}
 /configure router "Base" bgp group "Seamless_l3vpns_mp_ibgp" family vpn-ipv4 true
 /configure router "Base" bgp neighbor {data["POC2-1"]} group "POC2-lbgp-ipv4"
 /configure router "Base" bgp neighbor {data["POC2-1"]} authentication-key VFQatar
@@ -1475,6 +1483,7 @@ def make_route_base_IXR_small_md(data):
 /configure service vprn "17815" bgp-ipvpn mpls auto-bind-tunnel resolution filter
 /configure service vprn "17815" bgp-ipvpn mpls auto-bind-tunnel resolution-filter ldp true
 /configure service vprn "17815" bgp-ipvpn mpls auto-bind-tunnel resolution-filter rsvp true
+/configure service vprn "ENT-4G-5G_Public" admin-state enable
 /configure service vprn "ENT-4G-5G_Public" description "ENT 4G-5G Public Service"
 /configure service vprn "ENT-4G-5G_Public" service-id 55000
 /configure service vprn "ENT-4G-5G_Public" customer "1"
@@ -1802,6 +1811,13 @@ def make_route_base_IXR_small_md(data):
 /configure system time ntp server 10.100.20.68 router-instance "Base" prefer true
 /configure system time {{ ntp server 10.200.20.68 router-instance "Base" }}
 /configure system time {{ ntp server 172.16.240.41 router-instance "Base" }}
+/configure system time zone standard name msk
+/configure system time ntp authentication-check false
+/configure system time sntp admin-state disable
+/configure system management-interface yang-modules nokia-submodules true
+/configure system management-interface yang-modules nokia-combined-modules false
+/configure system management-interface netconf admin-state disable
+/configure system management-interface netconf auto-config-save false
 /edit-config bof private
 /bof configuration primary-location "cf3:/{data["hostname"]}.cfg"
 /bof system persistent-indices true
