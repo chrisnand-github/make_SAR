@@ -95,7 +95,7 @@ def make_route_base_IXR_big_md(data):
 /configure policy-options {{ community "service-lpbcks-IS7" member "48728:1117" }}
 /configure policy-options {{ community "service-lpbcks-IS8" member "48728:1118" }}
 /configure policy-options {{ community "service-lpbcks-POC1" member "48728:11110" }}
-/configure policy-options {{ prefix - list "lbl-bgp-lpbck" prefix {data["loopback"]} / 32 type exact }}
+/configure policy-options {{ prefix-list "lbl-bgp-lpbck" prefix {data["loopback"]} / 32 type exact }}
 /configure policy-options prefix-list "only-lbl-bgp-lpbcks" prefix 192.168.64.0/20 type range start-length 32
 /configure policy-options prefix-list "only-lbl-bgp-lpbcks" prefix 192.168.64.0/20 type range end-length 32
 /configure policy-options policy-statement "export-to-POC2" entry 10 from prefix-list ["lbl-bgp-lpbck"]
@@ -591,9 +591,8 @@ def make_route_base_IXR_big_md(data):
 /configure system central-frequency-clock revert true
 /configure system central-frequency-clock ref1 admin-state enable
 /configure system central-frequency-clock ref1 source-port {data["port-a1"]}
-/configure management-interface configuration-mode mixed
-/configure management-interface snmp packet-size 9216
-/configure management-interface snmp streaming admin-state enable
+/configure system management-interface snmp packet-size 9216
+/configure system management-interface snmp streaming admin-state enable
 /configure system security telnet-server true
 /configure system security ftp-server true
 /configure system security aaa local-profiles profile "ARCH2" default-action deny-all
@@ -994,7 +993,7 @@ def make_route_base_IXR_small_md(data):
 /configure policy-options {{ community "service-lpbcks-IS7" member "48728:1117" }}
 /configure policy-options {{ community "service-lpbcks-IS8" member "48728:1118" }}
 /configure policy-options {{ community "service-lpbcks-POC1" member "48728:11110" }}
-/configure policy-options {{ prefix - list "lbl-bgp-lpbck" prefix {data["loopback"]} / 32 type exact }}
+/configure policy-options {{ prefix-list "lbl-bgp-lpbck" prefix {data["loopback"]} / 32 type exact }}
 /configure policy-options prefix-list "only-lbl-bgp-lpbcks" prefix 192.168.64.0/20 type range start-length 32
 /configure policy-options prefix-list "only-lbl-bgp-lpbcks" prefix 192.168.64.0/20 type range end-length 32
 /configure policy-options policy-statement "export-to-POC2" entry 10 from prefix-list ["lbl-bgp-lpbck"]
@@ -1490,9 +1489,8 @@ def make_route_base_IXR_small_md(data):
 /configure system central-frequency-clock revert true
 /configure system central-frequency-clock ref1 admin-state enable
 /configure system central-frequency-clock ref1 source-port {data["port-a1"]}
-/configure management-interface configuration-mode mixed
-/configure management-interface snmp packet-size 9216
-/configure management-interface snmp streaming admin-state enable
+/configure system management-interface snmp packet-size 9216
+/configure system management-interface snmp streaming admin-state enable
 /configure system security telnet-server true
 /configure system security ftp-server true
 /configure system security aaa local-profiles profile "ARCH2" default-action deny-all
